@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-15"?>
-<coll name="ContentGraficosLineasXYDatos" title="GraficosLineasXYDatos" objname="graficoslineasxydatos" updateobj="graficoslineasxydatos" progid="ASData.CASBasicDataObj" sql="select t1.ID,t1.CATEGORIA,t1.EJE_X, t1.EJE_Y, t1.COLOR, t1.LINESERIEWIDTH from ##PREF##graficoslineasxydatos t1">
-  <group name="General" id="1" />
-  <prop group="1" name="CATEGORIA" type="T" chart-serie-title="true" chart-serie="true" class="classgrid" />
-  <prop group="1" name="EJE_X" chart-serie-x="true" type="N2" title="Eje-X" width="50%" labelwidth="5" visible="4" textfont-size="8" text-align="left" text-forecolor="#666666" />
-  <prop group="1" name="EJE_Y" chart-serie-y="true" type="N2" title="Eje-Y" width="50%" labelwidth="5" visible="4" newline="false" textfont-size="8" text-align="left" text-forecolor="#666666" />
-  <prop group="1" name="LINESERIEWIDTH" chart-serie-line-width="true" type="N2" title="Tamaño" width="100%" labelwidth="5" visible="4" textfont-size="8" text-align="left" text-forecolor="#666666" />
-  <prop group="1" name="COLOR" type="T" chart-serie-color="true" visible="0" colorview="true" />
-</coll>

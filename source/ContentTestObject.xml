@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-15"?>
-<coll name="ContentTestObject" title="TestObject" sql="select t1.* from ##PREF##testobject t1" objname="testobject" updateobj="testobject" progid="ASData.CASBasicDataObj" filter="" sort="">
-  <group name="General" id="1" />
-  <prop group="1" name="ID" type="N" visible="0" />
-  <prop group="1" name="CAMPO1" type="T" visible="0" />
-  <prop group="1" name="CAMPO2" type="T" visible="0" />
-</coll>

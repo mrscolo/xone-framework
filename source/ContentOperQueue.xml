@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-15"?>
-<coll name="ContentOperQueue" title="OperQueue" sql="select  case    when t1.OPER=1 then 'INSERT'         when t1.OPER=2 then 'DELETE'         when t1.OPER=3 then 'UPDATE' end as MAP_OPER,         t1.SQL as MAP_SQL from master_replica_queue t1" userawsql="true" objname="empresa" updateobj="empresa" progid="ASData.CASBasicDataObj" cell-odd-color="#FFFFFF" cell-even-color="#F2F2F2">
-  <group name="General" id="1" />
-  <prop group="1" name="MAP_OPER" class="classgrid" width="30%" />
-  <prop group="1" name="MAP_SQL" class="classgrid" newline="false" width="68%" />
-</coll>

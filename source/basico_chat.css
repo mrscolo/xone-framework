@@ -1,0 +1,41 @@
+.tituloListadoUsuarios{
+    tmargin:24p;
+    fontbold:true;
+    fontsize:8;
+    forecolor:#333333;
+    height:48p;
+    labelwidth:0; 
+    text-border:false;
+    lmargin:24p;
+    width:552p;
+}
+
+.tituloListadoChat{
+    extends:.tituloListadoUsuarios;
+    width:352p;
+}
+
+.fechaListadoChat{
+    labelwidth:0; 
+    text-border:false;
+    locked:true;
+    width:190p;
+    tmargin:24p;
+    height:48p;
+    text-align:right;
+    fontsize:6;
+    text-forecolor:#666666;
+    rpadding:8p;
+}
+
+.buscadorListadoUsuarios{
+    text-bgcolor:#ffffff;
+    text-bgcolor-focus:#00000000;
+    labelwidth:0;
+    text-border:false;
+    width:600p;
+    height:96p;
+    tooltip:Buscar;
+    lpadding:12p;
+    rpadding:24p;
+}

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<coll name="ChatUsuarios" title="ChatUsuarios" loadall="true" sql="SELECT *, u.NOMBRE AS MAP_USUARIO FROM gen_chatusuarios c LEFT OUTER JOIN gen_usuarios u ON c.USUARIO=u.LOGIN" objname="chatusuarios" updateobj="chatusuarios" progid="ASData.CASBasicDataObj">
-  <group name="General" id="1" />
-  <prop group="1" name="IDCHAT" type="T" visible="0" mapcol="Chatear" mapfld="ID" />
-  <prop group="1" name="USUARIO" type="T" visible="0" />
-  <prop group="1" name="MAP_USUARIO" type="T" visible="4" lmargin="3%" width="94%" />
-  <prop group="1" name="BTLINEA" class="btLineaContent" />
-</coll>

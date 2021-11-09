@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-15"?>
-<coll name="AgrupacionTipo" title="XoneCollvacia" sql="select distinct 'TODOS' as FILTRO from gen_controles union all select distinct FILTRO from gen_controles" userawsql="false" objname="controles" updateobj="controles" progid="ASData.CASBasicDataObj">
-  <group name="GRID" id="1" />
-  <prop group="1" name="FILTRO" type="T" dvisible="7" />
-  <prop group="1" name="FILTRO2" type="T" dvisible="7" />
-  <prop group="1" name="FILTRO3" type="T" dvisible="7" />
-  <prop group="1" name="FILTRO5" type="T" dvisible="7" />
-</coll>
