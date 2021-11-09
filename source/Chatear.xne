@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- AFG 16-03-2018 [CHAT] -->
+<coll name="Chatear" title="Chatear" sql="SELECT c.*, CASE     WHEN c.USUARIOFROM=(SELECT LOGIN FROM GEN_USUARIOS WHERE ID=##USERID##) THEN 0     ELSE 1 END AS MAP_ESPACIO, u.NOMBRE AS MAP_USUARIO, c.FECHA as MAP_FECHAHORA, 'Mensaje de Voz. Pulse para escucharlo' AS MAP_VOZ, 'Fichero Adjunto. Pulse para abrirlo' AS MAP_ADJUNTO FROM gen_chatear c LEFT OUTER JOIN gen_usuarios u ON c.USUARIOFROM=u.LOGIN" objname="chatear" updateobj="chatear" progid="ASData.CASBasicDataObj" start-from-bottom="true" no-data-text=" " loadall="true" cell-bgcolor="#00000000">
+  <group name="General" id="1">
+    <prop name="MAP_IZQ" type="T" visible="4" labelwidth="0" width="100p" text-bgcolor="#00000000" disablevisible="MAP_ESPACIO=0" />
+    <prop name="MAP_ESPACIO" type="N" visible="0" />
+    <frame name="frminfo" framebox="true" border-width="0" bgcolor="##FLD_MAP_COLORVIEW##" width="630p" newline="false" info="recibido,enviado: segun color">
+      <prop name="IDCHAT" type="N" visible="0" width="100%" />
+      <!--<prop name="MAP_USUARIO" type="T" visible="0"  />-->
+      <!--<prop name="MAP_USUARIO" type="T" visible="4" labelwidth="0"  text-border="false" lmargin="5p" width="620p"  locked="true" />-->
+      <prop name="MENSAJE" disablevisible="TIPO&lt;&gt;0" text-forecolor="##FLD_MAP_FORECOLOR##" type="T" visible="4" labelwidth="0" text-border="false" lmargin="5p" width="620p" locked="true" />
+      <prop name="MAP_BT_VERADJUNTAR" disablevisible="TIPO&lt;&gt;3" img="enter.png" locked="true" type="B" visible="4" align="center" labelwidth="0" width="80p" height="80p" />
+      <prop name="MAP_ADJUNTO" disablevisible="TIPO&lt;&gt;3" type="T" visible="4" labelwidth="0" text-border="false" textfont-size="7" text-align="left|center" lmargin="5p" width="545p" height="80p" textlocked="true" newline="false" />
+      <!--<prop name="ADJUNTO" disablevisible="TIPO&lt;&gt;3" type="T" visible="0" labelwidth="0"  text-border="false" text-align="left|center" lmargin="5p" width="545p"  locked="true" newline="false" />-->
+      <prop name="MAP_BT_ADJUNTO" disablevisible="TIPO&lt;&gt;3" type="B" visible="4" labelwidth="0" text-border="false" width="630p" height="80p" newline="false" lmargin="-625p" bgcolor="#00000000" method="ExecuteNode(acciones('veradjunto'))" />
+      <prop name="MAP_FOTO" disablevisible="TIPO&lt;&gt;1" type="IMG" visible="4" lmargin="115p" width="400p" height="300p" locked="true" />
+      <prop name="MAP_BT_FOTO" disablevisible="TIPO&lt;&gt;1" type="B" visible="4" labelwidth="0" width="630p" height="300p" newline="false" lmargin="-515p" bgcolor="#00000000" method="ExecuteNode(acciones('verfoto'))" />
+      <prop name="MAP_BT_VERVOZ" disablevisible="TIPO&lt;&gt;2" img="icon_send.png" type="B" visible="4" align="center" labelwidth="0" width="80p" height="80p" />
+      <prop name="MAP_VOZ" disablevisible="TIPO&lt;&gt;2" type="T" visible="4" labelwidth="0" text-border="false" lmargin="5p" textfont-size="7" text-align="left|center" newline="false" width="545p" height="80p" locked="true" />
+      <!--<prop name="VOZ" disablevisible="TIPO&lt;&gt;2" type="T" visible="0" labelwidth="0"  text-border="false" lmargin="5p" text-align="left|center" newline="false" width="545p" height="80p"  locked="true" />-->
+      <prop name="MAP_BT_VOZ" disablevisible="TIPO&lt;&gt;2" type="B" visible="4" labelwidth="0" text-border="false" width="630p" height="80p" newline="false" lmargin="-630p" bgcolor="#00000000" method="ExecuteNode(acciones('vervoz'))" />
+      <prop name="MAP_FECHAHORA" type="T" visible="4" textfont-size="6" labelwidth="0" locked="true" lmargin="200p" width="390p" text-align="right" />
+      <prop name="FECHA" type="D" visible="0" text-fontsize="5" labelwidth="0" lmargin="5p" width="400p" text-align="right" locked="true" />
+      <prop name="MAP_HORA" type="T" visible="0" text-fontsize="5" labelwidth="0" locked="true" lmargin="5p" width="150p" text-align="left" newline="false" />
+      <prop name="MAP_COLORVIEW" type="T" visible="0" info="#4fbb74" />
+      <prop name="MAP_FORECOLOR" type="T" visible="0" info="#4fbb74" />
+      <prop name="TIPO" type="N" visible="0" info="texto,documento,foto,voz" />
+    </frame>
+  </group>
+  <acciones show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="parametro" />
+      <script language="javascript" async="true">
+                await AccionesChat(parametro);
+            </script>
+    </action>
+  </acciones>
+  <selecteditem show-wait-dialog="false" refresh="false"></selecteditem>
+</coll>

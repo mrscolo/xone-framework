@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialDatosOnline" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" special="true" group-swipe="true">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="DATOS ONLINE" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="100%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop name="TIPO" type="T" visible="0" />
+  <prop name="MAP_VISIBLE" type="T" visible="0" />
+  <group name="Group0" id="99" disablevisible="MAP_GROUP&lt;&gt;99" />
+  <prop group="99" name="MAP_ETQ0" type="TL" class="classtl" title="PROBLEMA DE CONEXIÓN" />
+  <prop group="99" name="MAP_TITLE" type="TL" class="classtl" title="EXISTE ALGUN PROBLEMA CON LA CONEXIÓN" label-wrap="true" fontbold="true" tmargin="20p" fontsize="32" bgcolor="#FFFFFF" />
+  <group name="Group1" id="1" disablevisible="MAP_GROUP&lt;&gt;1" />
+  <frame group="1" name="group1Frame" width="100%" height="20%" />
+  <prop group="1" frame="group1Frame" name="MAP_ETQ1" type="TL" class="classtl" title="Consulta Online JSON" />
+  <prop group="1" frame="group1Frame" name="MAP_FILTRONOMBRE" type="T" class="classT" title="Nombre" />
+  <prop group="1" frame="group1Frame" name="MAP_FILTRODIRECCION" type="T" class="classT" title="Dirección" />
+  <frame group="1" name="c1" width="98%" height="64%" framebox="true" border-corner-radius="10" lmargin="1%" />
+  <prop group="1" frame="c1" name="DatosOnlineJSON" type="Z" contents="DatosOnlineJSON" height="96%" disablevisible="MAP_VISIBLE=1" locked="true" />
+  <contents name="DatosOnlineJSON" src="ContentDatosOnlineJSON" />
+  <frame group="1" name="floatbtbuscar" top="920p" left="550p" width="170p" height="120p" floating="true" />
+  <prop group="1" frame="floatbtbuscar" name="BTBUSCAR" type="B" visible="1" labelwidth="0" method="ExecuteNode(buscar(1))" width="75p" img="lupa.png" imgsel="lupa_click.png" />
+  <prop group="1" frame="floatbtbuscar" name="BTORDENAR" type="B" visible="1" newline="false" lmargin="6p" labelwidth="0" method="ExecuteNode(buscar(2))" width="75p" img="##FLD_MAP_BTORDEN##" imgsel="##FLD_MAP_BTORDENCLICK##" />
+  <prop group="1" frame="floatbtbuscar" name="MAP_BTORDEN" type="T" visible="0" />
+  <prop group="1" frame="floatbtbuscar" name="MAP_BTORDENCLICK" type="T" visible="0" />
+  <prop group="1" frame="floatbtbuscar" name="MAP_ORDEN" type="T" visible="0" />
+  <group name="Group2" id="2" disablevisible="MAP_GROUP&lt;&gt;2" />
+  <frame group="2" name="group2Frame" width="100%" height="300p" />
+  <prop group="2" frame="group2Frame" name="MAP_ETQ2" type="TL" class="classtl" title="Consulta Online WEBSERVICE" />
+  <prop group="2" frame="group2Frame" name="MAP_IDENTIFICADOR" type="T" class="classT" title="Identificador:" />
+  <frame group="2" frame="group2Frame" name="ftboton" top="130p" left="550p" width="170p" height="120p" floating="true" />
+  <prop group="2" frame="ftboton" name="BTBUSCAR2" type="B" visible="1" labelwidth="0" method="ExecuteNode(identificador(1))" width="75p" img="refresh.png" imgsel="refresh_click.png" />
+  <prop group="2" frame="ftboton" name="BTIDENT" type="B" visible="1" labelwidth="0" method="ExecuteNode(identificador(2))" width="75p" img="lupa.png" imgsel="lupa_click.png" newline="false" lmargin="5p" />
+  <frame group="2" name="c2" width="98%" height="740p" framebox="true" border-corner-radius="10" lmargin="7p" />
+  <prop group="2" frame="c2" name="DatosOnlineWS" type="Z" contents="DatosOnlineWS" height="96%" disablevisible="MAP_VISIBLE=2" />
+  <contents name="DatosOnlineWS" src="ContentDatosOnlineWS" />
+  <identificador show-wait-dialog="false">
+    <action name="runscript">
+      <param name="param" />
+      <script language="javascript">
+          	if(param == 1){
+          		self.MAP_IDENTIFICADOR = appData.getGlobalMacro("##DEVICEID##");
+          	}else{
+          		self.getContents("DatosOnlineWS").setFilter("stPIN=" + self.MAP_IDENTIFICADOR.toString());
+          		self.getContents("DatosOnlineWS").loadAll();
+          	}
+		</script>
+    </action>
+  </identificador>
+  <buscar show-wait-dialog="false">
+    <action name="runscript">
+      <param name="param" />
+      <script language="javascript"></script>
+    </action>
+  </buscar>
+  <before-edit show-wait-dialog="false">
+    <action name="setval" field="MAP_IDENTIFICADOR" value="##DEVICEID##" />
+    <action name="runscript">
+      <script language="javascript">	
+			//Poner lo del comprobar conexión, y si no tenemos conexión, dar error, si todo OK, entonces seguir
+			if( ComprobarConexion() == 1 ){
+			    switch(self.TIPO){
+			        case "JSON":
+			            self.MAP_GROUP = 1;
+						self.MAP_ORDEN = "ASC";
+						self.MAP_BTORDEN = "sortAZ.png";
+						self.MAP_BTORDENCLICK = "sortAZ_click.png";
+						self.getContents("DatosOnlineJSON").setSort("NOMBRE ASC");
+						self.getContents("DatosOnlineJSON").loadAll();
+						self.getContents("DatosOnlineJSON").lock();
+			            break;
+			        case "WEBSERVICE":
+	      				self.MAP_GROUP = 2;
+			            break;
+		        	case "SQLDINAMIC":
+	      				self.MAP_GROUP = 3;
+			            break;
+			        default:
+						self.MAP_GROUP = 1;
+			            break;
+			        
+			    }    
+			}else{
+				self.MAP_GROUP = 99;
+			}
+		</script>
+    </action>
+  </before-edit>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

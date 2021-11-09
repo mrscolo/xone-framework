@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="Menu" title="Menu" sql="" objname="" updateobj="" progid="" filter="" sort="" XXXnotab="false" group-swipe="true" special="true">
+  <group name="Invisibles" id="0" />
+  <prop group="0" name="MAP_TIPOPER" type="T" visible="0" />
+  <prop group="0" name="FILTROCONTROL" type="T" visible="0" />
+  <prop group="0" name="MAP_IDVALORES" type="T" visible="0" mapcol-values="CADA 3 SG,CADA 60 SG" mapfld="DATA" />
+  <prop group="0" name="MAP_TIMEAUTO" type="T" visible="0" class="classT" showinline="true" title="Tiempo" linkedto="MAP_IDVALORES" height="80p" tmargin="20p" linkedfield="DATA" lmargin="1%" />
+  <prop group="0" name="MAP_TIMEVALOR" type="T" visible="0" />
+  <prop group="0" name="MAP_FLOAT1" type="N" visible="0" />
+  <prop group="0" name="MAP_FLOAT2" type="N" visible="0" />
+  <prop group="0" name="IMAGEN" type="T" visible="0" />
+  <prop group="0" name="MAP_MENU" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR1" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR2" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR3" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR4" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR5" type="T" visible="0" />
+  <prop group="0" name="MAP_COLOR6" type="T" visible="0" />
+  <prop group="0" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <prop group="0" name="MAP_SUBOPCION" type="N" visible="0" onchange="refresh" />
+  <group name="General" id="1" imgbk="wallpaper.jpg" />
+  <frame group="1" name="mainFrame" width="100%" height="100%" XXXbgcolor="#33f72d9c" />
+  <frame group="1" frame="mainFrame" name="frmtitulo" class="frmsuperior" height="120p" />
+  <prop group="1" frame="frmtitulo" name="SALIR" type="B" class="btsalirsuper" />
+  <prop group="1" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="##FLD_MAP_MENU##" />
+  <prop group="1" frame="frmtitulo" name="BTMENU" type="B" class="btmenuicon" method="ExecuteNode(showDrawer)" />
+  <prop group="1" frame="mainFrame" name="MAP_VERSIONAPP" type="T" text-align="center" visible="1" width="600p" lmargin="60p" height="80p" locked="true" labelwidth="0" />
+  <frame group="1" frame="mainFrame" name="frmgriview" width="650p" height="820p" framebox="true" border-corner-radius="10" lmargin="35p" tmargin="28p" bgcolor="#FFFFFF" />
+  <prop group="1" frame="frmgriview" name="@MenuControles" type="Z" contents="MenuControles" class="contentgridview" width="646p" height="816p" tmargin="2p" lmargin="2p" xorientation="horizontal" />
+  <contents name="MenuControles" src="MenuControles" filter="FILTRO=##FLD_FILTROCONTROL##" sort="FILTRO,ORDEN" />
+  <prop group="1" frame="mainFrame" name="MAP_IMAGEN" type="IMG" width="100%" height="50p" tmargin="42p" />
+  <frame group="1" frame="mainFrame" name="frmMENU" width="100%" height="144p" bgcolor="#000000" />
+  <frame group="1" frame="frmMENU" name="frmbasico" class="menufijo" bgcolor="##FLD_MAP_COLOR1##" />
+  <prop group="1" frame="frmbasico" name="MAP_MENUBASICOS" class="menufijo" img="basicos.png" type="B" method="ExecuteNode(cambiarMenu('BASICO','1SELECT.png',##FLD_MAP_COLOR1##))" />
+  <frame group="1" frame="frmMENU" name="frmcontents" class="menufijo" bgcolor="##FLD_MAP_COLOR2##" />
+  <prop group="1" frame="frmcontents" name="MAP_MENUCONTENTS" class="menufijo" newline="false" img="contents.png" type="B" method="ExecuteNode(cambiarMenu('CONTENTS','2SELECT.png',##FLD_MAP_COLOR2##))" />
+  <frame group="1" frame="frmMENU" name="frmperifericos" class="menufijo" bgcolor="##FLD_MAP_COLOR3##" />
+  <prop group="1" frame="frmperifericos" name="MAP_MENUPERIFERICOS" class="menufijo" newline="false" img="perifericos.png" type="B" method="ExecuteNode(cambiarMenu('PERIFERICOS','3SELECT.png',##FLD_MAP_COLOR3##))" />
+  <frame group="1" frame="frmMENU" name="frmreglas" class="menufijo" bgcolor="##FLD_MAP_COLOR4##" />
+  <prop group="1" frame="frmreglas" name="MAP_MENUREGLAS" class="menufijo" newline="false" img="reglas.png" type="B" method="ExecuteNode(cambiarMenu('REGLAS DE NEGOCIO','4SELECT.png',##FLD_MAP_COLOR4##))" />
+  <frame group="1" frame="frmMENU" name="frmconsola" class="menufijo" bgcolor="##FLD_MAP_COLOR5##" />
+  <prop group="1" frame="frmconsola" name="MAP_MENUCONSOLA" class="menufijo" newline="false" img="consola.png" type="B" method="ExecuteNode(cambiarMenu('UTILIDADES','5SELECT.png',##FLD_MAP_COLOR5##))" />
+  <group name="DRAWER" id="99" drawer-orientation="right" width="550p" />
+  <prop group="99" name="MAP_TRANSPARENTEINI" type="B" width="100%" height="120p" method="ExecuteNode(showDrawer)" bgcolor="#00000000" title=" " />
+  <frame group="99" name="frmdrawerbasico" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR1##" />
+  <prop group="99" frame="frmdrawerbasico" name="MAP_MENUDRAWERBASICOS" class="icondrawer" img="basicos.png" type="B" method="executenode(toggleSUBMENU(1))" />
+  <prop group="99" frame="frmdrawerbasico" name="MAP_BASICO" type="B" class="botondrawer" method="executenode(toggleSUBMENU(1))" title="BASICO" />
+  <frame group="99" name="Subopciones1" disablevisible="MAP_SUBOPCION&lt;&gt;1" class="framesubopciondrawer" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_012" type="B" method="executenode(pulsar('EspecialBasicos',0))" class="botonsubopciondrawer" title="BÁSICOS" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_022" type="B" method="executenode(pulsar('EspecialBasicosPlus',0))" class="botonsubopciondrawer" title="BÁSICOS PLUS" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_032" type="B" method="executenode(pulsar('EspecialFontSize',0))" class="botonsubopciondrawer" title="TAMAÑO LETRAS" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_042" type="B" method="executenode(pulsar('EspecialMargins',0))" class="botonsubopciondrawer" title="BORDES" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_052" type="B" method="executenode(pulsar('EspecialColores',0))" class="botonsubopciondrawer" title="COLORES" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_062" type="B" method="executenode(pulsar('EspecialFrames',0))" class="botonsubopciondrawer" title="FRAMES" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_072" type="B" method="executenode(pulsar('EspecialButtons',0))" class="botonsubopciondrawer" title="BOTONES" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_082" type="B" method="executenode(pulsar('EspecialControlesDinamicos',0))" class="botonsubopciondrawer" title="DINÁMICOS" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_092" type="B" method="executenode(pulsar('EspecialRefresh',0))" class="botonsubopciondrawer" title="REFRESCOS" />
+  <prop group="99" frame="Subopciones1" name="MAP_BT_OPCION1_102" type="B" method="executenode(pulsar('EspecialHerencia',0))" class="botonsubopciondrawer" title="HERENCIA" />
+  <frame group="99" name="frmdrawercontents" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR2##" />
+  <prop group="99" frame="frmdrawercontents" name="MAP_MENUDRAWERCONTENTS" class="icondrawer" img="contents.png" type="B" method="executenode(toggleSUBMENU(2))" />
+  <prop group="99" frame="frmdrawercontents" name="MAP_CONTENTS" class="botondrawer" type="B" title="CONTENTS" method="executenode(toggleSUBMENU(2))" />
+  <frame group="99" name="Subopciones2" disablevisible="MAP_SUBOPCION&lt;&gt;2" class="framesubopciondrawer" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_012" type="B" method="executenode(pulsar('EspecialContents',1))" class="botonsubopciondrawer" title="CONTENTS" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_022" type="B" method="executenode(pulsar('EspecialCalendario',1))" class="botonsubopciondrawer" title="CALENDARIO" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_032" type="B" method="executenode(pulsar('EspecialGraficos',1))" class="botonsubopciondrawer" title="GRAFICOS" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_042" type="B" method="executenode(pulsar('EspecialMapa',1))" class="botonsubopciondrawer" title="MAPA" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_082" type="B" method="executenode(pulsar('OpenStreetMap',1))" class="botonsubopciondrawer" title="OPEN STREET MAP" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_052" type="B" method="executenode(pulsar('EspecialPictureMap',1))" class="botonsubopciondrawer" title="PICTUREMAP" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_062" type="B" method="executenode(pulsar('EspecialTreeview',1))" class="botonsubopciondrawer" title="TREEVIEW" />
+  <prop group="99" frame="Subopciones2" name="MAP_BT_OPCION2_072" type="B" method="executenode(pulsar('EspecialSlideView',1))" class="botonsubopciondrawer" title="SLIDEVIEW" />
+  <frame group="99" name="frmdrawerperifericos" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR3##" />
+  <prop group="99" frame="frmdrawerperifericos" name="MAP_MENUDRAWERPERIFERICOS" class="icondrawer" img="perifericos.png" type="B" method="executenode(toggleSUBMENU(3))" />
+  <prop group="99" frame="frmdrawerperifericos" name="MAP_PERIFERICOS" class="botondrawer" type="B" title="PERIFERICOS" method="executenode(toggleSUBMENU(3))" />
+  <frame group="99" name="Subopciones3" disablevisible="MAP_SUBOPCION&lt;&gt;3" class="framesubopciondrawer" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_012" type="B" method="executenode(pulsar('EspecialPerifericos',2,'MAIL'))" class="botonsubopciondrawer" title="MAIL" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_022" type="B" method="executenode(pulsar('EspecialPerifericos',2,'PDF'))" class="botonsubopciondrawer" title="PDF" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_032" type="B" method="executenode(pulsar('EspecialPerifericos',2,'STARTSCANNER'))" class="botonsubopciondrawer" title="STARTSCANNER" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_042" type="B" method="executenode(pulsar('EspecialSonidos',2))" class="botonsubopciondrawer" title="SONIDO" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_052" type="B" method="executenode(pulsar('EspecialPerifericos',2,'COMPARTIR'))" class="botonsubopciondrawer" title="COMPARTIR" />
+  <prop group="99" frame="Subopciones3" name="MAP_BT_OPCION3_062" type="B" method="executenode(pulsar('CustomCamera',2))" class="botonsubopciondrawer" title="CAMARA PERSONALIZADA" />
+  <frame group="99" name="frmdrawerreglas" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR4##" />
+  <prop group="99" frame="frmdrawerreglas" name="MAP_MENUDRAWERREGLAS" class="icondrawer" img="reglas.png" type="B" method="executenode(toggleSUBMENU(4))" />
+  <prop group="99" frame="frmdrawerreglas" name="MAP_REGLAS" class="botondrawer" type="B" title="REGLAS DE NEGOCIO" method="executenode(toggleSUBMENU(4))" />
+  <frame group="99" name="Subopciones4" disablevisible="MAP_SUBOPCION&lt;&gt;4" class="framesubopciondrawer" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_012" type="B" method="executenode(pulsar('EspecialEventos',3))" class="botonsubopciondrawer" title="EVENTOS" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_022" type="B" method="executenode(pulsar('EspecialNotificaciones',3))" class="botonsubopciondrawer" title="NOTIFICACIONES" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_032" type="B" method="executenode(pulsar('EspecialDatosOnline',3,'JSON'))" class="botonsubopciondrawer" title="JSON" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_042" type="B" method="executenode(pulsar('EspecialDatosOnline',3,'WEBSERVICE'))" class="botonsubopciondrawer" title="WEBSERVICE" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_052" type="B" method="executenode(pulsar('EspecialJavascript',3))" class="botonsubopciondrawer" title="JAVASCRIPT" />
+  <prop group="99" frame="Subopciones4" name="MAP_BT_OPCION4_062" type="B" method="executenode(pulsar('EspecialFileManager',3))" class="botonsubopciondrawer" title="FILEMANAGER" />
+  <frame group="99" name="frmdrawerconsola" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR5##" />
+  <prop group="99" frame="frmdrawerconsola" name="MAP_MENUDRAWERUTILES" class="icondrawer" img="consola.png" type="B" method="executenode(toggleSUBMENU(5))" />
+  <prop group="99" frame="frmdrawerconsola" name="MAP_CONSOLA" class="botondrawer" type="B" title="UTILIDADES" method="ExecuteNode(toggleSUBMENU(5))" />
+  <frame group="99" name="Subopciones5" disablevisible="MAP_SUBOPCION&lt;&gt;5" class="framesubopciondrawer" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_012" type="B" method="executenode(pulsar('ContentConsolaReplica',5))" class="botonsubopciondrawer" title="CONSOLA DE RÉPLICA" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_022" type="B" method="executenode(pulsar('MenuWifiManager',5))" class="botonsubopciondrawer" title="WIFI MANAGER" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_032" type="B" method="executenode(pulsar('EspecialMultiLanguage',5))" class="botonsubopciondrawer" title="EJEMPLO MULTILANGUAGE" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_042" type="B" method="executenode(pulsar('EspecialBrillo',5))" class="botonsubopciondrawer" title="EJEMPLO BRILLO" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_052" type="B" method="executenode(pulsar('HuellaDactilar',5))" class="botonsubopciondrawer" title="HUELLA DACTILAR" />
+  <prop group="99" frame="Subopciones5" name="MAP_BT_OPCION5_072" type="B" method="executenode(pulsar('ImageDrawing',5))" class="botonsubopciondrawer" title="IMAGEDRAWING" />
+  <frame group="99" name="frmdrawerLogout" class="frameopciondrawer" bgcolor="##FLD_MAP_COLOR6##" />
+  <prop group="99" frame="frmdrawerLogout" name="MAP_MENUDRAWERLOGOUT" class="icondrawer" img="salir.png" type="B" method="executenode(toggleSUBMENU(6))" />
+  <prop group="99" frame="frmdrawerLogout" name="MAP_LOGOUT" class="botondrawer" type="B" title="LOGOUT" method="ExecuteNode(toggleSUBMENU(6))" />
+  <prop group="99" name="MAP_TRANSPARENTEFIN" type="B" width="100%" height="800p" method="ExecuteNode(showDrawer)" bgcolor="#00000000" title=" " />
+  <create>
+    <action name="setval" field="MAP_SUBOPCION" value="0" />
+    <action name="setval" field="MAP_COLOR1" value="#F72D9C" />
+    <action name="setval" field="MAP_COLOR2" value="#037DB7" />
+    <action name="setval" field="MAP_COLOR3" value="#59A51C" />
+    <action name="setval" field="MAP_COLOR4" value="#DC2204" />
+    <action name="setval" field="MAP_COLOR5" value="#FDD328" />
+    <action name="setval" field="MAP_COLOR6" value="#FF0000" />
+    <action name="setval" field="MAP_TIMEAUTO" value="CADA 60 SG" />
+    <action name="setval" field="MAP_VERSIONAPP" value="Version App: ##VERSION##" />
+  </create>
+  <cambiarMenu refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="Titulo" />
+      <param name="Imagen" />
+      <param name="ColorFondo" />
+      <script language="javascript">
+		          	self.FILTROCONTROL=Titulo;
+		          	self.MAP_IMAGEN=Imagen;
+		          	self.MAP_MENU=Titulo;
+		          	self.MAP_COLORACTIVO=ColorFondo;
+		          	// Quitamos el drawer por si estuviera visible
+		          	// ui.hidegroup("99")
+					ui.refresh ("@MenuControles","MAP_IMAGEN","frmtitulo");
+			</script>
+    </action>
+  </cambiarMenu>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">
+				//self.executeNode ("cambiarMenu('BASICO','1SELECT.png',##FLD_MAP_COLOR1##)");
+				self.executeNode("cambiarMenu","BASICO","1SELECT.png",self.MAP_COLOR1);
+			</script>
+    </action>
+  </before-edit>
+  <showDrawer refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				ui.toggleGroup("99");
+			</script>
+    </action>
+  </showDrawer>
+  <toggleSUBMENU show-wait-dialog="false">
+    <action name="runscript">
+      <param name="subopcion" />
+      <script language="javascript">
+                if ( subopcion == 6){
+		   			self.executeNode("logout");
+		   		}else{
+    		  		// Pasamos como parámetro la opcion principal en que ha pinchado.
+    		  		// Preguntamos y si le ha vuelto a dar a la que estaba desplegada, la colapsamos.
+    		   		
+    		  		if (self.MAP_SUBOPCION==subopcion){
+    		   			self.MAP_SUBOPCION=0;
+    		   		}else{
+    		   			self.MAP_SUBOPCION=subopcion;
+    		   		}
+		   		}
+			</script>
+    </action>
+  </toggleSUBMENU>
+  <pulsar show-wait-dialog="false">
+    <action name="runscript">
+      <param name="coll" />
+      <param name="tipo" />
+      <param name="subtipo" />
+      <script language="javascript">
+              if (tipo) {
+              		if (tipo===0)
+              			self.executeNode("cambiarMenu('BASICO','1SELECT.png',##FLD_MAP_COLOR1##)");
+              		
+    				if (tipo===1)
+              			self.executeNode ("cambiarMenu('CONTENTS','2SELECT.png',##FLD_MAP_COLOR2##)");
+              		
+              		if (tipo===2)
+              			self.executeNode ("cambiarMenu('PERIFERICOS','3SELECT.png',##FLD_MAP_COLOR3##)");
+              		
+    				if (tipo===3)
+              			self.executeNode ("cambiarMenu('REGLAS DE NEGOCIO','4SELECT.png',##FLD_MAP_COLOR4##)");
+              			
+              }
+              
+              var param = {TIPO:"",MAP_COLORACTIVO:""};
+              if ( coll === "EspecialPerifericos" || coll === "EspecialDatosOnline"){
+                  param.TIPO = subtipo||"";
+              }
+              if (coll==="ContentConsolaReplica" || tipo == 5){
+	          		param.MAP_COLORACTIVO = self.MAP_COLOR5;
+			  }else{
+	          		param.MAP_COLORACTIVO = self.MAP_COLORACTIVO;
+			  }
+			  
+              var obj = appData.getCollection(coll).createObject(param,true);
+              appData.pushValue(obj);
+              
+    //           var obj=appData.getCollection(coll).createObject();
+				// appData.getCollection(coll).addItem (obj);
+				// if (coll==="EspecialPerifericos" || coll==="EspecialDatosOnline")
+	   //       		obj["TIPO"]=subtipo||"";
+	          	
+	   //       	if (coll==="ContentConsolaReplica" || tipo == 5){
+	   //       		obj["MAP_COLORACTIVO"]=self.MAP_COLOR5;
+				// }else{
+	   //       		obj["MAP_COLORACTIVO"]=self.MAP_COLORACTIVO;
+				// }
+				// appData.pushValue(obj);
+		</script>
+    </action>
+  </pulsar>
+  <onchange show-wait-dialog="false">
+    <field name="MAP_TIMEAUTO">
+      <action name="runscript">
+        <script language="javascript">	
+				if (self.MAP_TIMEAUTO==="CADA 3 SG")
+					self.MAP_TIMEVALOR=3;
+				if (self.MAP_TIMEAUTO==="CADA 60 SG")
+					self.MAP_TIMEVALOR=60;
+			</script>
+      </action>
+    </field>
+  </onchange>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				// appData.failWithMessage (-11888, "##EXITAPP##");
+				exit();
+			</script>
+    </action>
+  </onback>
+  <logout>
+    <action name="runscript">
+      <script language="javascript">
+				    doLogout();
+			    </script>
+    </action>
+  </logout>
+  <permissions>
+    <permission name="external-storage" />
+    <permission name="phone" />
+    <permission name="camera" />
+    <permission name="location" />
+    <permission name="calendar" />
+    <permission name="contacts" />
+    <permission name="microphone" />
+  </permissions>
+</coll>

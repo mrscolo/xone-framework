@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialFrames" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true">
+  <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Frame" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="100%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <group name="Group1" id="1" />
+  <frame group="1" name="group1Frame" width="100%" height="100%" scroll="true" align="left|top" />
+  <frame group="1" frame="group1Frame" name="topLeft" bgcolor="#5B8DDE" width="30%" height="20%" align="center" lmargin="5%" tmargin="5%" />
+  <prop group="1" frame="topLeft" name="text1" type="TL" title="Izquierda, arriba" label-wrap="true" labelbox="false" align="center" lines="2" />
+  <frame group="1" frame="group1Frame" name="topRight" bgcolor="#5B8DDE" width="50%" height="20%" align="center" newline="false" lmargin="10%" tmargin="5%" />
+  <prop group="1" frame="topRight" name="text2" type="TL" title="Derecha, arriba" label-wrap="true" labelbox="false" align="center" />
+  <frame group="1" frame="group1Frame" name="bottomContainer" bgcolor="#5B8DDE" width="100%" height="45%" tmargin="10%" align="left|top" />
+  <frame group="1" frame="bottomContainer" name="containedTop" bgcolor="#113163" width="40%" height="30%" align="center" lmargin="30%" tmargin="5%" />
+  <prop group="1" frame="containedTop" name="text3" type="TL" title="Arriba" label-wrap="true" labelbox="false" align="center" />
+  <frame group="1" frame="bottomContainer" name="containedBottom" bgcolor="#113163" width="50%" height="20%" align="center" lmargin="5%" tmargin="40%" />
+  <prop group="1" frame="containedBottom" name="text5" type="TL" title="Abajo" label-wrap="true" labelbox="false" align="center" />
+  <frame group="1" frame="group1Frame" name="containedLeft" bgcolor="#29C5D6" width="25%" height="35%" align="center" floating="true" left="450p" top="70p" />
+  <prop group="1" frame="containedLeft" name="text4" type="TL" title="Flotante" label-wrap="true" labelbox="false" align="center" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage(-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+</coll>

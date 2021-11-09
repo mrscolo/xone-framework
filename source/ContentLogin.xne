@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentLogin" title="Login" sql="select t1.ID     from ##PREF##usuarios t1" objname="usuarios" updateobj="" progid="ASData.CASBasicDataObj" special="true" filter="" sort="" login-coll="false" notab="true" bgcolor="#55000000">
+  <group name="General" id="1">
+    <prop name="ID" type="N" visible="0" />
+    <frame name="mainFrame" width="100%" height="100%" align="center">
+      <frame name="secondaryFrame" width="90%" height="50%" align="center|top" bgcolor="#0D406B,#0F4B7D,#0D406B">
+        <prop name="MAP_LOGIN_IMG" type="IMG" width="20%" height="25%" labelwidth="0" path="##APP##\icons\logo.png" locked="true" bgcolor="#FF0000" lmargin="2%" tmargin="18%" />
+        <frame name="propFrame" width="60%" height="50%" align="left|top" newline="false" lmargin="6%" tmargin="3%">
+          <prop name="MAP_USERNAME_LABEL" type="TL" caption="Nombre de Usuario" class="loginProp" />
+          <prop name="MAP_USERNAME" type="T" class="loginProp" />
+          <prop name="MAP_PASSWORD_LABEL" type="TL" caption="Contraseña" class="loginProp" />
+          <prop name="MAP_PASSWORD" type="X" class="loginProp" />
+        </frame>
+        <prop name="OK" type="B" title="Entrar" class="loginButton" method="ExecuteNode(entrar)" />
+        <prop name="CANCEL" type="B" title="Salir" newline="false" lmargin="10%" class="loginButton" method="ExecuteNode(salir)" />
+        <prop name="MAP_VERSION" type="TL" caption="Versión ##VERSION##" class="loginProp" align="center" tmargin="8%" fontsize="4" />
+      </frame>
+    </frame>
+  </group>
+  <entrar>
+    <action name="runscript">
+      <script language="javascript" async="true">
+			var ObjB,st_erraut,CollB,CollC,ObjC;
+			st_erraut="";
+			var CollB = await appData.getCollection("Usuarios");
+			CollB.setFilter("LOGIN='" + self.MAP_USERNAME.toString() + "'");
+			await CollB.startBrowse();
+			var ObjB = await CollB.getCurrentItem();
+			if( ObjB === null || ObjB == "undefined"){
+				st_erraut = "Nombre de usuario o password incorrecto";
+			}
+			ObjB = null;
+			CollB.endBrowse();
+			CollB.clear();
+			CollB = null;
+			// Si todo OK, intentamos el logueo
+			if( st_erraut == ""){
+				self.setVariables("##LOGIN_USERCOLL##","Usuarios");
+				self.setVariables("##LOGIN_NEWUSER##","LOGIN," + self.MAP_USERNAME);
+				self.setVariables("##LOGIN_NEWPASS##","PWD," + self.MAP_PASSWORD);
+				self.setVariables("##LOGIN_NEWNOUSERIN##",0);
+				appData.failWithMessage(-11888,"##LOGIN_START##");
+			}else{
+				appData.failWithMessage(-8100,st_erraut);
+			}
+		</script>
+    </action>
+  </entrar>
+  <salir>
+    <action name="runscript">
+      <script language="javascript">
+  			appdata.failWithMessage(-11888,"##EXITAPP##");
+		</script>
+    </action>
+  </salir>
+</coll>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes"?>
+<coll name="OpenStreetMap" title="" notab="true" editmask="0" sql="SELECT * FROM GEN_USUARIOS" loadall="true" check-owner="false" dependent="false">
+    <group name="HEADER" id="10" class="groupfixed_header">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="MAPA" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+    </group>
+    
+    <group name="FOOTER" id="0" class="groupfixed_footer">
+        <prop name="MAP_GROUP" type="N" visible="0" />
+        <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+        <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+          <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+          <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+          <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+        </frame>
+    </group>
+    
+    <group name="General" id="1">
+        <frame name="group1Frame" class="frmtodo" height="1040p" bgcolor="#FFFFFF" align="top|center">
+            <prop name="MAP_MAPA_OPENSTREET" show-compass="true" show-minimap="true" show-scale="true" Xuser-location-icon="start_distance_marker_icon.png" Xdirection-arrow-icon="right-arrow.png" follow-location-on-background="true" ignore-geocoding-errors="false" zoom-buttons-visibility="never" clear-lines-on-refresh="false" show-pois="true" show-google-buttons="false" zoom-to-my-location="false" zoom-to-pois="true" visible="1" 
+            type="Z" contents="ClientesCoord" onmapclicked="onMapClicked(e);" onmaplongclicked="onMapLongClicked(e);" onmarkerdragend="onMarkerDraggedEnd(e);" onmapready="onMapReady(e);" onlocationready="onLocationReady(e);" onlocationchanged="onLocationChanged(e);" offline-maps="false" viewmode="openstreetmap" width="100%" height="60%" />
+            <frame name="botones_openstreetmap" width="100%" height="40%" scroll="true">
+                <prop name="MAP_CAMBIOPOIS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="Cambiar POIs" onclick="doChangeMapPois('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_REFRESH_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="Refresh" onclick="doRefresh('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" newline="false" />
+                <prop name="MAP_ISUSERLOCATIONENABLED_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="isUserLocationEnabled" onclick="isUserLocationEnabled('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ENABLEUSERLOCATION_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="enableUserLocation" onclick="enableUserLocation('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_DISABLEUSERLOCATION_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="disableUserLocation" onclick="disableUserLocation('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ROUTE_TO_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="RouteTo" onclick="routeTo('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_DRAWLINE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="DrawLine" onclick="drawLine('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_DRAWROUTE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="DrawRoute" onclick="drawRoute('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_CLEARLINE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ClearLine" onclick="clearLine('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_CLEARALLLINES_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ClearAllLines" onclick="clearAllLines('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_CLEARROUTE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ClearRoute" onclick="clearRoute('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_CLEARALLROUTES_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ClearAllRoutes" onclick="clearAllRoutes('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_SHOWPOISMENU_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ShowPoisMenu" onclick="showPoisMenu('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_HIDEPOISMENU_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="HidePoisMenu" onclick="hidePoisMenu('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_TOGGLEPOISMENU_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="TogglePoisMenu" onclick="togglePoisMenu('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ZOOMTO_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ZoomTo" onclick="zoomTo('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_ZOOMTOENCODEDATA_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ZoomToEncodeData" onclick="zoomToEncodeData('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_SHOW_MARKERS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ShowMarkers" onclick="showMarkers();" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_HIDE_MARKERS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="HideMarkers" onclick="hideMarkers();" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_SET_MARKERS_DRAGGABLE_TRUE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetDraggable(true)" onclick="setMarkersDraggable(true);" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_SET_MARKERS_DRAGGABLE_FALSE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetDraggable(false)" onclick="setMarkersDraggable(false);" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_START_DISTANCE_METER_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="StartDistanceMeter()" onclick="startDistanceMeter('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_STOP_DISTANCE_METER_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="StopDistanceMeter()" onclick="stopDistanceMeter('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_DRAW_AREA_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="DrawArea()" onclick="drawArea('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" newline="false" />
+                <prop name="MAP_DRAW_ENCODE_AREA_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="DrawEncodeArea()" onclick="drawEncodeArea('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_CLEAR_ALL_AREAS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ClearAllAreas()" onclick="clearAllAreas('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" newline="false" />
+                <prop name="MAP_REMOVE_AREA_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="RemoveArea()" onclick="removeArea('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ANADIR_INEXISTENTE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="Añadir POI inexistente" onclick="testInexistente('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" newline="false" />
+                <prop name="MAP_GET_USER_LOCATION_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="GetUserLocation" onclick="getUserLocation('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ZOOMTOBOUNDS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ZoomToBounds" onclick="zoomToBounds('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_RESTRICTMAPTOBOUNDS_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="RestrictMapToBounds" onclick="restrictMapToBounds('MAP_MAPA_OPENSTREET');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_ZOOMTOMYLOCATION_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="ZoomToMyLocation" onclick="zoomToMyLocation('MAP_MAPA_OPENSTREET');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_FOLLOWUSERLOCATION_TRUE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="FollowUserLocation(true)" onclick="doFollowUserLocation('MAP_MAPA_OPENSTREET', true);" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_FOLLOWUSERLOCATION_FALSE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="FollowUserLocation(false)" onclick="doFollowUserLocation('MAP_MAPA_OPENSTREET', false);" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_SETMAPTYPE_NORMAL_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetMapType(normal)" onclick="doSetMapType('MAP_MAPA_OPENSTREET', 'normal');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_SETMAPTYPE_SATELLITE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetMapType(satellite)" onclick="doSetMapType('MAP_MAPA_OPENSTREET', 'satellite');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_SETMAPTYPE_TERRAIN_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetMapType(terrain)" onclick="doSetMapType('MAP_MAPA_OPENSTREET', 'terrain');" labelwidth="1" label-wrap="true" />
+                <prop name="MAP_SETMAPTYPE_HYBRID_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetMapType(hybrid)" onclick="doSetMapType('MAP_MAPA_OPENSTREET', 'hybrid');" labelwidth="1" newline="false" label-wrap="true" />
+                <prop name="MAP_SETMAPTYPE_NONE_OPENSTREET" visible="1" type="B" width="50%" height="20%" title="SetMapType(none)" onclick="doSetMapType('MAP_MAPA_OPENSTREET', 'none');" labelwidth="1" label-wrap="true" />
+            </frame>
+        </frame>
+        
+        <contents name="ClientesCoord" src="ClientesCoord" />
+    </group>
+    
+    
+    <before-edit>
+        <action name="runscript">
+            <script language="javascript"> 
+                self.MAP_IDIOMA = "es-ES";
+    			self.MAP_VALORVER=1;
+    			self.MAP_GROUP=1;
+    			self.MAP_IMAGE2="hrio.jpg";	
+    			self.MAP_TOTAL_PAGES=1;
+            </script>
+        </action>
+    </before-edit>
+    <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+				appData.failWithMessage (-11888, "##EXIT##");
+			</script>
+        </action>
+    </onback>
+</coll>

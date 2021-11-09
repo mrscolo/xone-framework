@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialContents" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true" group-swipe="true">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Contents" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST" type="B" img="last.png" title="Anterior" teonclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=##FLD_MAP_TOTAL_PAGES##" />
+  <group name="Group1" id="1" onfocus="ExecuteNode(onfocusgrupo(1))" />
+  <prop group="1" name="BTNTESTMACRO" type="B" visible="1" method="ExecuteNode(testmacro)" height="50p" width="100p" labelwidth="1" title="TestMacro" />
+  <frame group="1" name="group1Frame" width="100%" height="1040" alignx="center" />
+  <prop group="1" frame="group1Frame" name="CABECERA_LBL1" type="TL" class="classtl" title="Edición directa del Objeto" />
+  <frame group="1" frame="group1Frame" name="c1" width="98%" height="78%" framebox="true" border-corner-radius="10" lmargin="1%" tmargin="2%" />
+  <prop group="1" frame="c1" name="@content1" height="96%" type="Z" contents="content1" forceonchange="true" bgcolor="#FFFFFF" onchange="refresh(@content1)" />
+  <contents name="content1" src="ContentDatos" />
+  <frame group="1" frame="group1Frame" name="floatadd1" top="920p" left="610p" width="90p" height="90p" floating="true" />
+  <prop group="1" frame="floatadd1" name="BTADD1" type="B" visible="1" labelwidth="0" method="ExecuteNode(nuevo)" width="75p" img="add.png" imgsel="add_click.png" />
+  <group name="Group2" id="2" onfocus="ExecuteNode(onfocusgrupo(2))" />
+  <frame group="2" name="group2Frame" width="100%" height="100%" />
+  <prop group="2" frame="group2Frame" name="CABECERA_LBL2" type="TL" class="classtl" title="Edición en la Fila" />
+  <frame group="2" frame="group2Frame" name="c2" width="98%" height="75%" framebox="true" border-corner-radius="10" lmargin="1%" tmargin="2%" />
+  <prop group="2" frame="c2" name="@content2" height="96%" type="Z" contents="content2" mask="0" edit-inrow="true" bgcolor="#FFFFFF" />
+  <contents name="content2" src="ContentDatosEditRow" />
+  <group name="Group3" id="3" onfocus="ExecuteNode(onfocusgrupo(3))" />
+  <frame group="3" name="group3Frame" width="100%" height="15%" />
+  <prop group="3" frame="group3Frame" name="CABECERA_LBL3" type="TL" class="classtl" title="Edición con SelectedItem" />
+  <prop group="3" frame="group3Frame" name="MAP_NOMBRESEL" type="T" class="classTsinborde" labelwidth="0" />
+  <prop group="3" frame="group3Frame" name="MAP_LINEASEPARAR3" disablevisible="MAP_NOMBRESEL=''" type="B" bgcolor="#333333" visible="1" labelwidth="0" width="300p" lmargin="210p" height="5p" tmargin="2p" bmargin="2p" locked="true" />
+  <frame group="3" frame="group3Frame" name="floatadd3" top="75p" left="550p" floating="true" width="200p" height="120p" disablevisible="MAP_NOMBRESEL=''" />
+  <prop group="3" frame="floatadd3" name="BTADD31" type="B" visible="1" labelwidth="0" method="ExecuteNode(editar)" postonchange="ExecuteNode(EjecutaVolverBoton)" width="75p" img="ok.png" imgsel="ok_click.png" />
+  <prop group="3" frame="floatadd3" name="BTADD32" type="B" visible="1" labelwidth="0" method="ExecuteNode(eliminar)" width="75p" img="delete.png" imgsel="delete_click.png" newline="false" lmargin="6p" />
+  <frame group="3" name="c3" width="98%" height="68%" framebox="true" border-corner-radius="10" lmargin="1%" tmargin="2%" />
+  <prop group="3" frame="c3" name="@content3" height="96%" type="Z" contents="content3" bgcolor="#FFFFFF" />
+  <contents name="content3" src="ContentDatosSelItem" />
+  <prop group="3" frame="c3" name="MAP_SELECTEDID" visible="0" type="N" />
+  <prop group="3" frame="c3" name="MAP_IDLINEA" type="N" visible="0" />
+  <group name="Group4" id="4" onfocus="ExecuteNode(onfocusgrupo(4))" />
+  <frame group="4" name="group4Frame" width="100%" height="28%" />
+  <prop group="4" frame="group4Frame" name="CABECERA_LBL4" type="TL" class="classtl" title="Filtro y Ordenación" />
+  <prop group="4" frame="group4Frame" name="MAP_FILTRO" type="T" tooltip="Escriba aquí para buscar..." labelwidth="0" width="60%" class="classT" />
+  <prop group="4" frame="group4Frame" name="BTBUSCAR" type="B" visible="1" labelwidth="0" method="ExecuteNode(buscar(1))" width="75p" img="lupa.png" imgsel="lupa_click.png" />
+  <prop group="4" frame="group4Frame" name="BTORDENAR" type="B" visible="1" newline="false" lmargin="6p" labelwidth="0" method="ExecuteNode(buscar(2))" width="75p" img="##FLD_MAP_BTORDEN##" imgsel="##FLD_MAP_BTORDENCLICK##" />
+  <frame group="4" frame="group4Frame" name="floatbtbuscar" top="185p" left="550p" width="170p" height="120p" floating="true" />
+  <prop group="4" frame="floatbtbuscar" name="MAP_BTORDEN" type="T" visible="0" />
+  <prop group="4" frame="floatbtbuscar" name="MAP_BTORDENCLICK" type="T" visible="0" />
+  <prop group="4" frame="floatbtbuscar" name="MAP_ORDEN" type="T" visible="0" />
+  <frame group="4" name="c4" width="98%" height="64%" framebox="true" border-corner-radius="10" lmargin="1%" />
+  <prop group="4" frame="c4" name="@content4" height="96%" type="Z" contents="content4" locked="true" bgcolor="#FFFFFF" />
+  <contents name="content4" src="ContentDatosFiltro" />
+  <group name="Group5" id="5" onfocus="ExecuteNode(onfocusgrupo(4))" />
+  <frame group="5" name="group4Frame2" width="100%" height="28%" />
+  <prop group="5" frame="group4Frame2" name="CABECERA_LBL5" type="TL" class="classtl" title="Fecha y datediff" />
+  <prop group="5" frame="group4Frame2" name="CABECERA_LBL52" type="TL" class="classtl" title="dar alta fecha y pulsar calculo días" />
+  <frame group="5" name="c5" width="98%" height="64%" framebox="true" border-corner-radius="10" lmargin="1%" />
+  <prop group="5" frame="c5" name="@content5" height="96%" type="Z" contents="content5" bgcolor="#FFFFFF" />
+  <contents name="content5" src="ContentFechaDatediff" />
+  <group name="Group6" id="6" />
+  <prop group="6" name="CABECERA_LBL6" type="TL" class="classtl" title="Filtro y Multiselección" />
+  <prop group="6" name="PENDIENTES" visible="0" title="Used Pending" type="NC" class="texteditnc" labelwidth="12" />
+  <frame group="6" name="frmBuscador" width="98%" lmargin="1%" height="150p" tmargin="1%" framebox="true" />
+  <prop group="6" frame="frmBuscador" name="MAP_BUSCAR_TEXT" ontextchanged="javascript:FiltraMarcados(e);" labelwidth="0" text-border="true" type="T" lpadding="10p" rpadding="10p" width="98%" tmargin="10p" lmargin="1%" height="60p" tooltip="Texto a buscar" />
+  <prop group="6" frame="frmBuscador" name="MAP_BUSCAR_MARCADOS" title="Done" labelwidth="5" lmargin="1%" tmargin="10p" bmargin="10p" type="NC" width="49%" height="60p" />
+  <prop group="6" frame="frmBuscador" name="MAP_BUSCAR_NOMARCADOS" title="Not done" labelwidth="8" tmargin="10p" bmargin="10p" type="NC" width="49%" height="60p" newline="false" />
+  <prop group="6" name="MAP_BUSCAR_PENDIENTES_BT" border-corner-radius="0" title="Apply filter" method="Executenode(applyfilter)" border-width="0" type="B" width="98%" height="56p" labelwidth="1" bmargin="1%" lmargin="1%" class="background-accent-dark color-default-bright" />
+  <frame group="6" name="campos4" framebox="true" height="-2" class="framecontents" width="98%" lmargin="1%" />
+  <frame group="6" frame="campos4" name="campos42" height="-2" width="70%" />
+  <prop group="6" frame="campos42" name="TLCAMPO16" type="TL" title="Nombre - Dirección" lmargin="2%" width="96%" />
+  <prop group="6" frame="campos4" name="TLCAMPO19" type="TL" title="Multiple selection" newline="false" width="30%" />
+  <prop group="6" name="@ContentDatosFiltroMultiseleccion" edit-inrow="true" type="Z" contents="ContentDatosFiltroMultiseleccion" mask="0" width="100%" height="48%" lmargin="0" postonchange="refresh" onchange="Refresh" editmodal="true" />
+  <contents name="ContentDatosFiltroMultiseleccion" src="ContentDatosFiltroMultiseleccion" filter="((t1.MARCADO=1 AND 1=##FLD_MAP_BUSCAR_MARCADOS##) OR (t1.MARCADO=0 AND 1=##FLD_MAP_BUSCAR_NOMARCADOS##)) AND (ifnull(t1.NOMBRE,'') LIKE ##FLD_MAP_BUSCAR_TEXT## OR ifnull(t1.DIRECCION,'') LIKE ##FLD_MAP_BUSCAR_TEXT##) " />
+  <prop group="6" name="MAP_DONE_PENDIENTES_BT" border-corner-radius="0" title="Marcar seleccionados" method="Executenode(checkAll(1))" border-width="0" type="B" width="48%" height="56p" labelwidth="1" tmargin="1%" bmargin="1%" lmargin="1%" class="background-accent-dark color-default-bright" />
+  <prop group="6" name="MAP_NOTDONE_PENDIENTES_BT" border-corner-radius="0" title="Desmarcar seleccionados" method="Executenode(checkAll(0))" border-width="0" type="B" width="48%" height="56p" labelwidth="1" tmargin="1%" newline="false" bmargin="1%" lmargin="2%" class="background-accent-dark color-default-bright" />
+  <group name="Group7" id="7" />
+  <prop group="7" name="MAP_HELLOWORD" type="TL" title="Prueba sencilla (Guardado)" width="96%" lmargin="2%" height="5%" visible="1" />
+  <prop group="7" name="@cosasDelContent" visible="1" type="Z" contents="cosasDelContent" height="80%" width="96%" lmargin="2%" />
+  <contents name="cosasDelContent" src="cosasDelContent" />
+  <prop group="7" name="MAP_B" type="B" method="executeNode(newRegistro)" title="Nuevo registro" width="96%" lmargin="2%" height="12%" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage (-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+  <onfocusgrupo show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+    </action>
+  </onfocusgrupo>
+  <before-edit refresh="true">
+    <action name="runscript">
+      <script language="javascript">			
+			self.MAP_GROUP = 1;
+			self.MAP_TOTAL_PAGES = 7;			
+			//Para controlar el 4 content, de tal forma que toda ejecucion a la base de datos la controlamos por script
+			self.MAP_ORDEN = "ASC";	
+			self.MAP_BTORDEN = "sortAZ.png";
+			self.MAP_BTORDENCLICK = "sortAZ_click.png";
+			self.getContents("content4").setSort("NOMBRE ASC");
+			self.getContents("content4").loadAll();
+			self.getContents("content4").lock();
+			ui.startGps();
+			self.MAP_NOMBRESEL = "";
+		</script>
+    </action>
+  </before-edit>
+  <TestMacro>
+    <action name="runscript">
+      <script language="javascript" async="true">
+              let cnt =  self.getContents("content1");
+              cnt.setMacro("##MACRO1", "7=9");
+              cnt.loadAll();
+              ui.refresh("@content1");
+            </script>
+    </action>
+  </TestMacro>
+  <newRegistro>
+    <action name="runscript">
+      <script language="javascript">
+                let coll = self.getContents("cosasDelContent");
+                let obj = coll.createObject();
+                appData.pushValue(obj);
+            </script>
+    </action>
+  </newRegistro>
+  <editar show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+      		if(self.MAP_SELECTEDID &gt;= 1) {
+				var obj = self.getContents("content3")("ID", self.MAP_SELECTEDID.toString());
+				if(obj != null) {
+					appData.pushValue(obj);
+				}
+			} else {
+				ui.showToast("No hay ningún elemento seleccionado");
+			}
+		</script>
+    </action>
+  </editar>
+  <EjecutaVolverBoton show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+      		 self.MAP_NOMBRESEL = "";
+      		 self.MAP_SELECTEDID = 0;
+      		 self.MAP_IDLINEA = 0;
+		</script>
+    </action>
+  </EjecutaVolverBoton>
+  <nuevo show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+          	var coll = self.getContents("content1");
+      		var obj = coll.createObject();
+      		coll.addItem(obj);
+			appData.pushValue(obj);
+		</script>
+    </action>
+  </nuevo>
+  <eliminar show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+            ui.msgBox("Se elimina el registro correctamente. Para la demo no se borra realmente","AVISO",0);
+          	//Codigo para eliminar el registro del content. 
+          	//Se rellena el valor del indice de la linea, para poder eliminarlo con dicho indice.
+          	//self.Contents("content3").deleteitem(cint(self.MAP_IDLINEA")))
+		</script>
+    </action>
+  </eliminar>
+  <buscar show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="param" />
+      <script language="javascript">
+          	if ( param == "1"){
+          		if (self.MAP_FILTRO.length == 0){
+          			self.getContents("content4").setFilter("");
+          		}else{
+          			self.getContents("content4").setFilter("NOMBRE like '%" + self.MAP_FILTRO.toString() + "%' OR DIRECCION like '%"+ self.MAP_FILTRO.toString() + "%'");
+          		}
+          	}else{
+          		if( self.MAP_ORDEN == "ASC" ){
+          			self.MAP_ORDEN = "DESC";
+          			self.MAP_BTORDEN = "sortZA.png";
+					self.MAP_BTORDENCLICK = "sortZA_click.png";
+          		}else{
+          			self.MAP_ORDEN = "ASC";
+          			self.MAP_BTORDEN = "sortAZ.png";
+					self.MAP_BTORDENCLICK = "sortAZ_click.png";
+          		}
+          		self.getContents("content4").setSort("NOMBRE " + self.MAP_ORDEN.toString());
+          	}
+          	self.getContents("content4").unlock();
+          	self.getContents("content4").loadAll();
+			self.getContents("content4").lock();
+			ui.getView(self).refresh("@content4,BTORDENAR");
+		</script>
+    </action>
+  </buscar>
+  <checkAll refresh="false">
+    <action name="runscript">
+      <param name="activo" />
+      <script language="javascript">
+                var objContent = self.getContents("ContentDatosFiltroMultiseleccion");
+                if (activo == 1) {
+                    var vres = userMsgBox("OPCIONES", "Confirme que desea marcar todos los registros", "2");
+                else
+                    var vres = userMsgBox("OPCIONES", "Confirme que desea DESmarcar todos los registros", "2");
+                }
+    	        if (vres == 1) {
+                    for ( var i=0; i &lt; objContent.count(); i++) {
+                        var item = objContent.get(i);  
+                        if (activo == 1) {
+                            if ( item.MAP_SELECTED == 1 &amp;&amp; item.REALIZADA == 0 ) {
+                                ReportarTareaPendiente2(item);
+                                item.MAP_SELECTED = 0;
+                            }
+                        } else {
+                            if (item.MAP_SELECTED == 1 &amp;&amp; item.REALIZADA == 1 ) {
+                                DesregistrarPendiente2(item);
+                                item.MAP_SELECTED = 0;
+                            }
+
+                        }
+                    }
+    	        }
+                self.executeNode("applyfilter");
+            </script>
+    </action>
+  </checkAll>
+  <applyfilter>
+    <action name="runscript">
+      <script language="javascript">
+                self.getContents("ContentDatosFiltroMultiseleccion").clear();
+                self.getContents("ContentDatosFiltroMultiseleccion").loadAll();
+                ui.refresh("@ContentDatosFiltroMultiseleccion");
+            </script>
+    </action>
+  </applyfilter>
+</coll>

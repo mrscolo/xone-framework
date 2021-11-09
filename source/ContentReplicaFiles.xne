@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentReplicaFiles" fontsize="8" title="ReplicaFiles" show-toolbar="false" notab="true" 
+objname="master_replica_files" updateobj="master_replica_files" progid="ASData.CASBasicDataObj" 
+sql="select * from master_replica_files" cell-bgcolor="#FFFFFF" cell-height="50" show-selected-item="false" check-owner="false" dependent="false" connection="Info_ReplicaFiles" loadall="false" editmask="8" selected-item-start-index="-1">
+      <group name="General" id="1">
+        <frame name="page_contact" width="100%" height="100%" bgcolor="#FFFFFF">
+          <prop name="LICENSE" locked="true" title="Licencia" labelwidth="0" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="14" size="150" type="T" visible="7" />
+          <prop name="FILENAME" locked="true" title="Nombre" labelwidth="0" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="14" size="150" type="T" visible="7" />
+          <prop name="MAP_TLTEXTO" locked="true" align="true" title="Status  |  Porciento  |  B.Tras  |  Total" labelwidth="20" textfont-size="10" labelbox="true" forecolor="#000000" border="true" fieldsize="4" size="150" type="TL" visible="7" />
+          <prop name="STATUS" locked="true" title="Status" align="center" labelwidth="0" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="6" size="150" type="N" visible="7" />
+          <prop name="MAP_CALCULOBLOCK" locked="true" align="center" newline="false" title="Porciento" labelwidth="0" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="6" size="150" type="N" visible="7" />
+          <prop name="BLOCK" locked="true" title="B.Tras" align="center" labelwidth="0" newline="false" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="5" size="150" type="N" visible="7" />
+          <prop name="BLOCKS" locked="true" title="Total" align="center" labelwidth="0" textfont-size="10" forecolor="#000000" text-border="false" fieldsize="4" size="150" type="N" visible="7" newline="false" />
+          <frame name="progress_frame" width="100" height="30" framebox="true" bgcolor="#505050" align="left|center">
+            <prop name="MAP_IMAGEN" locked="true" title="B.Tras" path="./icons/progress.png" width="##FLD_MAP_CALCULOBLOCK##" height="60" labelwidth="0" fieldsize="6" size="150" type="IMG" visible="0" />
+            <frame name="progress_bar" width="##FLD_MAP_CALCULOBLOCK##" height="28" framebox="true" bgcolor="#FF0000" align="left|center">
+              <prop name="MAP_TL" locked="true" title="" labelwidth="1" fieldsize="6" size="150" type="TL" visible="0" />
+            </frame>
+          </frame>
+        </frame>
+        <prop type="B" name="Ok" caption="ENTRAR" visible="true" labelwidth="8" onchange="Refresh255" method="ExecuteNode (click-entrar)" labelfont-bold="true" />
+      </group>
+    </coll>

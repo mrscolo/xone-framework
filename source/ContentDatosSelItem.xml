@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentDatosSelItem" title="mapaDatos" cell-even-color="#FFFFFF" cell-odd-color="#F2F2F2" xloadall="true" sql="select t1.*, t1.NOMBRE as MAP_NOMBRE_GRID, t1.DIRECCION as MAP_DIRECCION_GRID,    replace(t1.LATITUD, ',', '.')  as MAP_LATITUD_GRID,   replace(t1.LONGITUD, ',', '.') as MAP_LONGITUD_GRID from ##PREF##mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj" cell-selected-bgcolor="#C9E5EF">
+  <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="BASICOS" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" fixed="true" orientation="bottom" width="100%" height="7%" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_CANCELAR" type="B" labelwidth="0" width="100%" bgcolor="#00000000" locked="true" />
+  <group name="General" id="1" />
+  <prop group="1" name="IMAGEN" type="IMG" width="115p" height="118p" visible="4" tmargin="2p" lmargin="0" />
+  <frame group="1" name="frm1" newline="false" width="600p" lmargin="5p" height="120p" />
+  <prop group="1" frame="frm1" name="MAP_NOMBRE_GRID" type="T" class="classgrid" />
+  <prop group="1" frame="frm1" name="MAP_DIRECCION_GRID" class="classgrid" type="T" text-forecolor="#666666" textfont-size="5" lines="2" fixed-lines="true" />
+  <frame group="1" name="frm2" />
+  <prop group="1" frame="frm2" name="ID" visible="0" type="N" />
+  <prop group="1" frame="frm2" name="LATITUD" type="N6" title="Latitud" class="classnumber" locked="true" />
+  <prop group="1" frame="frm2" name="LONGITUD" type="N6" title="Longitud" class="classnumber" locked="true" />
+  <prop group="1" frame="frm2" name="NOMBRE" type="T" title="Nombre" class="classT" />
+  <prop group="1" frame="frm2" name="DIRECCION" type="T" title="Dirección" class="classT" locked="true" />
+  <prop group="1" frame="frm2" name="@mapa" title="Mapa" type="Z" visible="1" viewmode="mapview" mapview-embedded="true" contents="mapaDatos" />
+  <contents name="mapaDatos" src="ContentmapaDatos" filter="ID=##FLD_ID##" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage (-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">			
+			self.MAP_GROUP=1;
+			self.MAP_TOTAL_PAGES=1;
+		</script>
+    </action>
+  </before-edit>
+  <selecteditem refresh-owner="MAP_NOMBRESEL,floatadd3,MAP_LINEASEPARAR3" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">	
+          	self.getOwnerCollection().getOwnerObject().MAP_NOMBRESEL=self.NOMBRE;
+			self.getOwnerCollection().getOwnerObject().MAP_IDLINEA=self.getOwnerCollection().getObjectIndex(self);
+			self.getOwnerCollection().getOwnerObject().MAP_SELECTEDID=self.ID;
+		
+		</script>
+    </action>
+  </selecteditem>
+</coll>

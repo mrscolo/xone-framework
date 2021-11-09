@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="EspecialHerencia" title="" filter="" sort="" notab="false" special="true" inherits="groupsFixed" group-swipe="true">
+  <group name="HEADER" id="999" />
+  <frame group="999" name="frmtitulo" class="frmsuperior" />
+  <prop group="999" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Herencia" />
+  <group name="Group1" id="1" />
+  <group name="Group2" id="2" />
+  <include-layout file="EjemploIncludeLayout.xml" group="2" />
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">			
+			    self.MAP_GROUP = 1;
+			    self.MAP_TOTAL_PAGES = 2;
+			    self.MAP_COLOR1 = "#FFFFFF";
+			    self.MAP_COLOR2 = "#000000";
+			    
+		    </script>
+    </action>
+  </before-edit>
+</coll>

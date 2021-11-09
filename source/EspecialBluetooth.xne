@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="EspecialBluetooth" title="" filter="" sort="" special="true" inherits="groupsFixed2">
+   <group name="HEADER" id="999" >
+        <frame name="frmtitulo" class="frmsuperior">
+            <prop name="MENU" type="TL" class="tlsuper" title="BLUETHOOD" />
+        </frame>
+    </group>
+    <group name="General" id="1">
+        <prop name="MAP_HELLOWORD" type="T" title="Hello World3" width="80%" lmargin="10%" visible="7" />
+    </group>
+    
+    <prop name="MAP_COLOR1" type="T" visible="0" />
+    <prop name="MAP_COLOR2" type="T" visible="0" />
+    <before-edit>
+        <action name="runscript">
+            <script language="javascript">			
+			    self.MAP_GROUP = 1;
+			    self.MAP_TOTAL_PAGES = 1;
+			    self.MAP_COLOR1 = "#FFFFFF";
+			    self.MAP_COLOR2 = "#000000";
+		    </script>
+        </action>
+    </before-edit>
+    
+    <onfocusgrupo show-wait-dialog="false" refresh="false" refresh-prop="MAP_LAST,MAP_NEXT,MAP_LAST_EMPTY"> 
+        <action name="runscript">
+            <param name="index" />
+            <script language="javascript">
+      		    self.MAP_GROUP = index;
+		    </script>
+        </action>
+    </onfocusgrupo>
+</coll>

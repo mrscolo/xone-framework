@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialJavascript" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" special="true" group-swipe="true">
+      <group name="HEADER" id="10" class="groupfixed_header">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="JAVASCRIPT" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+      </group>
+      <group name="FOOTER" id="0" class="groupfixed_footer">
+        <prop name="MAP_GROUP" type="N" visible="0" />
+        <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+        <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+          <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+          <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+          <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+        </frame>
+      </group>
+      <group name="Group1" id="1" onfocus="ExecuteNode(onfocusgrupo(1))">
+        <frame name="group1Frame" class="frmtodo" bgcolor="#FFFFFF">
+          <!--<prop name="ET1" type="TL" class="classtl" title="Javascript con fechas" />
+          <prop name="MAP_FECHADMY" class="classdate" type="D" width="90%" title="Tipo D" />
+          <prop name="MAP_FECHAYMD" class="classdate" type="T" width="90%" title="Tipo T" />
+          <prop name="MAP_FECHAHORA" class="classdate" type="DT" width="90%" title="Tipo DT" />-->
+          <prop name="ET11" type="TL" class="classtl" title="Resultado de algunas funciones de fecha" />
+          <frame name="bordetext" framebox="true" bgcolor="#DDDDDD" tmargin="20p" lmargin="2%" width="96%" height="900p" scroll="true">
+            <prop name="MAP_FECHAS" type="T" lines="6" width="96%" bmargin="20p" tmargin="20p" lmargin="2%" lpadding="20p" text-border="true" fontsize="7" labelwidth="0" bgcolor="#FFFFFF" />
+          </frame>
+        </frame>
+      </group>
+      <group name="Group2" id="2" onfocus="ExecuteNode(onfocusgrupo(2))">
+        <frame name="group2Frame" class="frmtodo" bgcolor="#FFFFFF">
+            
+          <prop name="ET21" type="TL" class="classtl" title="Operaciones Javascript con números" />
+          
+          <prop name="MAP_X_TITLE" type="TL" title="X=" width="8%" lmargin="5%"/>
+          <prop name="MAP_X" type="N" class="classnumber" title="X=" labelwidth="0" newline="false" width="10%" />
+          <prop name="MAP_Y_TITLE" type="TL" title="Y=" width="8%" lmargin="5%" newline="false"/>
+          <prop name="MAP_Y" type="N" class="classnumber" title="Y=" labelwidth="0" newline="false" width="10%"/>
+          <prop name="MAP_X2_TITLE" type="TL" title="X2=" width="8%" lmargin="5%" newline="false"/>
+          <prop name="MAP_X2" type="N2" class="classnumber" title="X2=" labelwidth="0" newline="false" width="10%"/>
+          <prop name="MAP_Y2_TITLE" type="TL" title="Y2=" width="8%" lmargin="5%" newline="false"/>
+          <prop name="MAP_Y2" type="N2" class="classnumber" title="Y2=" labelwidth="0" newline="false" width="10%"/>
+          
+          <prop name="ET22" type="TL" class="classtl" title="Resultados" />
+          
+          <prop name="MAP_XMASY_TITLE" type="TL" title="X+Y=" width="15%" lmargin="5%"/>
+          <prop name="MAP_XMASY" type="N" class="classnumber" title="X+Y=" labelwidth="0" newline="false" width="10%"/>
+          <prop name="MAP_XMASY2_TITLE" type="TL" title="X+Y2=" width="15%" lmargin="5%" newline="false"/>
+          <prop name="MAP_XMASY2" type="N2" class="classnumber" title="X+Y2=" labelwidth="0" newline="false" width="10%" />
+          <prop name="MAP_X2MENOSY2_TITLE" type="TL" title="X2-Y2=" width="15%" lmargin="5%" />
+          <prop name="MAP_X2MENOSY2" type="N2" class="classnumber" title="X2-Y2=" labelwidth="0" newline="false" width="10%"/>
+          <prop name="MAP_XENTREY_TITLE" type="TL" title="X/Y=" width="15%" lmargin="5%" newline="false"/>
+          <prop name="MAP_XENTREY" type="N2" class="classnumber" title="X/Y=" labelwidth="0" newline="false" width="10%"/>
+        </frame>
+      </group>
+      <onfocusgrupo show-wait-dialog="false">
+        <action name="runscript">
+          <param name="index" />
+          <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+        </action>
+      </onfocusgrupo>
+      <before-edit>
+        <action name="runscript">
+          <script language="javascript">
+          	self.MAP_GROUP=1;
+          </script>
+        </action>
+        <action name="runscript">
+          <script language="javascript">
+            self.MAP_GROUP=1;
+			self.MAP_TOTAL_PAGES=2;
+			
+			var v=ui.getView(self);
+			
+            self.MAP_X=3;
+            self.MAP_Y=2;
+            self.MAP_X2=3.5;
+            self.MAP_Y2=2.3;
+            
+            self.MAP_XMASY=self.MAP_X+self.MAP_Y;
+            self.MAP_XMASY2=self.MAP_X+self.MAP_Y2;
+            self.MAP_X2MENOSY2=self.MAP_X2-self.MAP_Y2;
+            self.MAP_XENTREY=self.MAP_X/self.MAP_Y;
+			self.MAP_FECHADMY=new Date();
+			self.MAP_FECHAYMD=self.MAP_FECHADMY;
+			self.MAP_FECHAHORA=self.MAP_FECHADMY;
+			
+			</script>
+        </action>
+      </before-edit>
+      <create>
+        <action name="runscript">
+          <script language="javascript">
+          	self.MAP_FECHAS=funcionesFecha();
+          </script>
+        </action>
+      </create>
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+        </action>
+      </onback>
+    </coll>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialButtons" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true" group-swipe="true">
+  <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Botones" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <group name="Group2" id="2" onfocus="ExecuteNode(onfocusgrupo(1))" />
+  <frame group="2" name="group3Frame" width="100%" height="100%" scroll="true" align="center" />
+  <prop group="2" frame="group3Frame" name="PROP1it" class="classT" type="T" visible="7" labelwidth="6" title="Campo 1:" />
+  <prop group="2" frame="group3Frame" name="MAP_ETQCAMPO2" type="TL" visible="1" labelwidth="6" title="Campo 2:" />
+  <frame group="2" frame="group3Frame" name="frmTextoSpeech" height="100p" framebox="true" scroll="true" />
+  <prop group="2" frame="frmTextoSpeech" name="PROP2it" class="classT" type="T" lines="2" visible="7" labelwidth="0" XXXtitle="Campo 2:" />
+  <prop group="2" frame="group3Frame" name="MAP_TXTSPEECH" type="T" text-align="left|top" visible="0" labelwidth="6" />
+  <prop group="2" frame="group3Frame" name="boton0it" forecolor="#000000" bgcolor="#faa61d" border-width="9" type="B" locked="true" class="btnButton" caption="Llenar campos" lpadding="80p" tpadding="0" width="500p" height="200p" />
+  <prop group="2" frame="group3Frame" name="boton1it" forecolor="#000000" type="B" method="ExecuteNode(llenarPropiedadesjava('PROP1it','PROP2it'))" class="btnButton" caption="Llenar campos" lpadding="80p" tpadding="0" img="ic_edit_texto.png" width="500p" height="200p" />
+  <prop group="2" frame="group3Frame" name="boton2it" forecolor="#000000" type="B" method="ExecuteNode(vaciarPropiedadesjava('PROP1it','PROP2it'))" class="btnButton" caption="Vaciar campos" lpadding="80p" tmargin="0" tpadding="0" img="ic_delete_texto.png" width="500p" height="200p" />
+  <prop group="2" frame="group3Frame" name="boton3it" forecolor="#000000" type="B" method="ExecuteNode(leerTexto('en','PROP1it'))" class="btnButton" caption="Leer Campo 1" lpadding="80p" img="ic_edit_texto.png" tmargin="0" tpadding="0" width="500p" height="200p" />
+  <prop group="2" frame="group3Frame" name="boton4it" forecolor="#000000" type="B" method="ExecuteNode(escucharTexto('MAP_TXTSPEECH'))" class="btnButton" caption="Reconocer voz" lpadding="80p" img="ic_delete_texto.png" tmargin="0" tpadding="0" width="500p" height="200p" />
+  <prop group="2" frame="group3Frame" name="MAP_NOTA" type="TL" visible="7" title="* Nota: Para las funciones de leer y escuchar texto se necesita conexión" label-wrap="true" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage(-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+  <onfocusgrupo show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+    </action>
+  </onfocusgrupo>
+  <create show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+      		var testObjectColl = appData.getCollection("ContentTestObject");
+      		testObjectColl.loadAll();
+      		if (testObjectColl.getCount() ===0) {
+	      		var testObject = testObjectColl.createObject();
+	      		
+	      		testObject.CAMPO1= "Campo 1";
+	      		testObject.CAMPO2 = "Campo 2";
+	      		
+	      		testObjectColl.addItem (testObject);
+	      		testObject.save();
+      		}
+		</script>
+    </action>
+  </create>
+  <llenarPropiedadesjava show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <param name="prop1" />
+      <param name="prop2" />
+      <script language="javascript">
+          		//ui.msgBox("SIN WAIT DIALOG","BOTON JAVASCRIPT",0);
+          		//doAuthLogin();
+          		/*
+          		var coll = appData.getCollection("ContentTestObject");
+				coll.startBrowse();
+				var obj = coll.getCurrentItem();
+				self[prop1] = obj["CAMPO1"];
+				self[prop2] = obj["CAMPO2"];
+				coll.endBrowse();
+				*/
+				self[prop1] = "Esto es una prueba";
+				self[prop2] = "Esto también";
+				
+				ui.refresh(prop1,prop2);
+			</script>
+    </action>
+  </llenarPropiedadesjava>
+  <vaciarPropiedadesjava refresh="true">
+    <action name="runscript">
+      <param name="prop1" />
+      <param name="prop2" />
+      <script language="javascript">
+          	    //	ui.msgBox("CON WAIT DIALOG","BOTON JAVASCRIPT",0);
+          	    //doAuthLogout();
+				self[prop1] = "";
+				self[prop2] = "";
+				ui.refresh(prop1,prop2);
+			</script>
+    </action>
+  </vaciarPropiedadesjava>
+  <leerTexto show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <param name="prop1" />
+      <param name="prop2" />
+      <script language="javascript">
+				//ui.speak("es", "hola");
+				ui.speak("en", self[prop2]);
+				ui.refresh(prop2);
+			</script>
+    </action>
+  </leerTexto>
+  <escucharTexto show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <param name="prop1" />
+      <script language="javascript">
+            
+            
+            ui.speak("ES","Diga número de servicio");
+            
+            let jsParams = {
+                
+                    timeout:2,       
+                    language:'es',
+                    showRecording:true,
+                    partialResults:false,
+                    onRecognize: function(sText) {
+                        self[prop1]= sText;
+                        ui.refresh(prop1);
+                        console.log("onRecognize -&gt; " + sText);
+                    },
+                    
+                    onError: function(sError) {
+                        
+                        ui.msgBox("onError(): El error es: " + sError, "Desde callback", 0);
+                        
+                        console.log("onError -&gt; " + sError);
+                    }
+            };
+
+            ui.recognizeSpeech(jsParams);
+    
+			</script>
+    </action>
+  </escucharTexto>
+  <onchange show-wait-dialog="false">
+    <field name="MAP_TXTSPEECH">
+      <action name="runscript">
+        <script language="javascript">
+                        if (self.PROP2it.length&gt;0) {
+        				    self.PROP2it= self.PROP2it + "\n" + self.MAP_TXTSPEECH;
+                        }
+        				else {
+        				    self.PROP2it= self.MAP_TXTSPEECH;
+        				}
+        				ui.refresh("PROP2it");
+        			</script>
+      </action>
+    </field>
+  </onchange>
+  <actualizaSpeech show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <param name="prop1" />
+      <param name="prop2" />
+      <script language="javascript">
+                ui.showToast("Entro en actualizaSpeech"+self[prop1]+self[prop2]);
+		         self[prop1]= self[prop1] + self[prop2];
+                ui.showToast(self[prop1]);
+		         ui.refresh(prop1);
+			</script>
+    </action>
+  </actualizaSpeech>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">		
+			self.MAP_GROUP=1;
+			self.MAP_TOTAL_PAGES=1;
+		</script>
+    </action>
+  </before-edit>
+</coll>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- AFG 16-03-2018 [CHAT] -->
+<coll name="EspecialChat" title="" filter="" sort="" special="true">
+  <!-- Menu fijo -->
+  <group name="HEADER" id="10" class="groupfixed_header">
+    <frame name="frmtitulo_header" class="frmsuperior" bgcolor="#ff0000">
+      <prop name="MAP_SALIR" type="B" class="btvolversuper" lmargin="0" newline="false" />
+      <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+    </frame>
+  </group>
+  <!-- Grupo donde se muestra los chats abiertos , se agregan nuevos chats ... -->
+  <group name="GrupoChats" id="1" height="1160p">
+    <!-- Aqui mostramos los chats -->
+    <frame name="frmTotal" height="100%" width="100%">
+      <!-- Frame superior -->
+      <frame name="frmsuperiortitulo" width="100%" height="96p" tmargin="0">
+        <prop name="MAP_TITULO" type="TL" title="Chats" fontbold="true" forecolor="#333333" width="528p" height="100%" lmargin="96p" align="center" />
+        <!-- Nota AFG: El tmargin negativo se ha puesto porque parece que el frame deja algun margen por defecto-->
+        <!-- boton para agregar nuevos chats -->
+        <prop name="MAP_NUEVO_CHAT" img="icon_new_chat.png" type="B" title="Nuevo chat" labelwidth="0" width="96p" height="96p" tmargin="-6p" newline="false" method="ExecuteNode(AccionesChatEspecial('nuevochat'))" />
+      </frame>
+      <!-- barra de separacin entre el la barra superior y el chat -->
+      <prop name="MAP_SPACE2" visible="7" type="TL" width="720p" height="3p" size="255" bgcolor="#cccccc" title=" " />
+      <!-- chat -->
+      <frame name="frmInfoCentral" height="1061p" width="100%">
+        <prop name="Chat" contents="Chat" viewmode="recyclerview" bgcolor="#ffffff" type="Z" width="100%" height="100%" tmargin="0" lmargin="0" rmargin="0" bmargin="0" />
+        <contents name="Chat" src="Chat" />
+      </frame>
+    </frame>
+    <!-- frame que se visualiza cuando queremos crear un nuevo chats, muestra un listado de los usuarios -->
+    <frame name="frmnuevochat" animation-in-delay="250" animation-out-delay="250" animation-in="##RIGHT_IN##" animation-out="##LEFT_OUT##" disablevisible="MAP_VERFLOTANTE=0" bgcolor="#ffffff" modal="true" floating="true" top="0" left="0" width="100%" height="100%">
+      <!-- Buscador -->
+      <prop name="MAP_BUSCAR_USUARIO_BOTON" img="icon_search.png" locked="true" type="B" visible="1" lmargin="48p" tmargin="24p" bmargin="24p" height="48p" width="48p" />
+      <prop name="MAP_BUSCAR_USUARIO" ontextchanged="javascript:AccionesChatEspecial('textoU',e);" class="buscadorListadoUsuarios" type="T" visible="1" newline="false" />
+      <prop name="MAP_SPACE" visible="7" type="TL" width="720p" height="3p" size="255" bgcolor="#cccccc" title=" " />
+      <!-- Listado de usuarios -->
+      <prop name="@nUsuarios" contents="nUsuarios" mask="31" viewmode="recyclerview" type="Z" visible="1" width="100%" bgcolor="#ffffff" height="1061p" lmargin="0" tmargin="0" />
+      <contents name="nUsuarios" src="UsuariosChat" filter="ID&lt;&gt;##USERID##" />
+    </frame>
+  </group>
+  <!-- grupo donde mostramos la conversacion del chat abierto -->
+  <group name="grupoChatear" id="2" height="1160p">
+    <!-- barra superior donde mostramos el volver, imagen, nombre y un boton para hacer una llamada -->
+    <frame name="frmtitulo" width="100%" height="120p" bgcolor="#ffffff" align="center">
+      <!-- Boton volver -->
+      <prop name="MAP_BTVOLVER" method="ExecuteNode(onback)" lmargin="0" tmargin="0" type="B" width="60p" height="120p" img="icon_back.png" visible="1"></prop>
+      <!-- Imagen del chat -->
+      <prop name="MAP_BTVERGENTE" type="B" visible="1" img="##FLD_MAP_IMGTIPO##" labelwidth="0" lmargin="10p" rmargin="10p" tmargin="20p" bmargin="20p" width="80p" height="80p" newline="false" />
+      <!-- Titulo del chat -->
+      <prop name="MAP_CHATTITULO" text-align="center|left" text-forecolor-disabled="#333333" fontbold="true" type="T" visible="1" labelwidth="0" width="470p" height="120p" locked="true" newline="false" />
+      <!-- Boton de llamada -->
+      <prop name="MAP_BTLLAMADA" img="icon_phone.png" method="executenode(AccionesChatEspecial('llamada'))" bgcolor="#000000" type="B" visible="1" labelwidth="0" lmargin="0" rmargin="10p" tmargin="20p" bmargin="20p" width="80p" height="80p" newline="false" />
+    </frame>
+    <!--Separacion entre la barra superior y el listado de mensajes -->
+    <prop name="MAP_SPACE3" visible="7" type="TL" width="720p" height="3p" size="255" bgcolor="#cccccc" title=" " />
+    <!-- Listado de mensajes -->
+    <frame name="frmChatear" tmargin="0" lmargin="0" width="100%" height="937p" imgbk="##FLD_MAP_FOTO_FONDO##">
+      <frame name="frmContent" tmargin="0" lmargin="0" width="100%" height="937p">
+        <prop name="Chatear" bgcolor="#00000000" contents="Chatear" tmargin="0" lmargin="0" edit-inrow="true" type="Z" width="100%" height="100%" />
+        <contents name="Chatear" src="Chatear" filter="IDCHAT=##FLD_MAP_CHATSEL##" />
+      </frame>
+    </frame>
+    <!-- Separacion entre la lista de mensajes y la barra inferior -->
+    <prop name="MAP_SPACE4" visible="7" type="TL" width="720p" height="3p" size="255" bgcolor="#cccccc" title=" " />
+    <!--Barra inferior-->
+    <frame name="frmMenuW" bgcolor="#ffffff" align="center" width="100%" height="100p" Ximgbk="chatear.png">
+      <!--botones de agregar diverso (Imagenes,localizacion ... ), Texto a enviar, hacer foto, grabar audio -->
+      <frame name="frmNormal" disablevisible="MAP_RECORDON=1">
+        <!-- Boton de agregar varios (Imagenes, localizacion ...) -->
+        <prop name="MAP_ADDOTHER" img="icon_more.png" lmargin="0" tmargin="0" type="B" width="100p" height="100p" visible="1"></prop>
+        <!-- Texto a enviar -->
+        <prop name="MAP_TITLE" lmargin="0" onfocuschanged="javascript:AccionesChatEspecial('foco',e);" labelwidth="0" lines="1" fixed-lines="true" tpadding="10p" bpadding="10p" lpadding="10p" rpadding="10p" text-border="true" border-corner-radius="20" ontextchanged="javascript:AccionesChatEspecial('textoChange',e);" type="T" visible="1" text-bgcolor="#f1f1f1" newline="false" width="424p" height="80p" tmargin="10p" bmargin="10p" />
+        <!-- boton de hacer foto -->
+        <prop name="MAP_ADDFOTO" method="executenode(AccionesChatEspecial('fotoabrir'))" img="icon_camera.png" lmargin="0" tmargin="0" type="B" width="100p" height="100p" newline="false" visible="1" disablevisible="MAP_SHOWADDTEXT=1"></prop>
+        <!-- Boton de grabar audio -->
+        <prop name="MAP_ADDRECORD" disableedit="MAP_RECORDON=1" method="executenode(AccionesChatEspecial('voz'))" img="icon_microphone.png" lmargin="0" tmargin="0" type="B" width="100p" height="100p" newline="false" visible="1" disablevisible="MAP_SHOWADDTEXT=1"></prop>
+      </frame>
+      <!-- botones que aparecen cuando se esta grabando un audio -->
+      <frame name="frmRecording" disablevisible="MAP_RECORDON=0" newline="false">
+        <!--Indicador de que se esta grabando un audio -->
+        <prop name="MAP_ADDRECORD_ON" locked="true" img="icon_microphone_recordon.png" lmargin="0" tmargin="0" type="B" width="100p" height="100p" newline="false" visible="1"></prop>
+        <!-- indicador de tiempo trascurrido mientras se graba el audio-->
+        <prop name="MAP_TIMERECORD" locked="true" lmargin="0" tmargin="0" type="T" labelwidth="0" width="100p" height="100p" visible="1" newline="false"></prop>
+        <!--Boton de cancelar grabacion de audio-->
+        <prop name="MAP_CANCELRECORD" title="Cancelar" method="executenode(AccionesChatEspecial('voz'))" lmargin="0" tmargin="0" newline="false" type="B" labelwidth="1" width="424p" height="100p" bgcolor="#00000000" forecolor="#ff0000" visible="1"></prop>
+      </frame>
+      <!--Boton de enviar (Audio,foto,texto ...)-->
+      <prop name="MAP_ADDTEXT" method="executenode(AccionesChatEspecial('enviar'))" img="icon_send.png" lmargin="0" tmargin="0" type="B" width="100p" height="100p" newline="false" visible="1" disablevisible="MAP_SHOWADDTEXT=0"></prop>
+      <!--<prop name="MAP_BT_ADJUNTAR" method="executenode(AccionesChatEspecial('adjuntar'))" type="B" visible="1" newline="false" bgcolor="#000000" labelwidth="0" width="90p" height="100p" />-->
+      <!--<prop name="MAP_BT_FOTO" method="executenode(AccionesChatEspecial('fotoabrir'))" type="B" visible="1" newline="false" bgcolor="#0000ff" labelwidth="0" width="100p" height="100p" />-->
+      <!--<prop name="MAP_BT_ENVIAR" method="executenode(AccionesChatEspecial('enviar'))" type="B" visible="1" newline="false" bgcolor="#00ff00" labelwidth="0" lmargin="10p" width="90p" height="100p" />-->
+      <prop name="MAP_BANDERA" type="N" visible="0" />
+      <prop name="MAP_ADJUNTO" type="T" visible="0" />
+      <prop name="MAP_ENVIARDATO" type="T" visible="0" />
+    </frame>
+    <frame name="frmMenuW2" align="center" width="100%" height="200p" disablevisible="MAP_ESPACIO=0">
+      <prop name="MAP_ESPACIO" type="N" visible="1" text-bgcolor="#0000ff" text-forecolor="#000000" lmargin="10p" width="430p" locked="true" />
+    </frame>
+  </group>
+  <!-- Aqui meteremos los props invisibles -->
+  <group name="invisibles" id="3">
+    <!-- Aqui guardamos el grupo en el que estamos -->
+    <prop name="MAP_GRUPOSEL" type="T" visible="0" />
+    <!-- Aqui indicamos si queremos ver el frame flotante (Para ver los usuarios y añadir chats), o no -->
+    <prop name="MAP_VERFLOTANTE" type="N" visible="0" />
+    <!-- Aqui guardamos el Usuario logueado, para poder filtrar el contenido que vera (Chats ....) -->
+    <prop name="MAP_USERLOGIN" type="N" visible="0" />
+    <!-- Aqui guardaremos 1/0 dependiendo de si estamos acapturando un sonido o no -->
+    <prop name="MAP_RECORDON" type="N" visible="0" />
+    <!-- Aqui guardaremos el numero de telefono de la persona con la que hemos abierto una charla -->
+    <prop name="MAP_PHONE" type="T" visible="0" />
+    <!-- Indice del chat abierto -->
+    <prop name="MAP_INDICESEL" type="N" visible="0" />
+    <!-- ID del chat abierto -->
+    <prop name="MAP_IDCHATSEL" type="T" visible="0" />
+    <!-- usuario con el que se va a abrir un nuevo chat -->
+    <prop name="MAP_CCUSUARIO" type="T" visible="0" />
+    <!-- Imagen del chat abierto -->
+    <prop name="MAP_IMGTIPO" type="T" visible="0" />
+    <!-- Marca para indicar si se muestra el boton de enviar o no -->
+    <prop name="MAP_SHOWADDTEXT" type="N" visible="0" />
+    <!-- Marca para indicar el tipo de mensaje -->
+    <prop name="MAP_TIPO" type="N" visible="0" />
+    <!-- Aqui guardaremos la foto que queremos enviar -->
+    <prop name="MAP_FOTO" type="T" visible="0" />
+    <!-- Aqui guardaremos el audio que grabemos -->
+    <prop name="MAP_VOZGRABADA" type="T" visible="0" />
+    <!-- Aqui guardaremos la foto que queremos enviar -->
+    <prop name="MAP_FOTO_FONDO" type="T" visible="0" />
+  </group>
+  <!-- nodo que se llama cuando se finaliza la grabacion del audio -->
+  <onrecordfinished>
+    <action name="runscript">
+      <script language="javascript">
+				// AQUI TENGO QU3E GUARDAR EL MENSAJE EN EL CHAT
+				// 0 UNA VEZ, 1 DOS VECES.-1 INDEFINIDAMENTE
+				// ui.playSoundAndVibrate(self.MAP_VOZGRABADA.toString(),"",0);
+              </script>
+    </action>
+  </onrecordfinished>
+  <!-- nodo para aumentar el tiempo trasncurrido mientras se esta grabando un audio -->
+  <onSetTime refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+                setTimeRecording("MAP_TIMERECORD");
+            </script>
+    </action>
+  </onSetTime>
+  <!-- se lanzar antes del pintado -->
+  <before-edit show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+                await inicializeChats();
+            </script>
+    </action>
+  </before-edit>
+  <!-- se lanza despues del pintado -->
+  <after-edit show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+                await lockContents(["Chat","nUsuarios","Chatear"]);
+            </script>
+    </action>
+  </after-edit>
+  <onSetBackground refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="parametro" />
+      <script language="javascript">
+                if(self.MAP_GRUPOSEL==2){
+                    if(self.MAP_FOTO_FONDO=="fondo_chat.png"){
+                        self.MAP_FOTO_FONDO = "fondo_chat2.png";
+                    }else{
+                        self.MAP_FOTO_FONDO = "fondo_chat.png";
+                    }
+                    ui.executeActionAfterDelay("onSetBackground", 60);
+                    ui.refresh("frmChatear");
+                }
+            </script>
+    </action>
+  </onSetBackground>
+  <AccionesChatEspecial show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="parametro" />
+      <script language="javascript" async="true">
+                await AccionesChatEspecial(parametro,null);
+            </script>
+    </action>
+  </AccionesChatEspecial>
+  <abrirDrawer show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="grupo" />
+      <script language="javascript" async="true">
+                if (grupo!=999) {
+                    self.MAP_GRUPOSEL=grupo;
+                    ui.refresh("MAP_GRUPOSEL");
+                }
+                irGrupo(grupo);
+                if (grupo==2) {
+                    // ui.executeActionAfterDelay("onSetBackground", 60);
+                    await fillMessagesContent(await self.getContents("Chatear"),1,25);
+                    ui.refresh("Chatear");
+                }
+            </script>
+    </action>
+  </abrirDrawer>
+  <onback show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+                salir();
+            </script>
+    </action>
+  </onback>
+  <onchange>
+    <field name="MAP_FOTO">
+      <action name="runscript">
+        <script language="javascript" async="true">
+			    	await AccionesChatEspecial('enviar');
+				</script>
+      </action>
+    </field>
+    <field name="MAP_ADJUNTO">
+      <action name="runscript">
+        <script language="javascript" async="true">
+			    	await AccionesChatEspecial('adjuntoguardar',e);
+				</script>
+      </action>
+    </field>
+  </onchange>
+</coll>

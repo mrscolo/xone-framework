@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialColores" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true" group-swipe="true">
+      <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="Colores" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+      </group>
+      <group name="FOOTER" id="0" class="groupfixed_footer">
+        <prop name="MAP_GROUP" type="N" visible="0" />
+        <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+        <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+          <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+          <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+          <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+        </frame>
+      </group>
+      <group name="Group1" id="1">
+        <frame name="group1Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABELTL1" type="TL" class="classtl" title="COLOR EN TEXT" />
+          <prop name="MAP_TEXT1" type="T" labelwidth="11" class="classT" title="Fondo" bgcolor="#00A6FF" />
+          <prop name="MAP_TEXT2" type="T" labelwidth="11" class="classT" title="Fondo deshabilitado" bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_TEXT3" type="T" labelwidth="11" class="classT" title="Fuente" forecolor="#00A6FF" />
+          <prop name="MAP_TEXT4" type="T" labelwidth="11" class="classT" title="Fuente deshabilitada" forecolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_TEXT5" type="T" labelwidth="11" class="classT" title="Fondo texto" text-bgcolor="#00A6FF" />
+          <prop name="MAP_TEXT6" type="T" labelwidth="11" class="classT" title="Fondo texto deshabilitado" label-wrap="true" text-bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_TEXT7" type="T" labelwidth="11" class="classT" title="Fondo texto seleccionado" label-wrap="true" text-bgcolor-focus="#00A6FF" />
+          <prop name="MAP_TEXT8" type="T" labelwidth="11" class="classT" title="Fuente texto" text-forecolor="#00A6FF" />
+          <prop name="MAP_TEXT9" type="T" labelwidth="11" class="classT" title="Fuente texto deshabilitado" label-wrap="true" text-forecolor-disabled="#9A2EFE" locked="true" />
+        </frame>
+      </group>
+      <group name="Group2" id="2">
+        <frame name="group2Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABELTL2" type="TL" class="classtl" title="COLOR EN ETIQUETA" />
+          <prop name="MAP_LABEL1" type="TL" labelwidth="11" class="classT" title="Fondo" bgcolor="#00A6FF" />
+          <prop name="MAP_LABEL2" type="TL" labelwidth="11" class="classT" title="Fondo deshabilitado" bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_LABEL3" type="TL" labelwidth="11" class="classT" title="Fuente" forecolor="#00A6FF" />
+          <prop name="MAP_LABEL4" type="TL" labelwidth="11" class="classT" title="Fuente deshabilitada" forecolor-disabled="#9A2EFE" locked="true" />
+        </frame>
+      </group>
+      <group name="Group3" id="3">
+        <frame name="group3Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABELTL3" type="TL" class="classtl" title="COLOR EN NUMERO" />
+          <prop name="MAP_NUMBER1" type="N" labelwidth="11" class="classT" title="Fondo" bgcolor="#00A6FF" />
+          <prop name="MAP_NUMBER3" type="N" labelwidth="11" class="classT" title="Fuente" forecolor="#00A6FF" />
+          <prop name="MAP_NUMBER4" type="N" labelwidth="11" class="classT" title="Fuente deshabilitada" forecolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_NUMBER5" type="N" labelwidth="11" class="classT" title="Fondo texto" text-bgcolor="#00A6FF" />
+          <prop name="MAP_NUMBER6" type="N" labelwidth="11" class="classT" title="Fondo texto deshabilitado" label-wrap="true" text-bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_NUMBER7" type="N" labelwidth="11" class="classT" title="Fondo texto seleccionado" label-wrap="true" text-bgcolor-focus="#00A6FF" />
+          <prop name="MAP_NUMBER8" type="N" labelwidth="11" class="classT" title="Fuente texto" text-forecolor="#00A6FF" />
+          <prop name="MAP_NUMBER9" type="N" labelwidth="11" class="classT" title="Fuente texto deshabilitado" label-wrap="true" text-forecolor-disabled="#9A2EFE" locked="true" />
+        </frame>
+      </group>
+      <group name="Group4" id="4">
+        <frame name="group4Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABELTL4" type="TL" class="classtl" title="COLOR EN FECHA" />
+          <prop name="MAP_DATE1" type="D" labelwidth="11" class="classT" title="Fondo" bgcolor="#00A6FF" />
+          <prop name="MAP_DATE2" type="D" labelwidth="11" class="classT" title="Fondo deshabilitado" bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_DATE3" type="D" labelwidth="11" class="classT" title="Fuente" forecolor="#00A6FF" />
+          <prop name="MAP_DATE4" type="D" labelwidth="11" class="classT" title="Fuente deshabilitada" forecolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_DATE5" type="D" labelwidth="11" class="classT" title="Fondo texto" text-bgcolor="#00A6FF" />
+          <prop name="MAP_DATE6" type="D" labelwidth="11" class="classT" title="Fondo texto deshabilitado" label-wrap="true" text-bgcolor-disabled="#9A2EFE" locked="true" />
+          <prop name="MAP_DATE7" type="D" labelwidth="11" class="classT" title="Fondo texto seleccionado" label-wrap="true" text-bgcolor-focus="#00A6FF" />
+          <prop name="MAP_DATE8" type="D" labelwidth="11" class="classT" title="Fuente texto" text-forecolor="#00A6FF" />
+          <prop name="MAP_DATE9" type="D" labelwidth="11" class="classT" title="Fuente texto deshabilitado" label-wrap="true" text-forecolor-disabled="#9A2EFE" locked="true" />
+        </frame>
+      </group>
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+	      	appData.failWithMessage (-11888,"##EXIT##");
+	      </script>
+        </action>
+      </onback>
+      <!--
+      <ir show-wait-dialog="false">
+        <action name="runscript">
+          <param name="index" />
+          <script language="javascript">
+      		ui.showGroup (index,"##ALPHA_IN##",500,"##ALPHA_OUT##",500);
+      		self.MAP_GROUP = index;
+		</script>
+        </action>
+      </ir>
+      <anterior show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+      		if (self.MAP_GROUP &gt; 1)
+      			self.executeNode ("ir", self.MAP_GROUP - 1);
+		</script>
+        </action>
+      </anterior>
+      <siguiente show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+      		if (self.MAP_GROUP &lt; self.MAP_TOTAL_PAGES)
+      			self.executeNode ("ir", self.MAP_GROUP + 1);
+		</script>
+        </action>
+      </siguiente>
+      -->
+      <before-edit>
+        <action name="runscript">
+          <script language="javascript">			
+			self.MAP_GROUP=1;
+			self.MAP_TEXT1="Texto";	
+			self.MAP_TEXT2="Texto";	
+			self.MAP_TEXT3="Texto";	
+			self.MAP_TEXT4="Texto";	
+			self.MAP_TEXT5="Texto";	
+			self.MAP_TEXT6="Texto";	
+			self.MAP_TEXT7="Texto";	
+			self.MAP_TEXT8="Texto";	
+			self.MAP_TEXT9="Texto";	
+			self.MAP_DATE1= new Date();	
+			self.MAP_DATE2= new Date();
+			self.MAP_DATE3= new Date();	
+			self.MAP_DATE4= new Date();
+			self.MAP_DATE5= new Date();
+			self.MAP_DATE6= new Date();
+			self.MAP_DATE7= new Date();
+			self.MAP_DATE8= new Date();	
+			self.MAP_DATE9= new Date();
+			self.MAP_TOTAL_PAGES=4;
+		</script>
+        </action>
+      </before-edit>
+    </coll>

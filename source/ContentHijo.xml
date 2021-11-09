@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentHijo" title="mapaDatos" loadall="true" sql="select t1.* from ##PREF##mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj">
+  <group name="General" id="1" />
+  <frame group="1" name="frmG" width="640p" lmargin="80p" bgcolor="#ffffff" />
+  <prop group="1" frame="frmG" name="NOMBRE" textfont-bold="true" text-forecolor="#666666" type="T" class="classgrid" lmargin="20p" tmargin="20p" rmargin="20p" />
+  <prop group="1" frame="frmG" name="DIRECCION" height="90p" class="classgrid" type="T" lmargin="30p" bmargin="20p" text-forecolor="#666666" textfont-size="5" lines="2" fixed-lines="true" />
+  <prop group="1" frame="frmG" name="IDPADRE" type="N" visible="0" mapcol="ContentPadre" mapfld="ID" />
+  <load>
+    <action name="runscript">
+      <script language="javascript">
+		 	self.MAP_ICON = "add.png";
+		  </script>
+    </action>
+  </load>
+  <selecteditem>
+    <action name="runscript">
+      <script language="javascript">
+				//ui.msgBox("selec","aviso",0);
+			</script>
+    </action>
+  </selecteditem>
+</coll>

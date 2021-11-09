@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentFileManager" title="XoneCollvacia" notab="true" cell-even-color="#FFFFFF" cell-odd-color="#F2F2F2" sql="select * from ##PREF##incidencias" objname="incidencias" updateobj="incidencias" progid="ASData.CASBasicDataObj">
+  <group name="HEADER" id="10" class="groupfixed_header">
+    <frame name="frmtitulo" class="frmsuperior">
+      <prop name="SALIR" type="B" class="btvolversuper" />
+      <prop name="MENU" type="TL" class="tlsuper" title="FileManager" />
+      <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+    </frame>
+  </group>
+  <group name="General" id="1">
+    <prop name="TITULO" type="T" class="classT" title="Titulo: " visible="7" bmargin="10p" />
+    <prop name="FECHA" type="D" class="classdate" title="Fecha: " visible="7" bmargin="10p" />
+    <prop name="DESCRIPCION" type="T" class="classT" title="Descripcion: " lines="5" fixed-lines="true" visible="1" />
+    <prop type="B" name="MAP_BTNFOTO" img="bt_camera.png" width="100p" height="100p" method="ExecuteNode(camera)" tmargin="20p" bmargin="20p" lmargin="30p" />
+    <prop type="B" name="MAP_BTNPICKFILE" img="bt_attach.png" width="100p" height="100p" method="ExecuteNode(pick)" newline="false" tmargin="20p" bmargin="20p" lmargin="30p" />
+    <prop name="MAP_IMAGENES" type="Z" contents="imagenes" class="contentgridview" width="100%" height="400p" />
+    <contents name="imagenes" src="ContentFileManagerImagen" filter="IDINCIDENCIA=##ID##" />
+    <prop name="BTGRABAR" type="B" img="guardar.png" title="guardar" tpadding="100p" width="200p" height="200p" method="ExecuteNode(guardar)" />
+    <prop name="BTNBORRAR" type="B" newline="false" width="130px" height="130px" lmargin="30p" img="cancelar_foto.png" disablevisible="MAP_IDFOTO=0" method="ExecuteNode(eliminarFoto(##FLD_MAP_IDFOTO##))" />
+  </group>
+  <group name="invisible" id="0">
+    <prop name="MAP_IDFOTO" type="N" visible="0" />
+    <prop name="MAP_FOTO" type="T" visible="0" />
+    <prop name="MAP_NOMBREFOTO" type="T" visible="0" />
+  </group>
+  <insert>
+    <action name="link" coll="imagenes" field="IDINCIDENCIA" value="##ID##" />
+  </insert>
+  <create>
+    <action name="runscript">
+      <script language="javascript">
+				self.MAP_COLORACTIVO = "#666666";
+			</script>
+    </action>
+  </create>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">
+				self.MAP_COLORACTIVO = "#666666";
+			</script>
+    </action>
+  </before-edit>
+  <onchange>
+    <field name="MAP_FOTO">
+      <action name="runscript">
+        <script language="javascript" async="true">
+					var cImagen = await self.getContents("imagenes");
+					var objImagen = await cImagen.createObject();
+					objImagen.FOTO = self.MAP_FOTO;
+					objImagen.FECHA = formatDateTime(new Date(),0);
+					if ( self.ID &gt; 0 ){
+						objImagen.IDINCIDENCIA = self.ID;
+					}
+					cImagen.addItem(objImagen);
+					await objImagen.save();
+            		ui.getView(self).refresh("MAP_IMAGENES");
+				</script>
+      </action>
+    </field>
+  </onchange>
+  <camera show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	          	ui.startCamera("MAP_FOTO","photo");
+		  </script>
+    </action>
+  </camera>
+  <pick show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+                //Solo los 2 primeros son obligatorios
+                //ui.pickFile('Prop destino','Extensiones permitidas',Solo fotos,'Ruta inicial',No permite rutas superiores a la inicial;
+                //ui.pickFile("MAP_ADJUNTORESPUESTA","*.jpg;*.png",false,"##FILESPATH##",1);
+                //ui.pickFile("MAP_ADJUNTORESPUESTA","*.jpg;*.png",false,"/sdcard/DCIM/Camera",1);
+                ui.pickFile('MAP_FOTO','', true);
+		  </script>
+    </action>
+  </pick>
+  <guardar refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+				await self.save();
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </guardar>
+  <eliminarFoto refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript" async="true">
+				var collCont = await self.getContents("imagenes");
+	            if( collCont != null &amp;&amp; collCont != "undefined"){
+		            var obj = createObject("FileManager");
+		            var res = obj.fileExists(self.MAP_NOMBREFOTO);
+					if(res == 0){
+						  obj.delete(self.MAP_NOMBREFOTO);
+						  //si se pasa una cadena borra el id 
+						  //si se pasa un entero borra el indice del array del contents (Empieza por 0)
+						  //En este caso el parámetro viene como cadena
+						  collCont.deleteItem(index);
+					}else{
+						await ui.msgBox("El fichero no existe","Aviso",0)
+					}
+		          	ui.getView(self).refresh("MAP_IMAGENES");
+	            }
+			</script>
+    </action>
+  </eliminarFoto>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

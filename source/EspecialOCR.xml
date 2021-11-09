@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialOCR" special="true" notab="true">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="PERIFERICOS" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="General" id="1" />
+  <frame group="1" name="todo" width="100%" height="100%" align="center" scroll="true" />
+  <prop group="1" frame="todo" type="T" name="MAP_IMAGENESDATA" mapcol-values="1.jpg,2.jpg,3.jpg,4.jpg,5.jpg,6.jpg,7.jpg,8.jpg,9.jpg,10.jpg,OCR 1.jpg" visible="0" />
+  <prop group="1" frame="todo" type="T" name="MAP_SELECTORIMAGENES" img-width="48p" img-height="48p" linkedto="MAP_IMAGENESDATA" linkedfield="DATA" onchange="refresh(MAP_SELECTORIMAGENES)" showinline="true" visible="1" labelwidth="10" width="100%" title="Seleccionar imagen" tmargin="0" />
+  <prop group="1" frame="todo" type="PH" name="MAP_IMAGEN" img-width="48p" img-height="48p" visible="1" labelwidth="0" width="100%" height="50%" />
+  <prop group="1" frame="todo" type="T" name="MAP_MATRICULA" visible="1" labelwidth="10" width="100%" title="Matrícula" />
+  <prop group="1" frame="todo" type="TL" name="MAP_TEXTOLABEL" visible="1" labelwidth="10" align="center" labelbox="false" width="100%" title="Texto OCR" />
+  <prop group="1" frame="todo" type="T" name="MAP_TEXTO" visible="1" labelwidth="0" width="100%" />
+  <prop group="1" frame="todo" type="B" name="MAP_ESCANEARMATRICULA" title="Escanear (matrícula)" method="ExecuteNode(escanearMatricula)" width="100%" height="10%" labelwidth="10" />
+  <prop group="1" frame="todo" type="B" name="MAP_ESCANEAROCR" title="Escanear (OCR)" method="ExecuteNode(escanearOcr)" width="100%" height="10%" labelwidth="10" />
+  <onchange refresh="false">
+    <field name="MAP_SELECTORIMAGENES">
+      <action name="runscript">
+        <script language="javascript">
+					ui.sleep(5);
+					self.MAP_IMAGEN = self.MAP_SELECTORIMAGENES;
+					ui.refresh("MAP_IMAGEN");
+				</script>
+      </action>
+    </field>
+  </onchange>
+  <escanearMatricula refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				var result = EscanearMatricula(self.MAP_IMAGEN);
+				self.MAP_MATRICULA = result;
+				ui.refresh("MAP_MATRICULA");
+			</script>
+    </action>
+  </escanearMatricula>
+  <escanearOcr refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				var result = EscanearTexto(self.MAP_IMAGEN);
+				self.MAP_TEXTO = result;
+				ui.refresh("MAP_TEXTO");
+			</script>
+    </action>
+  </escanearOcr>
+  <escanearMatriculaVbscript refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				result = EscanearMatricula(self.MAP_IMAGEN);
+				self.MAP_MATRICULA = result;
+				ui.refresh("MAP_MATRICULA");
+			</script>
+    </action>
+  </escanearMatriculaVbscript>
+  <escanearOcrVbscript refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				result = EscanearTexto(self.MAP_IMAGEN);
+				self.MAP_TEXTO = result;
+				ui.refresh("MAP_TEXTO");
+			</script>
+    </action>
+  </escanearOcrVbscript>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888, "##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

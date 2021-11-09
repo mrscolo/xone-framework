@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentDatosOnlineJSON" title="mapaDatos" loadall="true" cell-odd-color="#FFFFFF" cell-even-color="#F2F2F2" 
+sql="select t1.*,t1.NOMBRE as MAP_NOMBRE_GRID, t1.DIRECCION as MAP_DIRECCION_GRID,  concat('http://xoneisp.com/XOneJSONAllbyXOne/files/',t1.IMAGEN) as MAP_IMAGEN 
+from gen_mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj" connection="json">
+      
+      <group name="General" id="1">
+        <prop name="MAP_IMAGEN" type="IMG" width="115p" height="118p" visible="4" tmargin="2p" lmargin="0" />
+        <frame name="frm1" newline="false" width="600p" lmargin="5p" height="120p">
+          <prop name="MAP_NOMBRE_GRID" type="T" class="classgrid" />
+          <prop name="MAP_DIRECCION_GRID" class="classgrid" type="T" text-forecolor="#666666" textfont-size="5" lines="2" fixed-lines="true" />
+        </frame>
+        <prop name="NOMBRE" type="T" visible="1" title="Nombre" class="classT" />
+        <prop name="DIRECCION" class="classTMultiline" type="T" title="Dirección" visible="1" locked="true" />
+        <prop name="LATITUD" type="N6" title="Latitud" visible="1" locked="true" />
+        <prop name="LONGITUD" type="N6" title="Longitud" visible="1" locked="true" />
+      </group>
+    </coll>

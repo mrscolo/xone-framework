@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentRefreshContentRow" title="mapaDatos" sql="select t1.* from ##PREF##mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj">
+  <group name="General" id="1" />
+  <prop group="1" name="IMAGEN" type="IMG" width="115p" heightx="118p" visible="4" tmargin="2p" lmargin="0" locked="true" />
+  <frame group="1" name="frm1" newline="false" width="600p" lmargin="5p" heightx="120p" />
+  <prop group="1" frame="frm1" name="NOMBRE" type="T" locked="true" class="classgrid" />
+  <selecteditem refresh-owner="MAP_TITULO2,MAP_LINEA,MAP_LINEA2" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				self.getOwnerCollection().getOwnerObject().MAP_TITULO2 = self.NOMBRE;
+				self.getOwnerCollection().getOwnerObject().MAP_LINEA = self.getOwnerCollection().getObjectIndex(self);
+				self.getOwnerCollection().getOwnerObject().MAP_LINEA2 = self.ID;
+			//	self.getOwnerCollection().getOwnerObject().MAP_OBJETO_HIJO = self;
+			</script>
+    </action>
+  </selecteditem>
+</coll>

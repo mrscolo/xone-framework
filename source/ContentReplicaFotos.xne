@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentReplicaFotos" title="la busqueda de situacion ultima" sql="select d.* from ##PREF##incidenciasimagen d" objname="incidenciasimagen" 
+updateobj="incidenciasimagen" show-toolbar="false" check-owner="false" dependent="false" progid="ASData.CASBasicDataObj" loadall="false" withopen="true" 
+readonly="true">
+      <group name="General" id="1">
+        <prop name="FECHA" labelwidth="0" visible="4" type="T" />
+        <prop name="FOTO" type="IMG" width="400p" height="300p" visible="4" />
+      </group>
+    </coll>

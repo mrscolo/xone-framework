@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xml>
+    <prop name="MAP_TITULO_IL" type="TL" class="classtl" title="Estos props estan insertados con un include Layout." label-wrap="true" visible="1" method="ExecuteNode(salir)" width="100%" height="20%" labelwidth="10" tmargin="0" />
+  	<prop name="MAP_SALIR_IL" type="B" title="Boton" visible="1" method="ExecuteNode(salir)" width="100%" height="20%" labelwidth="10" tmargin="0" />
+  	<salir refresh="false">
+    		<action name="runscript" type="runscript">
+      			<script language="javascript">
+    				ui.showToast("ejecuto un mensaje");
+			    </script>
+    		</action>
+  	</salir>
+</xml> 

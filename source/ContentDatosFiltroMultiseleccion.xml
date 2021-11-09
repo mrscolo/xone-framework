@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes"?>
+<coll name="ContentDatosFiltroMultiseleccion" title="mapaDatos" cell-even-color="#FFFFFF" cell-odd-color="#F2F2F2" sql="select t1.*, t1.NOMBRE as MAP_NOMBRE_GRID, t1.DIRECCION as MAP_DIRECCION_GRID, t1.IMAGEN as MAP_IMAGEN_GRID from ##PREF##mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj">
+  <group name="General" id="1" />
+  <frame group="1" name="grid" class="cellframe" width="98%" lmargin="1%" height="-2" />
+  <frame group="1" frame="grid" name="grid11" width="10%" height="-2" />
+  <prop group="1" frame="grid11" name="MAP_IMAGEN_GRID" locked="true" width="98%" XXXclass="camposvistagrid" visible="4" lmargin="1%" labelwidth="0" type="IMG" />
+  <frame group="1" frame="grid" name="grid12" width="60%" height="-2" />
+  <prop group="1" frame="grid12" name="MAP_NOMBRE_GRID" locked="true" width="98%" XXXclass="camposvistagrid" visible="4" lmargin="1%" text-forecolor="#4B4D4F" labelwidth="0" type="T" />
+  <prop group="1" frame="grid12" name="MAP_DIRECCION_GRID" locked="true" width="98%" XXXclass="extendsprop camposvistagrid text-color-accent-dark" visible="4" lmargin="1%" labelwidth="0" type="T" />
+  <prop group="1" frame="grid" name="MAP_PUSHVALUE" XXXmethod="ExecuteNode(openColl)" type="B" visible="4" width="90%" height="70p" lmargin="-80%" bgcolor="#33000000" labelwidth="0" newline="false" />
+  <prop group="1" frame="grid" name="MAP_SELECTED" type="NC" visible="4" width="10%" height="60p" xlmargin="8%" labelwidth="0" newline="false" />
+</coll>

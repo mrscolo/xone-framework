@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes"?>
+<coll name="ImageDrawing" title="" notab="true" editmask="0" sql="SELECT * FROM GEN_USUARIOS">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="IMAGENDRAWING" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+  <group name="General" id="1" />
+  <frame group="1" name="group1Frame" class="frmtodo" height="1040p" bgcolor="#FFFFFF" align="top|center" />
+  <prop group="1" frame="group1Frame" name="MAP_IMG" type="IMG" visible="7" lines="2" class="classtl" align="center" width="45%" height="40%" lmargin="30p" tmargin="16p" />
+  <prop group="1" frame="group1Frame" name="MAP_BT_CAMBIOIMAGEN" type="B" method="ExecuteNode(LanzarFirma)" title="Lanzar Firma" width="330p" visible="1" class="btnButton" align="center" />
+  <prop group="1" frame="group1Frame" name="MAP_IMG2" type="IMG" visible="7" lines="2" class="classtl" align="center" width="45%" height="40%" lmargin="31p" tmargin="18p" />
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript"> 
+                self.MAP_IDIOMA = "es-ES";
+    			self.MAP_VALORVER=1;
+    			self.MAP_GROUP=1;
+    			self.MAP_IMAGE2="hrio.jpg";	
+    			self.MAP_TOTAL_PAGES=1;
+    			self.MAP_IMG= "SplashbyXOne.jpg";
+            </script>
+    </action>
+  </before-edit>
+  <LanzarFirma>
+    <action name="runscript">
+      <script language="javascript">
+                ui.showToast(appData.filesPath + "splash.png");
+                ui.startSignature("MAP_IMG", 640, 480);
+            </script>
+    </action>
+  </LanzarFirma>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage (-11888, "##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

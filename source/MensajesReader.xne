@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="MensajesReader" title="MensajesUsuarios"
+    sql="SELECT * FROM ##PREF##chatear" 
+    objname="chatear" 
+    updateobj="chatear" 
+    progid="ASData.CASBasicDataObj" 
+    Xfilter="(IDUSUARIOTO=##USER_LOGIN## OR IDUSUARIOFROM=##USER_LOGIN##)">
+      <!-- Esta coleccion la usamos para guardar los mensaje en base de datos -->
+      <group name="General" id="1">
+        <frame name="contenedor">
+            <prop name="ID" type="N" visible="0" />
+            <!-- ID del chat con el sabemos a que conversacion pertenece este mensaje -->
+    		<prop name="IDCHAT" type="N" visible="0"  />
+    		<!-- LOGIN del usuario quien ha mandado el mensaje -->
+            <prop name="USUARIOFROM" type="T" visible="0" size="60" />
+            <!-- LOGIN del usuario al que va dirigido el mensaje -->
+            <prop name="USUARIOTO" type="T" visible="0" size="60"/>
+            <!-- FECHA de cuando se ha enviado el mensaje -->
+            <prop name="FECHA" type="DT" visible="0" size="20"/>
+            <!-- Marca para saber si se ha leido el mensaje -->
+            <prop name="LEIDO" type="N" visible="0" />
+            <!-- texto que se manda -->
+            <prop name="MENSAJE" type="T" visible="0" size="1024"/>
+            <!-- aqui indicamos el tipo de mensaje que se manda (texto,imagen,audio,documento...) 
+                0 - texto,
+                1 - imagen,
+                2 - audio,
+                3 - documento,
+                4 - otro
+            -->
+            <prop name="TIPO" type="N" visible="0" /> 
+        </frame>
+      </group>
+</coll>

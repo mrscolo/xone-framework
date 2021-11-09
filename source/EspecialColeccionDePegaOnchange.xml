@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes"?>
+<coll name="EspecialColeccionDePegaOnchange" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true">
+  <group name="General" id="1" width="100%" height="100%" imgbk="wallpaper.jpg" />
+  <frame group="1" name="frmdePega" align="top|center" />
+  <prop group="1" frame="frmdePega" name="TEXT" type="TL" label-wrap="true" tmargin="50p" title="Esta coleccion ha sido lanzada con pushvalue con el unico proposito de volver para atras, que se ejecute el postonchange y sume 100 al numero que habia al lanzarla" labelbox="false" width="700p" />
+  <prop group="1" frame="frmdePega" name="VOLVER" type="B" method="ExecuteNode(onback)" title="Volver" align="center" tmargin="100p" width="300p" height="100p" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">		
+                appData.getCurrentEnterprise().setVariables("MAP_REFRESCOPOSONCHANGE",1);
+				appData.failWithMessage(-11888, "##EXIT##");
+				
+			</script>
+    </action>
+  </onback>
+</coll>

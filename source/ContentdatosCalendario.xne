@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentdatosCalendario" title="calendario" xloadall="true" sql="select t1.ID,t1.FECHA,t1.TIPO,t1.DESCRIPCION,  case    when TIPO='Info: Azul' then '#8AA3FB'    when TIPO='Visita: Naranja' then '#FBCC8A'   when TIPO='Pedido: Verde' then '#8AFB95'  end as MAP_COLORVIEW,   case    when t1.HORAINI is null then '19:00'   else HORAINI end as HORAINI, case    when t1.HORAFIN is null then '23:00'  else HORAFIN end as HORAFIN, t1.FECHA as MAP_FECHA, t1.DESCRIPCION as MAP_DESCRIPCION from ##PREF##tareas t1" objname="tareas" updateobj="tareas" progid="ASData.CASBasicDataObj">
+  <group name="HEADER" id="10" class="groupfixed_header">
+    <frame name="frmtitulo" class="frmsuperior">
+      <prop name="SALIR" type="B" class="btvolversuper" />
+      <prop name="MENU" type="TL" class="tlsuper" title="DATOS CALENDARIO" />
+      <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+    </frame>
+  </group>
+  <group name="FOOTER" id="0" class="groupfixed_footer">
+    <prop name="MAP_IDLINEA" type="N" visible="0" />
+    <prop name="MAP_GROUP" type="N" visible="0" />
+    <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+    <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+      <prop name="MAP_CANCELAR" type="B" labelwidth="0" width="100%" bgcolor="#00000000" locked="true" />
+    </frame>
+  </group>
+  <group name="General" id="1">
+    <frame name="frmgrid" width="100%">
+      <prop name="MAP_FECHA" type="D" visible="4" labelwidth="0" width="200p" text-align="center" textfont-size="8" />
+      <prop name="MAP_DESCRIPCION" type="T" visible="4" labelwidth="0" width="520p" text-align="center" textfont-size="8" newline="false" />
+    </frame>
+    <frame name="frmTitleCalendario" height="100%" align="center|top" width="96%" lmargin="2%" animation-in="##PUSH_IN##" animation-out="##ROTATE3D_OUT##">
+      <prop name="FECHA" type="D" visible="1" datefrom="true" dateto="true" title="Fecha:" class="classdate" />
+      <prop name="MAP_TIPO" type="T" mapcol-values="Info: Azul,Visita: Naranja,Pedido: Verde" visible="0" />
+      <prop name="HORAINI" type="TT" mask="Hh#:#Mm" visible="1" timefrom="true" title="Hora Inicio:" class="classtime" />
+      <prop name="HORAFIN" timeto="true" type="TT" visible="1" mask="Hh#:#Mm" title="Hora Fin:" class="classtime" />
+      <prop name="TIPO" type="T" showinline="true" class="classT" visible="1" title="Tipo:" linkedto="MAP_TIPO" linkedfield="DATA" onchange="refresh(TIPO)" />
+      <prop name="DESCRIPCION" type="T" visible="1" title="Descripción:" class="classTMultiline" />
+      <prop name="MAP_COLORVIEW" type="T" visible="0" colorview="true" />
+      <prop name="MAP_BUTCANCELAR" type="B" caption="CANCELAR" class="btnButton" method="ExecuteNode(onback)" />
+      <prop name="MAP_BUTACEPTAR" type="B" caption="ACEPTAR" class="btnButton" method="ExecuteNode(guardar)" newline="false" />
+    </frame>
+    <!--<frame name="floatadd1" top="900p" left="610p" width="90p" height="90p" floating="true">
+          <prop name="BTADD1" type="B" visible="1" labelwidth="0" method="ExecuteNode(addcalendario)" width="75p" img="add.png" imgsel="add_click.png" />
+        </frame>-->
+  </group>
+  <befored-edit>
+    <action name="runscript">
+      <script language="javascript">
+				self.MAP_COLORACTIVO = "#666666";
+			</script>
+    </action>
+  </befored-edit>
+  <create>
+    <action name="runscript">
+      <script language="javascript">
+				self.MAP_COLORACTIVO = "#666666";
+			</script>
+    </action>
+  </create>
+  <ondateselected refresh="true" show-wait-dialog="false" refresh-owner="MAP_FECHA,MAP_TITLE_NAME_MES,MAP_TITLE_ANO,BEdit,BDelete">
+    <action name="runscript">
+      <param name="DATEVALUE" />
+      <param name="TIMEVALUE" />
+      <param name="EVENTVALUE" />
+      <script language="javascript" async="true">
+                var monthName = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				selfDataColl.getOwnerObject().MAP_FECHA = DATEVALUE;
+				selfDataColl.getOwnerObject().MAP_TITLE_NAME_MES = monthName[DATEVALUE.getMonth()].toString().toUpperCase();
+				selfDataColl.getOwnerObject().MAP_TITLE_ANO = DATEVALUE.getFullYear().toString();
+				var coll = await appData.getCollection("ContentTareas");
+				var obj;
+				if (appData.getGlobalMacro("##DEVICE_OS##")==="web") {
+				    obj = await coll.findObject("DATE_FORMAT(t1.FECHA, '%M %d %Y')=DATE_FORMAT('" + DATEVALUE.toString() + "','%M %d %Y')");
+				} else {
+				    obj = await coll.findObject("strftime('%Y-%m-%d',t1.FECHA)=strftime('%Y-%m-%d','" + DATEVALUE.toString() + "')");
+				}
+				
+				
+				if ( obj == null){
+					selfDataColl.getOwnerObject().MAP_IDTAREASELECTED= 0;
+					selfDataColl.getOwnerObject().MAP_VER= 0;
+				}else{
+					selfDataColl.getOwnerObject().MAP_IDTAREASELECTED = obj.ID;
+					selfDataColl.getOwnerObject().MAP_SELECCIONADO = obj.MAP_DESCRIPCION;
+					selfDataColl.getOwnerObject().MAP_VER = 1;
+				}
+			</script>
+    </action>
+  </ondateselected>
+  <onpageselected refresh="true" show-wait-dialog="false" refresh-owner="MAP_FECHA,MAP_TITLE_NAMES_MES,MAP_TITLE_ANO,BEdit,BDelete">
+    <action name="runscript">
+      <param name="DATEVALUE" />
+      <param name="CURRENT" />
+      <param name="DATEFROM" />
+      <param name="TOTALDAYS" />
+      <script language="javascript">
+				var monthName = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				selfDataColl.getOwnerObject().MAP_FECHA = DATEVALUE;
+				selfDataColl.getOwnerObject().MAP_TITLE_NAME_MES = monthName[DATEVALUE.getMonth()].toString().toUpperCase();
+				selfDataColl.getOwnerObject().MAP_TITLE_ANO = DATEVALUE.getFullYear().toString();
+				selfDataColl.getOwnerObject().MAP_VER = 0;
+			</script>
+    </action>
+  </onpageselected>
+  <!--<addcalendario show-wait-dialog="false" refresh="true">
+        <action name="runscript">
+          <script language="javascript">    	
+				var fechainicio = Date.parse(formatDateTime(self.FECHA,2) + " " + self.HORAINI + ":00");
+				var fechafin = Date.parse(formatDateTime(self.FECHA,2) + " " + self.HORAFIN + ":00");
+				ui.addCalendarItem("Titulo Tarea byXOne:" + self.TIPO.toString(),"Descripción: " + self.DESCRIPCION.toString(),"Lugar del Evento",fechainicio,fechafin);    
+			</script>
+        </action>
+      </addcalendario>-->
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </onback>
+  <guardar show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+				await self.save();
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </guardar>
+</coll>

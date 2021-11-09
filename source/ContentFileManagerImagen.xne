@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentFileManagerImagen" title="XoneCollvacia" sql="select * from ##PREF##incidenciasimagen" objname="incidenciasimagen" updateobj="incidenciasimagen" 
+progid="ASData.CASBasicDataObj" dependent="true" check-owner="true">
+      <group name="General" id="1">
+        <prop name="IDINCIDENCIA" type="N" visible="0" />
+        <prop name="FOTO" type="IMG" visible="7" />
+        <prop name="FECHA" type="T" visible="0" />
+      </group>
+      <create>
+        <action name="setfldval" targetfld="IDINCIDENCIA" sourcefld="ID" />
+      </create>
+      <selecteditem refresh-owner="MAP_IDFOTO,BTNBORRAR,MAP_NOMBREFOTO" show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">		
+				self.getOwnerCollection().getOwnerObject().MAP_IDFOTO = self.ID;
+				self.getOwnerCollection().getOwnerObject().MAP_NOMBREFOTO = self.FOTO;
+			</script>
+        </action>
+      </selecteditem>
+    </coll>

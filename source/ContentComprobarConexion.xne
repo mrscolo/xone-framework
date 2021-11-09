@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentComprobarConexion" title="XoneCollvacia" 
+sql="select ##COMPROBAR_CONEXION## from gen_empresa" connection="json_comprobar" objname="ComprobarConexion" updateobj="ComprobarConexion" progid="ASData.CASBasicDataObj">
+      <connection name="json_comprobar" connstring="Provider=Xone Remote Provider;Data Source=http://xoneisp.com/XOneJSONAllbyXOne/default.aspx;ProgID=com.xone.db.json.JSONConnection;Timeout=5;Security Level=0" />
+      <group name="General" id="1">
+        <prop name="RESULTADO" type="T" visible="0" />
+      </group>
+    </coll>

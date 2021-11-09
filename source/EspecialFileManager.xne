@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialFileManager" title="XoneCollvacia" notab="true" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true">
+  <group name="HEADER" id="10" class="groupfixed_header">
+    <frame name="frmtitulo" class="frmsuperior">
+      <prop name="SALIR" type="B" class="btvolversuper" />
+      <prop name="MENU" type="TL" class="tlsuper" title="FileManager" />
+      <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+    </frame>
+  </group>
+  <group name="FOOTER" id="0" class="groupfixed_footer">
+    <prop name="MAP_GROUP" type="N" visible="0" />
+    <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+    <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+      <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+      <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+      <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+    </frame>
+  </group>
+  <group name="General" id="1" onfocus="ExecuteNode(onfocusgrupo(1))">
+    <prop name="MAP_INCIDENCIAS" type="Z" contents="incidencia" lmargin="0" width="100%" height="96%" />
+    <contents name="incidencia" src="ContentFileManager" />
+    <frame name="frmFlotanteAdd" floating="true" bgcolor="#00000000" width="80p" height="80p" top="950p" left="620p">
+      <prop name="MAP_BTNADD" type="B" postonchange="refresh" img="add.png" width="80p" height="80p" method="ExecuteNode(nuevo)" />
+    </frame>
+  </group>
+  <group name="Descarga" id="2" onfocus="ExecuteNode(onfocusgrupo(2))">
+    <prop name="MAP_LABEL" type="TL" class="classtl" title="Descargar Ficheros" />
+    <frame name="frmBoton" align="center|center" width="100%" height="100%">
+      <prop name="MAP_BTDESCARGAR" type="B" postonchange="refresh" title="Descargar PDF" width="400p" height="100p" method="ExecuteNode(descargarFicheros)" />
+    </frame>
+  </group>
+  <group name="Listado" id="3" onfocus="ExecuteNode(onfocusgrupo(3))">
+    <prop name="MAP_LABEL2" type="TL" class="classtl" title="Listar directorios y ficheros" />
+    <frame name="frmBoton2" align="top|center" width="100%" height="250p">
+      <prop name="MAP_BTLISTADIRECTORIOS" type="B" tmargin="20p" postonchange="refresh" title="Listar Los directorios" width="400p" height="100p" method="ExecuteNode(ListarDirectorios)" />
+      <prop name="MAP_BTLISTAFICHEROS" type="B" tmargin="20p" postonchange="refresh" title="Listar Los ficheros" width="400p" height="100p" method="ExecuteNode(ListarFicheros)" />
+    </frame>
+    <prop name="MAP_LISTADO" type="T" width="100%" labelwidth="0" align="top" lines="10" fixed-lines="true" text-border="true" />
+  </group>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">
+			self.MAP_GROUP = 1;	
+			self.MAP_TOTAL_PAGES = 3;
+		</script>
+    </action>
+  </before-edit>
+  <onfocusgrupo show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+    </action>
+  </onfocusgrupo>
+  <ListarDirectorios show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				var filemanager01 = createObject("FileManager");
+				var lst = filemanager01.listDirectories(appData.getAppPath());
+				if ( lst != null ){
+					self.MAP_LISTADO = " Los directorios son: \r\n";
+					for ( var i = 0; i &lt; lst.length; i++){
+						self.MAP_LISTADO = self.MAP_LISTADO + lst[i].toString().replace(appData.getAppPath()," - ") + "\r\n";
+					}
+				}else{
+					ui.showToast("No hay carpetas...");
+				}
+			</script>
+    </action>
+  </ListarDirectorios>
+  <ListarFicheros show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				var filemanager01 = createObject("FileManager");
+				var lst = filemanager01.listFiles();
+				if ( lst != null ){
+					self.MAP_LISTADO = " Los ficheros son:  \r\n";
+					for ( var i = 0; i &lt; lst.length; i++){
+						//self.MAP_LISTADO")=self.MAP_LISTADO")+replace(lst(i),appData.apppath+"files/"," - ")+chr(13) + chr(10)+chr(13) + chr(10)
+						self.MAP_LISTADO = self.MAP_LISTADO + lst[i].toString() + "\r\n";
+					}
+				}else{
+				    ui.showToast("No hay ficheros...");
+				}
+			</script>
+    </action>
+  </ListarFicheros>
+  <nuevo refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+				var coll = await self.getContents("incidencia");
+				var obj = await coll.createObject();
+				coll.addItem(obj);
+				appData.pushValue(obj);
+			</script>
+    </action>
+  </nuevo>
+  <descargarFicheros show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+				var objFile = createObject("FileManager");
+				if( objFile.fileExists(appData.getFilesPath() + "/ribera_del_guadiana.pdf") == 0 ){
+					await self.executeNode("pdf");
+				}else{
+					objFile.download("http://www.xoneisp.com/XOneJSONDemoRiberaGuadiana/files/ribera_del_guadiana.pdf","ribera_del_guadiana.pdf");
+					if( objFile.fileExists("ribera_del_guadiana.pdf") != 0){
+						await ui.msgBox("No se ha podido descargar el fichero, o el fichero no existe en el servidor.","",0);
+					}else{
+						await self.executeNode("pdf");
+					}
+				}
+			</script>
+    </action>
+  </descargarFicheros>
+  <pdf show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+      			ui.openFile(appData.getFilesPath() + "/ribera_del_guadiana.pdf");
+		</script>
+    </action>
+  </pdf>
+  <onback refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888, "##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

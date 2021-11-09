@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialControlesDinamicos" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true" group-swipe="true">
+  <group name="HEADER" id="999" class="groupfixed_header">
+    <frame name="frmtitulo" class="frmsuperior">
+      <prop name="SALIR" type="B" class="btvolversuper" />
+      <prop name="MENU" type="TL" class="tlsuper" title="Dinámicos" />
+      <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+    </frame>
+  </group>
+  <group name="FOOTER" id="0" class="groupfixed_footer">
+    <prop name="MAP_GROUP" type="N" visible="0" />
+    <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+    <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+      <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+      <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+      <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+    </frame>
+  </group>
+  <group name="Group1" id="1">
+    <frame name="group1Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL" type="TL" class="classtl" title="Type: T" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TEXT1" type="T" class="classT" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TEXT2" type="T" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK1" type="NC" onchange="refresh(MAP_TEXT3)" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="20" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TEXT3" type="T" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK1=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK2" type="NC" onchange="refresh(MAP_TEXT4)" class="classcheck" title="Ocultar" labelbox="false" labelwidth="20" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TEXT4" type="T" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK2=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON1" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON2" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+      <prop name="MAP_COLOR1" type="T" visible="0" />
+      <prop name="MAP_COLOR2" type="T" visible="0" />
+    </frame>
+  </group>
+  <group name="Group2" id="2">
+    <frame name="group2Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL2" type="TL" class="classtl" title="Type: N" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NUMBER1" type="N" class="classnumber" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NUMBER2" type="N" class="classnumber" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK3" onchange="refresh(MAP_NUMBER3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NUMBER3" type="N" class="classnumber" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK3=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK4" onchange="refresh(MAP_NUMBER4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NUMBER4" type="N" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK4=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON3" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON4" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group3" id="3">
+    <frame name="group3Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL3" type="TL" class="classtl" title="Type: D" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATE1" type="D" class="classdate" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATE2" type="D" class="classdate" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK5" onchange="refresh(MAP_DATE3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATE3" type="D" class="classdate" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK5=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK6" onchange="refresh(MAP_DATE4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATE4" type="D" class="classdate" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK6=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON5" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON6" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group4" id="4">
+    <frame name="group4Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL4" type="TL" class="classtl" title="Type: T mask: Hh#:#Mm" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TIME1" type="T" class="classtime" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TIME2" type="T" class="classtime" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK7" onchange="refresh(MAP_TIME3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TIME3" type="T" class="classtime" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK7=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK8" onchange="refresh(MAP_TIME4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_TIME4" type="T" class="classtime" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK8=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON7" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON8" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group5" id="5">
+    <frame name="group5Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL5" type="TL" class="classtl" title="Type: DT" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATETIME1" type="DT" class="classdate" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATETIME2" type="DT" class="classdate" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK9" onchange="refresh(MAP_DATETIME3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATETIME3" type="DT" class="classdate" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK9=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK10" onchange="refresh(MAP_DATETIME4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_DATETIME4" type="DT" class="classdate" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK10=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON9" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON10" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group6" id="6">
+    <frame name="group6Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL6" type="TL" class="classtl" title="Type: X" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_PASSWORD1" type="X" class="classT" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_PASSWORD2" type="X" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK11" onchange="refresh(MAP_PASSWORD3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_PASSWORD3" type="X" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK11=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK12" onchange="refresh(MAP_PASSWORD4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_PASSWORD4" type="X" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK12=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON11" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON12" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <!-- <group name="Group7" id="7">
+        <frame name="group7Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABEL4¡7" type="TL" class="classtl" title="Type: TN" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##"/>
+          <prop name="MAP_NUMTEXT1" type="TN" class="classT" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_NUMTEXT2" type="TN" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_CHECK13" onchange="refresh(MAP_NUMTEXT3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_NUMTEXT3" type="TN" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK13=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_CHECK14" onchange="refresh(MAP_NUMTEXT4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_NUMTEXT4" type="TN" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK14=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_BUTTON13" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+          <prop name="MAP_BUTTON14" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+        </frame>
+      </group>
+      <group name="Group8" id="8">
+        <frame name="group8Frame" width="100%" height="100%" scroll="true" align="left|top">
+          <prop name="MAP_LABEL8" type="TL" class="classtl" title="Type: TN2" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##"/>
+          <prop name="MAP_DECIMALTEXT1" type="TN2" class="classT" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_DECIMALTEXT2" type="TN2" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_CHECK15" onchange="refresh(MAP_DECIMALTEXT3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_DECIMALTEXT3" type="TN2" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK15=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_CHECK16" onchange="refresh(MAP_DECIMALTEXT4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_DECIMALTEXT4" type="TN2" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK16=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+          <prop name="MAP_BUTTON15" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+          <prop name="MAP_BUTTON16" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+        </frame>
+      </group>-->
+  <group name="Group7" id="7">
+    <frame name="group9Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL9" type="TL" class="classtl" title="Type: NC" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NC1" type="NC" class="classcheck" title="Normal" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NC2" type="NC" class="classcheck" title="Deshabilitado" labelbox="false" labelwidth="10" width="96%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK17" onchange="refresh(MAP_NC3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NC3" type="NC" class="classcheck" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disableedit="MAP_CHECK17=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK18" onchange="refresh(MAP_NC4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="96%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_NC4" type="NC" class="classcheck" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="96%" height="10%" label-wrap="true" disablevisible="MAP_CHECK18=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON17" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON18" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group8" id="8">
+    <frame name="group10Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL10" type="TL" class="classtl" title="Type: B" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BT1" type="B" class="btnButton" title="Normal" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BT2" type="B" class="btnButton" title="Deshabilitado" labelbox="false" labelwidth="10" width="90%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK19" onchange="refresh(MAP_BT3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BT3" type="B" class="btnButton" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disableedit="MAP_CHECK19=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK20" onchange="refresh(MAP_BT4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BT4" type="B" class="btnButton" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK20=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON19" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON20" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group9" id="9">
+    <frame name="group11Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL11" type="TL" class="classtl" title="Type: AT" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_AT1" type="AT" class="btnButton" title="Normal" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_AT2" type="AT" class="btnButton" title="Deshabilitado" labelbox="false" labelwidth="10" width="90%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK21" onchange="refresh(MAP_AT3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_AT3" type="AT" class="btnButton" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disableedit="MAP_CHECK21=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK22" onchange="refresh(MAP_AT4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_AT4" type="AT" class="btnButton" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK22=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON21" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON22" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+  </group>
+  <group name="Group10" id="10">
+    <frame name="group12Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL12" type="TL" class="classtl" title="Type: T, showinline, DATA" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEDATA1" showinline="true" linkedto="MAP_IDTIPOIDEN_DATA1" linkedfield="DATA" onchange="refresh(MAP_SHOWINLINEDATA1)" type="T" class="classT" title="Normal" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEDATA2" showinline="true" linkedto="MAP_IDTIPOIDEN_DATA2" linkedfield="DATA" onchange="refresh(MAP_SHOWINLINEDATA2)" type="T" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="90%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK23" onchange="refresh(MAP_SHOWINLINEDATA3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEDATA3" showinline="true" linkedto="MAP_IDTIPOIDEN_DATA3" linkedfield="DATA" onchange="refresh(MAP_SHOWINLINEDATA3)" type="T" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disableedit="MAP_CHECK23=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK24" onchange="refresh(MAP_SHOWINLINEDATA4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEDATA4" showinline="true" linkedto="MAP_IDTIPOIDEN_DATA4" linkedfield="DATA" onchange="refresh(MAP_SHOWINLINEDATA4)" type="T" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK24=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON23" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON24" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+    <prop name="MAP_IDTIPOIDEN_DATA1" labelwidth="14" type="T" visible="0" mapcol-values="CC, TI, CE, Otro" mapfld="DATA" />
+    <prop name="MAP_IDTIPOIDEN_DATA2" labelwidth="14" type="T" visible="0" mapcol-values="CC, TI, CE, Otro" mapfld="DATA" />
+    <prop name="MAP_IDTIPOIDEN_DATA3" labelwidth="14" type="T" visible="0" mapcol-values="CC, TI, CE, Otro" mapfld="DATA" />
+    <prop name="MAP_IDTIPOIDEN_DATA4" labelwidth="14" type="T" visible="0" mapcol-values="CC, TI, CE, Otro" mapfld="DATA" />
+  </group>
+  <group name="Group11" id="11">
+    <frame name="group13Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL13" type="TL" class="classtl" title="Type: T, showinline" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEMAPCOLL1" showinline="true" linkedto="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL1" linkedfield="TITULO" type="T" class="classT" title="Normal" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEMAPCOLL2" showinline="true" linkedto="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL2" linkedfield="TITULO" type="T" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="90%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK25" onchange="refresh(MAP_SHOWINLINEMAPCOLL3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEMAPCOLL3" showinline="true" linkedto="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL3" linkedfield="TITULO" type="T" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disableedit="MAP_CHECK25=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK26" onchange="refresh(MAP_SHOWINLINEMAPCOLL4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_SHOWINLINEMAPCOLL4" showinline="true" linkedto="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL4" linkedfield="TITULO" type="T" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK26=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON25" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON26" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+    <prop name="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL1" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL2" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL3" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_SHOWINLINEMAPCOLL4" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+  </group>
+  <group name="Group12" id="12">
+    <frame name="group14Frame" width="100%" height="100%" scroll="true" align="left|top">
+      <prop name="MAP_LABEL15" type="TL" class="classtl" title="Type: T, mapcol" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_MAPCOLL1" linkedto="MAP_IDTIPOIDEN_MAPCOLL1" linkedfield="TITULO" type="T" class="classT" title="Normal" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_MAPCOLL2" linkedto="MAP_IDTIPOIDEN_MAPCOLL2" linkedfield="TITULO" type="T" class="classT" title="Deshabilitado" labelbox="false" labelwidth="10" width="90%" locked="true" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK29" onchange="refresh(MAP_MAPCOLL3)" type="NC" class="classcheck" title="Deshabilitar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_MAPCOLL3" linkedto="MAP_IDTIPOIDEN_MAPCOLL3" linkedfield="TITULO" type="T" class="classT" title="Deshabilitado condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disableedit="MAP_CHECK29=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_CHECK30" onchange="refresh(MAP_MAPCOLL4)" type="NC" class="classcheck" title="Ocultar" labelbox="false" labelwidth="10" width="90%" height="10%" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_MAPCOLL4" linkedto="MAP_IDTIPOIDEN_MAPCOLL4" linkedfield="TITULO" type="T" class="classT" title="Visible condicionalmente" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK30=1" bgcolor="##FLD_MAP_COLOR1##" forecolor="##FLD_MAP_COLOR2##" />
+      <prop name="MAP_BUTTON29" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" lmargin="3%" />
+      <prop name="MAP_BUTTON30" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" newline="false" lmargin="5%" />
+    </frame>
+    <prop name="MAP_IDTIPOIDEN_MAPCOLL1" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_MAPCOLL2" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_MAPCOLL3" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+    <prop name="MAP_IDTIPOIDEN_MAPCOLL4" labelwidth="14" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" />
+  </group>
+  <ir show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript">
+      		ui.showGroup(index,"##ALPHA_IN##",500,"##ALPHA_OUT##",500);
+      		self.MAP_GROUP = index;
+			self.MAP_COLOR1 ="#FFFFFF";
+			self.MAP_COLOR2 ="#000000";
+		</script>
+    </action>
+  </ir>
+  <anterior show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+      		if( self.MAP_GROUP  &gt; 1){
+      			let index = self.MAP_GROUP - 1;
+      			await self.executeNode("ir", index);
+      		}
+		</script>
+    </action>
+  </anterior>
+  <siguiente show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">
+      		if ( self.MAP_GROUP &lt; self.MAP_TOTAL_PAGES ){
+      			let index = self.MAP_GROUP + 1;
+      			await self.executeNode("ir", index);
+      		}
+		</script>
+    </action>
+  </siguiente>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">			
+			self.MAP_GROUP = 1;
+			self.MAP_TOTAL_PAGES = 12;
+			self.MAP_COLOR1 = "#FFFFFF";
+			self.MAP_COLOR2 = "#000000";
+		</script>
+    </action>
+  </before-edit>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage(-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+  <cambiarFondo show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <script language="javascript">
+      		if( self.MAP_COLOR1 != "#39902B" ){
+      			self.MAP_COLOR1 = "#39902B";
+      		}else{
+      			self.MAP_COLOR1 = "#FFFFFF";
+      		}
+		</script>
+    </action>
+  </cambiarFondo>
+  <cambiarFuente show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <script language="javascript">
+      		if( self.MAP_COLOR2 != "#F0283C"){
+      			self.MAP_COLOR2 = "#F0283C";
+      		}else{
+      			self.MAP_COLOR2 = "#000000";
+      		}
+		</script>
+    </action>
+  </cambiarFuente>
+</coll>

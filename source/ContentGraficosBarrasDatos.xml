@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentGraficosBarrasDatos" title="GraficosBarrasDatos" loadall="true" cell-even-color="#FFFFFF" cell-odd-color="#F2F2F2" objname="graficosdatos" updateobj="graficosdatos" progid="ASData.CASBasicDataObj" sql="select t1.ID,t1.CATEGORIA,t1.VALOR1,t1.VALOR2  from ##PREF##graficosdatos t1">
+  <group name="General" id="1" />
+  <prop group="1" name="CATEGORIA" type="T" chart-serie-title="true" class="classgrid" />
+  <prop group="1" name="VALOR1" chart-category="true" chart-category-color="#8F2B68" title="Valor 1" type="N2" width="50%" labelwidth="5" visible="4" textfont-size="8" text-align="left" text-forecolor="#666666" />
+  <prop group="1" name="VALOR2" type="N2" width="50%" labelwidth="5" newline="false" visible="4" chart-category="true" chart-category-color="#D19DBD" title="Valor 2" textfont-size="8" text-align="left" text-forecolor="#666666" />
+</coll>

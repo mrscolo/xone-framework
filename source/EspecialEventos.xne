@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialEventos" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" special="true" group-swipe="true">
+      <group name="HEADER" id="10" class="groupfixed_header">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="EVENTOS" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+      </group>
+      <group name="FOOTER" id="0" class="groupfixed_footer">
+        <prop name="MAP_GROUP" type="N" visible="0" />
+        <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+        <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+          <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+          <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+          <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+        </frame>
+      </group>
+      <group name="Group1" id="1" onfocus="ExecuteNode(onfocusgrupo(1))">
+        <frame name="group1Frame" class="frmtodo" bgcolor="#FFFFFF">
+          <prop name="ET1" type="TL" class="classtl" title="onTextChange por Script" />
+          <prop name="MAP_ONTEXTCHANGED" title="onTextChanged" type="T" class="classT" labelwidth="12" />
+          <prop name="MAP_ONFOCUSCHANGED01" title="Tiene evento onFocus" class="classT" type="T" labelwidth="12" />
+          <prop name="MAP_ONFOCUSCHANGED02" title="Sin evento onFocus" class="classT" type="T" labelwidth="12" />
+          <frame name="borde" width="98%" height="25%" lmargin="1%" framebox="true" border-corner-radius="10" scroll="true" tmargin="100p">
+            <prop name="MAP_DESCRIPCIONEVENTO" type="T" class="classTMultiline" labelwidth="0" locked="true" lines="5" text-border="false" />
+          </frame>
+          <frame name="ftboton" top="250p" left="645p" width="80p" height="80p" floating="true">
+            <prop name="BTREFRESH" type="B" visible="1" labelwidth="0" method="ExecuteNode(btrefresh)" width="75p" img="refresh.png" imgsel="refresh_click.png" />
+          </frame>
+        </frame>
+      </group>
+      <group name="Group2" id="2" onfocus="ExecuteNode(onfocusgrupo(2))">
+        <prop name="ID" type="N" visible="0" />
+        <prop name="MAP_SCSHOWOVERSCROLL" type="N" visible="0" />
+        <frame name="scfroverscroll" floating="true" top="976p" left="650p" width="64p" height="64p" disablevisible="MAP_SCSHOWOVERSCROLL=0">
+          <prop name="MAP_SCIMGDOWN" type="IMG" path="##APP##\icons\arrow_down.png" visible="1" width="64p" labelwidth="0" />
+        </frame>
+        <frame name="sctop" align="top" height="100%" width="100%" scroll="true">
+          <prop name="ET2" type="TL" class="classtl" title="LLamadas a eventos por script con bind" lines="2" label-wrap="true" />
+          <frame name="scforscroll" width="100%" tmargin="50p">
+            <prop name="SCJAVA" title="No abre coleccion" newline="false" type="B" visible="1" width="300p" height="250p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="SCJAVA1" title="Abrir coleccion 1" type="B" visible="1" width="300p" height="250p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="SCJAVA2" title="Abrir coleccion 2" type="B" newline="false" visible="1" width="300p" height="250p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="BTLINEA1" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="80p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA1" title="linea uno" type="TL" class="classtl" tmargin="40p" />
+            <prop name="MAP_CAMPOLINEA2" title="linea dos" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA3" title="linea tres" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA2" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA4" title="linea cuatro" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA5" title="linea cinco" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA6" title="linea seis" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA3" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA7" title="linea siete" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA8" title="linea ocho" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA9" title="linea nueve" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA4" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA10" title="linea diez" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA11" title="linea once" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA12" title="linea doce" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA5" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA13" title="Ultimo linea del GRUPO" type="TL" class="classtl" tmargin="60p" bmargin="50p" />
+          </frame>
+        </frame>
+      </group>
+      <group name="Group3" id="3" onfocus="ExecuteNode(onfocusgrupo(3))">
+        <prop name="MAP_ATTSHOWOVERSCROLL" type="N" visible="0" />
+        <frame name="attfroverscroll" floating="true" top="976p" left="650p" width="64p" height="64p" disablevisible="MAP_ATTSHOWOVERSCROLL=0">
+          <prop name="MAP_ATTIMGDOWN" type="IMG" path="##APP##\icons\arrow_down.png" visible="1" width="64p" labelwidth="0" />
+        </frame>
+        <frame name="atttop" align="top" height="100%" width="100%" scroll="true" onscroll="javascript:scrollArrow(e,'2');">
+          <prop name="ET3" type="TL" class="classtl" title="LLamadas a eventos por atributos en nodo" lines="2" label-wrap="true" />
+          <frame name="attforscroll" width="100%" tmargin="50p">
+            <prop name="ATTJAVA" title="No abre coleccion" onclick="javascript:(function (e, data) {ui.msgBox (e.target+':'+data.msg,data.title,0);})(e,{title:'valor desde fuera',msg:'LLamada inline. No abre collecion'});" newline="false" type="B" visible="1" width="300p" height="150p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2"  rmargin="0p" bmargin="0p"/>
+            <prop name="ATTJAVA1" title="Abrir coleccion 1" onclick="javascript:jstestClickNode(e,'EspecialcollTest1');" type="B" visible="1" width="300p" height="150p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="ATTJAVA2" title="Abrir coleccion 2" onclick="javascript:jstestClickNode(e,{title:'valor desde fuera',msg:'Abre un nuevo objeto', collName: 'EspecialcollTest2'});" type="B" newline="false" visible="1" width="300p" height="150p" lmargin="40p" tmargin="50p" labelwidth="1" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_ATTONTEXTCHANGED" ontextchanged="javascript:eventoOnTextChanged(e);" title="onTextChanged" class="classT" type="T" visible="1" width="100%" height="50p" labelwidth="12"  lmargin="14p" tmargin="5p" rmargin="0p" bmargin="0p"/>
+            <prop name="MAP_ATTONFOCUSCHANGED01" onfocuschanged="javascript:eventoOnFocusChanged3(e);" tmargin="0" class="classT" title="Evento onFocus" labelwidth="12" type="T" visible="1" width="100%" />
+            <prop name="MAP_ATTONFOCUSCHANGED02" tmargin="0" title="Si Evento onFocus" labelwidth="12" type="T" class="classT" visible="1" width="100%" />
+            <frame name="borde3" width="98%" height="25%" lmargin="1%" framebox="true" border-corner-radius="10" scroll="true" tmargin="50p">
+              <prop name="MAP_DESCRIPCIONEVENTO3" type="T" class="classTMultiline" labelwidth="0" locked="true" lines="5" text-border="false" />
+            </frame>
+            <prop name="BTLINEA13" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="80p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA132" title="linea uno" type="TL" class="classtl" tmargin="40p" />
+            <prop name="MAP_CAMPOLINEA23" title="linea dos" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA33" title="linea tres" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA23" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA43" title="linea cuatro" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA53" title="linea cinco" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA63" title="linea seis" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA33" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA73" title="linea siete" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA83" title="linea ocho" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA93" title="linea nueve" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA43" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA103" title="linea diez" type="TL" class="classtl" />
+            <prop name="MAP_CAMPOLINEA113" title="linea once" type="TL" class="classtl" tmargin="30p" />
+            <prop name="MAP_CAMPOLINEA123" title="linea doce" type="TL" class="classtl" tmargin="30p" />
+            <prop name="BTLINEA53" type="B" visible="1" width="360p" lmargin="180p" height="10p" labelwidth="0" tmargin="50p" bgcolor="#666666" forecolor="#F2F2F2" />
+            <prop name="MAP_CAMPOLINEA133" title="Ultimo linea del GRUPO" type="TL" class="classtl" tmargin="60p" bmargin="50p" />
+          </frame>
+        </frame>
+      </group>
+      <onfocusgrupo show-wait-dialog="false">
+        <action name="runscript">
+          <param name="index" />
+          <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+        </action>
+      </onfocusgrupo>
+      <before-edit>
+        <action name="runscript">
+          <script language="javascript">
+          	ui.getView(self).bind ("SCVB","onClick","testClick");
+          </script>
+        </action>
+        <action name="runscript">
+          <script language="javascript">
+            self.MAP_GROUP=1;
+			self.MAP_TOTAL_PAGES=3;
+			
+			var v=ui.getView(self);
+			
+			//Le podemos poner una funcion que exista en un .js nuestro.
+			//v.bind("MAP_ONTEXTCHANGED", "onTextChanged", eventoOnTextChanged);
+			v.bind("MAP_ONTEXTCHANGED", "onTextChanged", eventoOnTextChanged);
+          	v.bind("MAP_ONFOCUSCHANGED01", "onFocusChanged", eventoOnFocusChanged);
+          	self.MAP_DESCRIPCIONEVENTO="Esto es un campo bloqueado, que tiene texto en varias lineas. Se ha puesto dentro de un frame con scroll y con tamaño fijo, donde el usuario pueda realizar el scroll en lugar fijo. Por ello este texto es para demostrar su uso y asi los programadores puedan ver como seris el codigo para realizar este desarrollo.";
+						
+          	// Demo inline
+          	v.bind ("SCJAVA","onClick",
+          	{title:'valor desde fuera',msg:'LLamada inline. No abre collecion'},
+          	function (e) {
+          			ui.msgBox (e.target+":"+e.data.msg,e.data.title,0);
+          		});            
+            
+            // Demo function con parametro de texto
+      		v.bind ("SCJAVA1","onClick","EspecialcollTest1",jstestClick);
+      		
+      		// Demo function multiples parametros
+          	v.bind ("SCJAVA2","onClick",
+          	{title:'valor desde fuera',msg:'Abre un nuevo objeto', collName: 'EspecialcollTest2'},
+          	jstestClick);          	
+          	v.bind("sctop","onScroll", function (e) {
+          		if (e.dy&lt;=10 &amp;&amp; self.MAP_SCSHOWOVERSCROLL==1) {
+	          		self.MAP_SCSHOWOVERSCROLL=0;
+	          		ui.getView(self).refresh("scfroverscroll");
+          		} else if (e.dy&gt;10 &amp;&amp; self.MAP_SCSHOWOVERSCROLL==0) {
+	          		self.MAP_SCSHOWOVERSCROLL=1;
+	          		ui.getView(self).refresh("scfroverscroll");
+	          		
+          		}   	
+          	});
+          	self.MAP_SCSHOWOVERSCROLL=1;
+          	self.MAP_ATTSHOWOVERSCROLL=1;    	
+          </script>
+        </action>
+      </before-edit>
+      <btrefresh refresh="false">
+        <action name="runscript">
+          <script language="javascript">
+            	self.MAP_DESCRIPCIONEVENTO="Esto es un campo bloqueado, que tiene texto en varias lineas. Se ha puesto dentro de un frame con scroll y con tamaño fijo, donde el usuario pueda realizar el scroll en lugar fijo. Por ello este texto es para demostrar su uso y asi los programadores puedan ver como seris el codigo para realizar este desarrollo.";
+            	ui.getView(self).refresh("MAP_DESCRIPCIONEVENTO");
+		  </script>
+        </action>
+      </btrefresh>
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+        </action>
+      </onback>
+    </coll>

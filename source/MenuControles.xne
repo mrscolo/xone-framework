@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="MenuControles" title="XoneCollvacia" sql="select ID,IMAGEN,TITULO,DESCRIPCION,ORDEN from gen_controles" objname="controles" updateobj="controles" progid="ASData.CASBasicDataObj" check-owner="false" dependent="false" cell-height="440p" cell-border-width="0" cell-border-color="#00000000" cell-odd-color="#FFFFFF" cell-even-color="#F2F2F2">
+  <platform name="iphone" screen-orientation="portrait" />
+  <group name="GRID" id="1">
+    <!--<frame name="grid" width="324p" alignx="center">-->
+    <prop name="IMAGEN" type="IMG" width="240p" height="240p" labelwidth="0" lmargin="5p" tmargin="1p" visible="4" />
+    <prop name="TITULO" type="T" visible="4" class="classgrid" width="240p" lmargin="5p" text-align="center" textfont-bold="true" />
+    <prop name="DESCRIPCION" type="T" visible="0" />
+    <prop name="FILTRO" type="T" visible="0" />
+    <prop name="ORDEN" type="N" visible="0" />
+    <!--</frame>-->
+  </group>
+  <selecteditem show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript" async="true">		
+            await self.getOwnerCollection().getOwnerObject().executeNode("pulsar", cstr(self.DESCRIPCION),99,cstr(self.TITULO));
+			//self.getOwnerCollection().getOwnerObject().executeNode("pulsar(" + cstr(self.DESCRIPCION) + ",99,"+cstr(self.TITULO)+")");
+		    </script>
+    </action>
+  </selecteditem>
+</coll>

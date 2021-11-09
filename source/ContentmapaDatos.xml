@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentmapaDatos" title="mapaDatos" sql="select t1.NOMBRE, t1.DIRECCION, replace(t1.LATITUD, ',', '.') as LATITUD, replace(t1.LONGITUD, ',', '.') as LONGITUD, 'xone_map_pin.png' as MAP_MARKERICON   from ##PREF##mapa_datos t1" objname="mapa_datos" updateobj="mapa_datos" progid="ASData.CASBasicDataObj">
+  <group name="General" id="1" />
+  <frame group="1" name="frm1" />
+  <prop group="1" frame="frm1" name="LATITUD" type="N6" visible="4" mapview-latitude="true" />
+  <prop group="1" frame="frm1" name="LONGITUD" type="N6" visible="4" mapview-longitude="true" />
+  <prop group="1" frame="frm1" name="NOMBRE" type="T" visible="4" />
+  <prop group="1" frame="frm1" name="DIRECCION" type="T" visible="4" mapview-address="true" />
+  <prop group="1" frame="frm1" name="MAP_MARKERICON" mapview-marker-icon="true" visible="1" type="T" />
+  <selecteditem refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+          var collGPS = appData.getCollection("GPSColl");
+          	collGPS.loadAll();
+          	var objGPS = collGPS.getObject(0);
+          	collGPS.clear();
+          	if(objGPS == undefined) {
+          		ui.showToast("No hay objeto GPS todavía. ¿Se ha llamado a ui.startGps() ya?");
+          	} else {
+				if(objGPS.STATUS != 1) {
+					//ui.showToast("El campo STATUS vale " + objGPS.STATUS);
+				} else {
+
+                  		if ( appData.getGlobalMacro("##DEVICE_OS##") == "IOS"){
+                  			self.getOwnerCollection().getOwnerObject().MAP_VERDATOS2 = 1;
+                  			self.getOwnerCollection().getOwnerObject().MAP_TL = "Pinche para ver ruta en el navegador";
+                  			if( appData.getCurrentEnterprise().getVariables("MIUBICACION") == 1){
+        						ui.drawMapRoute("@mapa",self.LATITUD,self.LONGITUD,"","","","");
+                  			}
+        				}else{
+        					//ui.drawMapRoute("@mapa",self.LATITUD,self.LONGITUD,"","");
+        					ui.drawMapRoute("@mapa", self.LATITUD, self.LONGITUD, objGPS.LATITUD, objGPS.LONGITUD, "driving", "#FF0000");
+        				}    		
+				}
+          	}
+          	
+          	self.getOwnerCollection().getOwnerObject().MAP_VERDATOS = 1;
+          	self.getOwnerCollection().getOwnerObject().MAP_NOMBRE = "Nombre: " + self.NOMBRE.toString();
+      		self.getOwnerCollection().getOwnerObject().MAP_DIRECCION = "Dirección: " + self.DIRECCION.toString();
+			ui.refresh("frmflotante", "flo2", "MAP_NOMBRE", "MAP_DIRECCION");
+          </script>
+    </action>
+  </selecteditem>
+</coll>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="GPSColl" title="el expediente" sql="Select * from gen_usuarios" objname="GPSColl" updateobj="GPSColl" progid="ASData.CASBasicDataObj" stringkey="true" idfieldname="LONGITUD" connection="ConexionGPS" loadall="false" withopen="true" useextdata="true" fontsize="9">
+  <connection name="ConexionGPS" connstring="Provider=CGSoft Remote Provider;Data Source=127.0.0.1;Port=4242;ProgID=CGSSocketCE.ConnectCE" />
+  <prop name="LONGITUD" visible="3" type="T" size="12" />
+  <prop name="LATITUD" visible="3" type="T" size="12" />
+  <prop name="ALTITUD" visible="3" type="T" size="12" />
+  <prop name="VELOCIDAD" visible="3" type="T" size="12" />
+  <prop name="RUMBO" visible="3" type="T" size="12" />
+  <prop name="FGPS" visible="3" type="DT" size="12" />
+  <prop name="HGPS" visible="3" type="T" size="12" />
+  <prop name="STATUS" visible="3" type="N" size="12" />
+  <prop name="SATELITES" visible="3" type="N" size="12" />
+  <prop name="FUENTE" visible="3" type="N" size="12" />
+  <prop name="PRECISION" visible="3" type="N" size="12" />
+</coll>

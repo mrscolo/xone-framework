@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialFontSize" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" notab="true" group-swipe="true">
+  <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Tamaños" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir'); ui.refresh('MAP_LAST', 'MAP_LAST_EMPTY', 'MAP_NEXT');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir'); ui.refresh('MAP_LAST', 'MAP_LAST_EMPTY', 'MAP_NEXT');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+  <group name="Group1" id="1" />
+  <frame group="1" name="group1Frame" width="100%" height="100%" scroll="true" align="left|top" />
+  <prop group="1" frame="group1Frame" name="MAP_LABEL991" type="TL" class="classtl" title="TAMAÑO LETRA EN TEXT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT1" type="T" title="Font Size 6" labelwidth="0" fontsize="6" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT2" type="T" title="Font Size 7" labelwidth="0" fontsize="7" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT3" type="T" title="Font Size 8" labelwidth="0" fontsize="8" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT4" type="T" title="Font Size 9" labelwidth="0" fontsize="9" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT5" type="T" title="Font Size 10" labelwidth="0" fontsize="10" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT6" type="T" title="Font Size 12" labelwidth="0" fontsize="12" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT7" type="T" title="Font Size 14" labelwidth="0" fontsize="14" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT8" type="T" title="Font Size 16" labelwidth="0" fontsize="16" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT9" type="T" title="Font Size 18" labelwidth="0" fontsize="18" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT10" type="T" title="Font Size 20" labelwidth="0" fontsize="20" class="classT" />
+  <prop group="1" frame="group1Frame" name="MAP_TEXT11" type="T" title="Font Size 30" labelwidth="0" fontsize="30" class="classT" />
+  <group name="Group2" id="2" />
+  <frame group="2" name="group2Frame" width="100%" height="100%" scroll="true" align="left|top" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL992" type="TL" class="classtl" title="TAMAÑO LETRA EN ETIQUETA" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL1" type="TL" title="Font Size 6" fontsize="6" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL2" type="TL" title="Font Size 7" fontsize="7" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL3" type="TL" title="Font Size 8" fontsize="8" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL4" type="TL" title="Font Size 9" fontsize="9" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL5" type="TL" title="Font Size 10" fontsize="10" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL6" type="TL" title="Font Size 12" fontsize="12" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL7" type="TL" title="Font Size 14" fontsize="14" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL8" type="TL" title="Font Size 16" fontsize="16" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL9" type="TL" title="Font Size 18" fontsize="18" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL10" type="TL" title="Font Size 20" fontsize="20" class="classtl" />
+  <prop group="2" frame="group2Frame" name="MAP_LABEL11" type="TL" title="Font Size 30" fontsize="30" class="classtl" />
+  <group name="Group3" id="3" />
+  <frame group="3" name="group3Frame" width="100%" height="100%" scroll="true" align="left|top" />
+  <prop group="3" frame="group3Frame" name="MAP_LABE993" type="TL" class="classtl" title="TAMAÑO LETRA EN NUMERO" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER1" type="N2" title="Font Size 6" labelwidth="7" fontsize="6" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER2" type="N2" title="Font Size 7" labelwidth="7" fontsize="7" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER3" type="N3" title="Font Size 8" labelwidth="7" fontsize="8" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER4" type="TN" title="Font:9: TN" labelwidth="7" fontsize="9" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER5" type="TN2" title="Font:10: TN2" labelwidth="7" fontsize="10" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER6" type="N2" title="Font Size 12" labelwidth="7" fontsize="12" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER7" type="N2" title="Font Size 14" labelwidth="7" fontsize="14" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER8" type="N3" title="Font Size 16" labelwidth="7" fontsize="16" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER9" type="N2" title="Font Size 18" labelwidth="7" fontsize="18" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER10" type="N5" title="Font Size 20" labelwidth="7" fontsize="20" class="classnumber" />
+  <prop group="3" frame="group3Frame" name="MAP_NUMBER11" type="N3" title="Font Size 30" labelwidth="7" fontsize="30" class="classnumber" />
+  <group name="Group4" id="4" />
+  <frame group="4" name="group4Frame" width="100%" height="100%" scroll="true" align="left|top" />
+  <prop group="4" frame="group4Frame" name="MAP_LABEL994" type="TL" class="classtl" title="TAMAÑO LETRA EN FECHA" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE1" type="D" title="Font Size 6" labelwidth="7" fontsize="6" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE2" type="D" title="Font Size 7" labelwidth="7" fontsize="7" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE3" type="D" title="Font Size 8" labelwidth="7" fontsize="8" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE4" type="D" title="Font Size 9" labelwidth="7" fontsize="9" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE5" type="D" title="Font Size 10" labelwidth="7" fontsize="10" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE6" type="D" title="Font Size 12" labelwidth="7" fontsize="12" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE7" type="D" title="Font Size 14" labelwidth="7" fontsize="14" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE8" type="D" title="Font Size 16" labelwidth="7" fontsize="16" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE9" type="D" title="Font Size 18" labelwidth="7" fontsize="18" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE10" type="D" title="Font Size 20" labelwidth="7" fontsize="20" class="classdate" />
+  <prop group="4" frame="group4Frame" name="MAP_DATE11" type="D" title="Font Size 30" labelwidth="7" fontsize="30" class="classdate" />
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+	      	appData.failWithMessage (-11888,"##EXIT##");
+	      </script>
+    </action>
+  </onback>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">		
+			self.MAP_TEXT1="Font Size 6";
+			self.MAP_TEXT2="Font Size 7";
+			self.MAP_TEXT3="Font Size 8";
+			self.MAP_TEXT4="Font Size 9";
+			self.MAP_TEXT5="Font Size 10";
+			self.MAP_TEXT6="Font Size 12";
+			self.MAP_TEXT7="Font Size 14";
+			self.MAP_TEXT8="Font Size 16";
+			self.MAP_TEXT9="Font Size 18";
+			self.MAP_TEXT10="Font Size 20";
+			self.MAP_TEXT11="Font Size 30";         
+			self.MAP_GROUP=1;
+			self.MAP_TOTAL_PAGES=4;
+		</script>
+    </action>
+  </before-edit>
+</coll>

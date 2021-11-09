@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialSlideView" title="SlideView" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true">
+      <group name="HEADER" id="10" class="groupfixed_header">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="CONTENTS" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+      </group>
+      
+      <group name="General" id="1">
+        <prop name="ContentsDatosSlide" viewmode="slideview" autoslide-delay="5" type="Z" 
+        width="100%" lmargin="0" height="1160p" contents="ContentsDatosSlide" onchange="refresh255" forceonchange="true" XXXslide-circular="true" />
+        <contents name="ContentsDatosSlide" src="ContentsDatosSlide" />
+      </group>
+      
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+        </action>
+      </onback>
+    </coll>

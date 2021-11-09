@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialBasicosPlus" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" special="true" group-swipe="true" animation-in="##LEFT_IN##" animation-out="##LEFT_OUT##">
+  <group name="HEADER" id="10" fixed="true" orientation="top" width="100%" height="120p" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Basicos Plus" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="0" class="groupfixed_footer" />
+  <prop group="0" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="0" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <frame group="0" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop group="0" frame="FLOAT_FOOTER_FRAME" name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+  <group name="Group1_Reproducir" id="1" />
+  <prop group="1" name="MAP_ETQ11" type="TL" class="classtl" title="MESSAGEBOX PERSONALIZADO" tmargin="20p" />
+  <prop group="1" name="MAP_ETQ12" type="TL" label-wrap="true" title="El comando ui.msgBox para mostrar un mensaje al usuario, puede ser personalizado de forma simple utilizando una colección que defina la apariencia del mensaje." width="96%" lmargin="2%" tmargin="10p" />
+  <prop group="1" name="MAP_ETIQ13" type="TL" class="classtl" title="Ejemplos de MsgBox personalizado" tmargin="20p" />
+  <prop group="1" name="MAP_ETIQMSG1" type="TL" title="MsgBox con OK" tmargin="30p" lmargin="2%" width="76%" />
+  <prop group="1" name="MAP_BTMSG1" type="B" width="112p" height="112p" lmargin="2%" tmargin="20p" img="msgbox_1.png" newline="false" method="ExecuteNode(showmsgbox(1))" />
+  <prop group="1" name="MAP_ETIQMSG2" type="TL" title="MsgBox con Sí y No" tmargin="30p" lmargin="2%" width="76%" />
+  <prop group="1" name="MAP_BTMSG2" type="B" width="112p" height="112p" lmargin="2%" tmargin="20p" img="msgbox_2.png" newline="false" method="ExecuteNode(showmsgbox(2))" />
+  <prop group="1" name="MAP_ETIQMSG3" type="TL" title="MsgBox con Aceptar y Cancelar" tmargin="30p" lmargin="2%" width="76%" />
+  <prop group="1" name="MAP_BTMSG3" type="B" width="112p" height="112p" lmargin="2%" tmargin="20p" img="msgbox_4.png" newline="false" method="ExecuteNode(showmsgbox(4))" />
+  <prop group="1" name="MAP_ETQ14" type="TL" class="classtl" title="VALOR DEVUELTO POR EL MSGBOX" tmargin="10p" />
+  <prop group="1" name="MAP_VALORDEVUELTO" type="T" width="96%" lmargin="2%" tmargin="20p" labelwidth="0" />
+  <group name="Group2_FirmaDR" id="2" />
+  <prop group="2" name="MAP_COLOR_TRAZO" visible="0" type="T" />
+  <prop group="2" name="MAP_COLOR_FONDO" visible="0" type="T" />
+  <prop group="2" name="MAP_TAMANO_TRAZO" visible="0" type="N" mapcol-values="2,5,10,15,20,30,40,50,80" />
+  <prop group="2" name="MAP_TOOLBARVISIBILITY" visible="0" type="N" />
+  <frame group="2" name="control" width="100%" height="80%" class="FrameAnimateFromTop" align="center" />
+  <prop group="2" frame="control" name="MAP_ETIQ14" type="TL" class="classtl" title="Ejemplo de firma" tmargin="20p" width="90%" lmargin="0" />
+  <prop group="2" frame="control" name="MAP_PROP_CAMARA" type="B" visible="1" width="50%" height="80p" labelwidth="6" title="test" onclick="javascript:doDRCamera();" />
+  <prop group="2" frame="control" name="DIBUJO" type="DR" img="xone.png" stroke-width="##FLD_MAP_TAMANO_TRAZO_DESPLEGABLE##" stroke-color="##FLD_MAP_COLOR_TRAZO##" bgcolor="##FLD_MAP_COLOR_FONDO##" apply-format-to-file="true" width="90%" height="90%" />
+  <frame group="2" name="Acciones" width="100%" height="20%" bgcolor="#F2F2F2" class="FrameAnimateFromBottom" align="center" />
+  <prop group="2" frame="Acciones" name="MAP_BT_SHOW_TOOLBAR" newline="true" type="B" class="Firma_Dibujo_boton" img="./icons/config_negro.png" method="ExecuteNode(toolbarvisibility)" />
+  <prop group="2" frame="Acciones" name="MAP_BT_SAVE" type="B" class="Firma_Dibujo_boton" img="./icons/grabar_negro.png" lmargin="5%" method="ExecuteNode(guardar)" />
+  <prop group="2" frame="Acciones" name="MAP_BT_CLEAR" type="B" class="Firma_Dibujo_boton" img="./icons/cancelar_negro.png" lmargin="5%" method="ExecuteNode(borrar)" />
+  <frame group="2" name="ToolbarFloating" top="100p" left="8%" floating="true" class="FrameAnimateFromRight" disablevisible="MAP_TOOLBARVISIBILITY=0" width="84%" height="600p" bgcolor="#CCCCCC" framebox="true" />
+  <frame group="2" frame="ToolbarFloating" name="ToolbarColoresTrazo" width="100%" height="180px" tmargin="100px" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO" type="B" class="Firma_Dibujo_boton" lmargin="4%" img="./icons/editar_negro.png" bgcolor="#FFFFFF" locked="true" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO_BLANCO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#FFFFFF" lmargin="4%" method="ExecuteNode(cambiarcolortrazo('#FFFFFF'))" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO_NEGRO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#000000" method="ExecuteNode(cambiarcolortrazo('#000000'))" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO_ROJO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#FF0000" method="ExecuteNode(cambiarcolortrazo('#FF0000'))" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO_AZUL" width="64p" type="B" clfass="Firma_Dibujo_boton" bgcolor="#0000FF" method="ExecuteNode(cambiarcolortrazo('#0000FF'))" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_BT_TRAZO_VERDE" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#00FF00" method="ExecuteNode(cambiarcolortrazo('#00FF00'))" />
+  <prop group="2" frame="ToolbarColoresTrazo" name="MAP_TRAZO_LINEA" type="B" class="Firma_Dibujo_boton" tmargin="34px" width="96%" height="2px" img="./icons/pixelnegro.png" newline="true" locked="true" />
+  <frame group="2" frame="ToolbarFloating" name="ToolbarColoresFondo" width="100%" height="180px" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO" type="B" class="Firma_Dibujo_boton" lmargin="4%" img="./icons/relleno_negro.png" bgcolor="#FFFFFF" locked="true" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO_BLANCO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#FFFFFF" lmargin="4%" method="ExecuteNode(cambiarcolorfondo('#FFFFFF'))" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO_NEGRO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#000000" method="ExecuteNode(cambiarcolorfondo('#000000'))" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO_ROJO" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#FF0000" method="ExecuteNode(cambiarcolorfondo('#FF0000'))" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO_AZUL" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#0000FF" method="ExecuteNode(cambiarcolorfondo('#0000FF'))" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_BT_FONDO_VERDE" width="64p" type="B" class="Firma_Dibujo_boton" bgcolor="#00FF00" method="ExecuteNode(cambiarcolorfondo('#00FF00'))" />
+  <prop group="2" frame="ToolbarColoresFondo" name="MAP_FONDO_LINEA" type="B" class="Firma_Dibujo_boton" tmargin="26px" width="96%" height="2px" img="./icons/pixelnegro.png" newline="true" locked="true" />
+  <frame group="2" frame="ToolbarFloating" name="ToolbarTamanoTrazo" width="100%" height="180px" align="center" />
+  <prop group="2" frame="ToolbarTamanoTrazo" name="MAP_TAMANO_TRAZO_TEXT" lmargin="0" width="70%" type="TL" title="Tamaño del Trazo: " labelbox="false" />
+  <prop group="2" frame="ToolbarTamanoTrazo" name="MAP_TAMANO_TRAZO_DESPLEGABLE" img-width="48p" img-height="48p" width="100p" type="T" newline="false" visible="1" title="" labelwidth="0" linkedto="MAP_TAMANO_TRAZO" linkedfield="DATA" showinline="true" onchange="ExecuteNode(cambiartamanotrazo)" />
+  <frame group="2" name="ToolbarFloatingClose" top="115p" left="594p" floating="true" class="FrameAnimateFromRight" disablevisible="MAP_TOOLBARVISIBILITY=0" width="60px" height="60px" />
+  <frame group="2" frame="ToolbarFloatingClose" name="ToolbarFloatingClose1" width="100%" height="100%" />
+  <prop group="2" frame="ToolbarFloatingClose1" name="MAP_FLOATING_CLOSE" visible="1" class="Firma_Dibujo_boton" type="B" lmargin="0" width="60px" height="60px" img="./icons/cerrar_frame.png" method="ExecuteNode(toolbarvisibility)" />
+  <create>
+    <action name="runscript">
+      <script language="javascript">
+				//Inicialización de valores para la pestaña de firma DR
+				self.MAP_COLOR_TRAZO = "#000000";
+				self.MAP_COLOR_FONDO = "#A58855";
+				self.MAP_TAMANO_TRAZO_DESPLEGABLE = "30";
+				self.MAP_TOOLBARVISIBILITY = 0;
+			</script>
+    </action>
+  </create>
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">			
+				self.MAP_GROUP=1;
+				self.MAP_TOTAL_PAGES=2;
+			</script>
+    </action>
+  </before-edit>
+  <showmsgbox show-wait-dialog="false">
+    <action name="runscript">
+      <param name="tipo" />
+      <script language="javascript">
+				var vSelected=0;
+				// switch (tipo){
+				// agrego el toString porque no tengo ni idea ya de lo que enviar en el ExecuteNode, string o int....en cada nodo se manda una cosa diferente
+				// ejemplo: en los focus de los grupos hay ExecuteNode con el nº del grupo, y eso necesita entero, sin embargo aqui el ExecuteNode pide un string...no lo entiendo
+				switch (tipo){
+				case "1":
+					vSelected=userMsgBox("Titulo 1", "Mensaje que queremos mostrar en el medio de la ventana para que lo acepte el usuario", "1");
+					break;
+				case "2":
+					vSelected=userMsgBox("Titulo 2", "Mensaje que queremos mostrar en el medio de la ventana y que el usuario nos diga SI ó NO a lo que sea", "2");
+					break;
+				case "4":
+					vSelected=userMsgBox("Titulo 4", "Mensaje que queremos mostrar en el medio de la ventana para que el usuario lo ACEPTE ó CANCELE", "4");
+					break;
+				default: 
+					vSelected=99;
+					break;
+				}
+				self.MAP_VALORDEVUELTO=vSelected.toString();
+				ui.refresh("MAP_VALORDEVUELTO");
+			</script>
+    </action>
+  </showmsgbox>
+  <toolbarvisibility show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				if( self.MAP_TOOLBARVISIBILITY == 0){
+					self.MAP_TOOLBARVISIBILITY = 1;
+				}else{
+					self.MAP_TOOLBARVISIBILITY = 0;
+				}
+				ui.refresh("ToolbarFloatingClose,ToolbarFloating,ToolbarColoresTrazo,ToolbarColoresFondo,ToolbarTamanoTrazo,ToolbarFloatingClose,ToolbarFloatingClose1");
+			</script>
+    </action>
+  </toolbarvisibility>
+  <cambiarcolortrazo show-wait-dialog="false" refresh-prop="DIBUJO">
+    <action name="runscript">
+      <param name="color" />
+      <script language="javascript">
+				self.MAP_COLOR_TRAZO = color;
+			</script>
+    </action>
+  </cambiarcolortrazo>
+  <cambiarcolorfondo show-wait-dialog="false" refresh-prop="DIBUJO">
+    <action name="runscript">
+      <param name="color" />
+      <script language="javascript">
+				self.MAP_COLOR_FONDO = color;
+			</script>
+    </action>
+  </cambiarcolorfondo>
+  <cambiartamanotrazo show-wait-dialog="false" refresh-prop="DIBUJO">
+    <action name="runscript">
+      <script language="javascript"></script>
+    </action>
+  </cambiartamanotrazo>
+  <guardar show-wait-dialog="false" refresh-prop="DIBUJO">
+    <action name="runscript">
+      <script language="javascript">
+				//Opcional: Acepta un segundo parámetro, nombre de fichero
+				ui.saveDrawing("DIBUJO");
+				//Comprobación extra, ver si se ha guardado correctamente
+				var FileManager = createObject("FileManager");
+				var path = appData.filesPath + self.DIBUJO.toString();
+				var result = FileManager.fileExists(path);
+				if ( result == 0){
+					ui.showToast("Fichero " + path + " guardado correctamente");
+				}else{
+					ui.showToast("Error al guardar fichero " + path);
+				}
+				FileManager = null;
+			</script>
+    </action>
+  </guardar>
+  <borrar show-wait-dialog="false" refresh-prop="DIBUJO">
+    <action name="runscript">
+      <script language="javascript">
+				ui.clearDrawing("DIBUJO");
+			</script>
+    </action>
+  </borrar>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

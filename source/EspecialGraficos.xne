@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialGraficos" title="XoneCollvacia" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true" group-swipe="true">
+      <group name="HEADER" id="10" class="groupfixed_header">
+        <frame name="frmtitulo" class="frmsuperior">
+          <prop name="SALIR" type="B" class="btvolversuper" />
+          <prop name="MENU" type="TL" class="tlsuper" title="GRÁFICOS" />
+          <prop name="MAP_COLORACTIVO" type="T" visible="0" />
+        </frame>
+      </group>
+      <group name="FOOTER" id="0" class="groupfixed_footer">
+        <prop name="MAP_GROUP" type="N" visible="0" />
+        <prop name="MAP_TOTAL_PAGES" type="N" visible="0" />
+        <frame name="FLOAT_FOOTER_FRAME" class="frmsuperior">
+          <prop name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+          <prop name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="45%" height="80%" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+          <prop name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="45%" height="80%" labelwidth="1" newline="false" lmargin="6%" imgsel="next-sel.png" disablevisible="MAP_GROUP=##FLD_MAP_TOTAL_PAGES##" />
+        </frame>
+      </group>
+      <group name="Group1" id="1" onfocus="ExecuteNode(onfocusgrupo(1))">
+        <frame name="group1Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosBarrasDatos" classid="XOneCharts" viewmode="barchart" type="Z" contents="GraficosBarrasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+          <contents name="GraficosBarrasDatos" src="ContentGraficosBarrasDatos" />
+        </frame>
+        <prop name="TITLE1" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico de BARRAS" />
+        <frame name="group11Frame" width="705p" height="510p" lmargin="7p" tmargin="5p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="DatosGrafico" type="Z" contents="GraficosBarrasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group2" id="2" onfocus="ExecuteNode(onfocusgrupo(2))">
+        <frame name="group2Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosBarrasDatos1" classid="XOneCharts" viewmode="3dbarchart" type="Z" contents="GraficosBarrasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+        </frame>
+        <prop name="TITLE2" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico BARRAS 3D" />
+        <frame name="group21Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosBarrasDatos2" type="Z" contents="GraficosBarrasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group3" id="3" onfocus="ExecuteNode(onfocusgrupo(3))">
+        <frame name="group3Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosPastelDatos" classid="XOneCharts" viewmode="piechart" type="Z" contents="GraficosPastelDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+          <contents name="GraficosPastelDatos" src="ContentGraficosPastelDatos" />
+        </frame>
+        <prop name="TITLE3" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico CIRCULAR-1" />
+        <frame name="group31Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosPastelDatos2" type="Z" contents="GraficosPastelDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group4" id="4" onfocus="ExecuteNode(onfocusgrupo(4))">
+        <frame name="group4Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosPastelDatos4" classid="XOneCharts" viewmode="piechart2" type="Z" contents="GraficosPastelDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+        </frame>
+        <prop name="TITLE4" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico CIRCULAR-2" />
+        <frame name="group41Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosPastelDatos41" type="Z" contents="GraficosPastelDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group5" id="5" onfocus="ExecuteNode(onfocusgrupo(5))">
+        <frame name="group5Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosLineasTiempoDatos" classid="XOneCharts" viewmode="timeserieschart" type="Z" contents="GraficosLineasTiempoDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+          <contents name="GraficosLineasTiempoDatos" src="ContentGraficosLineasTiempoDatos" />
+        </frame>
+        <prop name="TITLE5" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico LINEA de TIEMPO" />
+        <frame name="group51Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosLineasTiempoDatos1" type="Z" contents="GraficosLineasTiempoDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group6" id="6" onfocus="ExecuteNode(onfocusgrupo(6))">
+        <frame name="group6Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosLineasDatos" title="Gráfico de Línea" classid="XOneCharts" viewmode="linechart" type="Z" contents="GraficosLineasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+          <contents name="GraficosLineasDatos" src="ContentGraficosLineasDatos" sort="CATEGORIA,VALOR1,VALOR2,VALOR3" />
+        </frame>
+        <prop name="TITLE6" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico de LINEA" />
+        <frame name="group61Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosLineasTiempoDatos6" type="Z" contents="GraficosLineasDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <group name="Group7" id="7" onfocus="ExecuteNode(onfocusgrupo(7))">
+        <frame name="group8Frame" width="706p" height="510p" tmargin="14p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="@GraficosLineasXYDatos" classid="XOneCharts" viewmode="xylinechart" type="Z" contents="GraficosLineasXYDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" />
+          <contents name="GraficosLineasXYDatos" src="ContentGraficosLineasXYDatos" sort="CATEGORIA,EJE_X,EJE_Y" />
+        </frame>
+        <prop name="TITLE7" type="TL" class="classtl" lmargin="14p" height="50p" title="Datos Gráfico de LINEA XY" />
+        <frame name="group71Frame" width="706p" height="510p" tmargin="5p" lmargin="7p" framebox="true" forecolor="#666666" border-width="2">
+          <prop name="GraficosLineasXYDatos1" type="Z" contents="GraficosLineasXYDatos" width="692p" lmargin="7p" height="500p" tmargin="6p" locked="true" />
+        </frame>
+      </group>
+      <onfocusgrupo show-wait-dialog="false">
+        <action name="runscript">
+          <param name="index" />
+          <script language="javascript">
+      		self.MAP_GROUP = index;
+		</script>
+        </action>
+      </onfocusgrupo>
+      <onback show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">
+	      	appData.failWithMessage(-11888,"##EXIT##");
+	      </script>
+        </action>
+      </onback>
+      <!--
+      <ir show-wait-dialog="false">
+        <action name="runscript">
+          <param name="index" />
+          <script language="VBScript">
+      		ui.ShowGroup index,"##ALPHA_IN##",500,"##ALPHA_OUT##",500
+      		self.MAP_GROUP") = index
+		</script>
+        </action>
+      </ir>
+      <anterior show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+      		if self.MAP_GROUP") &gt; 1 then
+      			set index = self.MAP_GROUP") - 1
+      			self.ExecuteNode "ir", index
+      		end if
+		</script>
+        </action>
+      </anterior>
+      <siguiente show-wait-dialog="false">
+        <action name="runscript">
+          <script language="VBScript">
+      		if self.MAP_GROUP") &lt; self.MAP_TOTAL_PAGES") then
+      			set index = self.MAP_GROUP") + 1
+      			self.ExecuteNode "ir", index
+      		end if
+		</script>
+        </action>
+      </siguiente>
+      -->
+      <before-edit>
+        <action name="runscript">
+          <script language="javascript">			
+			self.MAP_GROUP = 1;
+			self.MAP_TOTAL_PAGES = 7;
+		</script>
+        </action>
+      </before-edit>
+    </coll>

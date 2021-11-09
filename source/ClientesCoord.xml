@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="ClientesCoord" sql="SELECT t1.* FROM ##PREF##clientes t1" objname="clientes" updateobj="clientes" loadall="true" check-owner="false" dependent="false">
+  <group name="General" id="1" />
+  <prop group="1" name="NOMBRE" type="T" visible="7" mapview-description="true" />
+  <prop group="1" name="DIRECCION" type="T" visible="7" mapview-address="true" />
+  <prop group="1" name="LATITUD" type="N5" visible="7" mapview-latitude="true" />
+  <prop group="1" name="LONGITUD" type="N5" visible="7" mapview-longitude="true" />
+  <prop group="1" name="MARKERICON" type="T" visible="7" mapview-marker-icon="true" />
+  <selecteditem show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				ui.showToast(self.DIRECCION);
+			</script>
+    </action>
+  </selecteditem>
+</coll>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentTareas" title="Tareas" check-owner="false" dependent="false" sql="select t1.ID,FECHA,t1.FECHA as MAP_FECHA,t1.TIPO as MAP_TIPO,t1.DESCRIPCION as MAP_DESCRIPCION, t1.HORAINI as MAP_INICIO, t1.HORAFIN as MAP_FIN from ##PREF##tareas t1" objname="tareas" updateobj="tareas" progid="ASData.CASBasicDataObj" filter="" notab="true" sort="" editmask="0">
+  <group name="General" id="1" />
+  <prop group="1" name="FECHA" type="T" visible="0" />
+  <prop group="1" name="DESCRIPCION" title="" text-bgcolor-disabled="#00FFFFFF" labelbox="false" labelwidth="0" type="T" locked="true" visible="7" forecolor="#000000" width="60%" newline="false" text-border="false" text-bgcolor="#00FFFFFF" />
+  <prop group="1" name="MAP_FECHA" title="" lmargin="10px" labelwidth="0" labelbox="false" type="T" forecolor="#000000" text-bgcolor-disabled="#00FFFFFF" size="15" locked="true" visible="7" width="20%" text-border="false" text-align="left" fieldsize="8" text-bgcolor="#00FFFFFF" />
+  <prop group="1" name="MAP_TIPO" title="" labelwidth="0" labelbox="false" forecolor="#000000" type="T" text-bgcolor-disabled="#00FFFFFF" size="15" locked="true" visible="7" width="20%" newline="false" text-border="false" text-align="left" fieldsize="15" text-bgcolor="#00FFFFFF" />
+  <prop group="1" name="MAP_DESCRIPCION" title="" text-bgcolor-disabled="#00FFFFFF" labelbox="false" labelwidth="0" type="T" locked="true" visible="7" forecolor="#000000" width="60%" newline="false" text-border="false" text-bgcolor="#00FFFFFF" />
+  <prop group="1" name="MAP_INICIO" type="TT" labelfont-bold="true" title="Hora de Inicio:" labelbox="false" labelwidth="10" forecolor="#000000" text-border-bottom="false" locked="true" />
+  <prop group="1" name="MAP_FIN" type="TT" labelfont-bold="true" title="Hora de Fin:" labelbox="false" labelwidth="10" forecolor="#000000" text-border-bottom="false" locked="true" />
+  <prop group="1" name="MAP_BUTCANCELAR" type="B" caption="Volver" labelwidth="5" width="33%" height="10%" method="ExecuteNode(cancelar)" tmargin="50px" lmargin="33%" bgcolor="#FFFFFFFF" forecolor="#E93225" />
+</coll>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentPictureMapData" title="PictureMapData" loadall="true" sql="select t1.* from ##PREF##picturemapdata t1" objname="picturemapdata" updateobj="picturemapdata" progid="ASData.CASBasicDataObj">
+  <group name="General" id="1" />
+  <prop group="1" name="ID" title="Codigo" type="N" visible="0" labelwidth="0" />
+  <prop group="1" name="CODIGO" title="Codigo" type="T" visible="0" labelwidth="0" />
+  <prop group="1" name="TITULO" title="Titulo" labelwidth="0" type="T" visible="4" />
+  <prop group="1" name="DESCRIPCION" title="Descripcion" labelwidth="0" type="T" visible="4" />
+  <prop group="1" name="ESTADO" title="Estado" labelwidth="0" type="T" visible="4" />
+  <prop group="1" name="XCOORD" type="N" xcoord="true" visible="4" />
+  <prop group="1" name="YCOORD" type="N" ycoord="true" visible="4" />
+  <prop group="1" name="ICONBIG" width="126" height="168" type="T" size="250" icon-big="true" visible="4" />
+  <prop group="1" name="RADIO" type="N" circle-radius="true" visible="4" />
+  <prop group="1" name="ICONOFF" width="126" height="168" type="T" size="250" icon-mark="true" visible="4" />
+  <prop group="1" name="ICONON" width="126" height="168" type="T" size="250" icon-touch="true" visible="4" />
+  <selecteditem show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+            var parent = self.getOwnerCollection().getOwnerObject();
+  			parent.MAP_ID=self.ID;
+  			parent.MAP_NOMBRE = self.TITULO;
+  			parent.MAP_DESCRIPCION = self.DESCRIPCION;
+  			//ui.refresh("MAP_NOMBRE,MAP_DESCRIPCION");
+  			ui.getView(parent).refresh("MAP_NOMBRE","MAP_DESCRIPCION");
+  		</script>
+    </action>
+  </selecteditem>
+</coll>

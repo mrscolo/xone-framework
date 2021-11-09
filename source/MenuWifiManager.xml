@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coll name="MenuWifiManager" title="ConsolaReplica" system="1" group-swipe="true" sql="select t1.* from ##PREF##empresa t1" objname="empresa" updateobj="empresa" progid="ASData.CASBasicDataObj" special="true">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" fontsize="14" title="WIFI MANAGER" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="Grupo1" id="1" />
+  <frame group="1" name="Todo1" height="1160p" width="100%" align="left|top" />
+  <frame group="1" frame="Todo1" name="frmActiveWifi" bgcolor="#012B3A" width="100%" height="160p" align="left|center" />
+  <prop group="1" frame="frmActiveWifi" name="MAP_REDESWIFI" labelwidth="0" text-border="false" locked="true" type="T" title="Sí" width="580p" lmargin="20p" height="160p" align="left|center" text-forecolor="#ffffff" text-forecolor-disabled="#ffffff" />
+  <prop group="1" frame="frmActiveWifi" name="MAP_WIFIACTIVE" lmargin="0" newline="false" type="NC" labelwidth="0" width="120p" height="120p" img-checked="check-active.png" img-unchecked="check-no-active.png" />
+  <prop group="1" frame="Todo1" name="ContentWifis" type="Z" contents="ContentWifis" show-no-data="false" show-loading="false" width="100%" height="1000p" mask="0" lmargin="0" tmargin="0" />
+  <contents name="ContentWifis" src="ContentWifis" />
+  <frame group="1" frame="Todo1" name="frmLoading" floating="true" width="120p" top="510p" left="324p" height="120p" disablevisible="MAP_LOADING=0" />
+  <prop group="1" frame="frmLoading" name="MAP_IMG_LOADING" type="IMG" width="120p" height="120p" />
+  <frame group="1" name="frmWifiConectedInfo" disablevisible="MAP_WIFICONECTEDINFO=0" floating="true" width="720p" left="0" height="1280p" top="0" bgcolor="#50000000" />
+  <frame group="1" frame="frmWifiConectedInfo" name="frmWifiConectedInfoG" width="600p" lmargin="60p" tmargin="330p" bgcolor="#ffffff" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_SSID_INFO" text-forecolor-disabled="#666666" locked="true" type="T" text-fontsize="10" textfont-bold="true" labelwidth="0" width="560p" lmargin="20p" tmargin="20p" height="80p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_ESTADO_INFO_TL" title="Estado" type="TL" fontsize="7" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_ESTADO_INFO" text-forecolor-disabled="#666666" locked="true" type="T" textfont-bold="true" textfont-size="7" labelwidth="0" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_INTENSIDAD_INFO_TL" tmargin="20p" title="Intensidad de la señal" type="TL" fontsize="7" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_INTENSIDAD_INFO" text-forecolor-disabled="#666666" locked="true" type="T" textfont-bold="true" textfont-size="7" labelwidth="0" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_VELOCIDAD_INFO_TL" tmargin="20p" title="Velocidad de enlace" type="TL" fontsize="7" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_VELOCIDAD_INFO" text-forecolor-disabled="#666666" locked="true" type="T" textfont-bold="true" textfont-size="7" labelwidth="0" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_FRECUENCIA_INFO_TL" tmargin="20p" title="Frecuencia" type="TL" fontsize="7" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_FRECUENCIA_INFO" text-forecolor-disabled="#666666" locked="true" type="T" textfont-bold="true" textfont-size="7" labelwidth="0" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_SEGURIDAD_INFO_TL" tmargin="20p" title="Seguridad" type="TL" fontsize="7" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_SEGURIDAD_INFO" text-forecolor-disabled="#666666" locked="true" type="T" textfont-bold="true" textfont-size="7" labelwidth="0" width="560p" lmargin="20p" height="40p" visible="1" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_BT_BORRAR_INFO" labelfontsize="7" tmargin="20p" title="BORRAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="left|center" labelwidth="1" width="270p" bmargin="20p" lmargin="20p" height="80p" visible="1" method="executeNode(olvidarwifi('MAP_SSID_INFO'))" />
+  <prop group="1" frame="frmWifiConectedInfoG" name="MAP_BT_LISTO_INFO" labelfontsize="7" tmargin="20p" title="LISTO" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="right|center" labelwidth="1" width="270p" bmargin="20p" lmargin="20p" height="80p" newline="false" visible="1" method="executeNode(ocultarPanel('MAP_WIFICONECTEDINFO','frmWifiConectedInfo'))" />
+  <frame group="1" name="frmWifiSave" disablevisible="MAP_WIFISAVE=0" floating="true" width="720p" left="0" height="1280p" top="0" bgcolor="#50000000" />
+  <frame group="1" frame="frmWifiSave" name="frmWifiSaveG" width="600p" lmargin="60p" tmargin="330p" bgcolor="#ffffff" />
+  <prop group="1" frame="frmWifiSaveG" name="MAP_SSID_SAVE" text-forecolor-disabled="#666666" locked="true" type="T" text-fontsize="10" textfont-bold="true" labelwidth="0" width="560p" lmargin="20p" tmargin="20p" height="80p" visible="1" />
+  <prop group="1" frame="frmWifiSaveG" name="MAP_BT_BORRAR_SAVE" labelfontsize="7" tmargin="180p" title="BORRAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="left|center" labelwidth="1" width="220p" bmargin="20p" lmargin="20p" height="80p" visible="1" method="executeNode(olvidarwifi('MAP_SSID_SAVE'))" />
+  <prop group="1" frame="frmWifiSaveG" name="MAP_BT_CANCEL_SAVE" labelfontsize="7" tmargin="180p" title="CANCELAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="center" labelwidth="1" width="150p" bmargin="20p" lmargin="20p" height="80p" newline="false" visible="1" method="executeNode(ocultarPanel('MAP_WIFISAVE','frmWifiSave'))" />
+  <prop group="1" frame="frmWifiSaveG" name="MAP_BT_LISTO_SAVE" labelfontsize="7" tmargin="180p" title="CONECTAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="center" labelwidth="1" width="150p" bmargin="20p" lmargin="20p" height="80p" newline="false" visible="1" method="executeNode(conectarwifi(1,'MAP_SSID_SAVE'))" />
+  <frame group="1" name="frmWifiNew" disablevisible="MAP_WIFINEW=0" floating="true" width="720p" left="0" height="1280p" top="0" bgcolor="#50000000" />
+  <frame group="1" frame="frmWifiNew" name="frmWifiNewG" width="600p" lmargin="60p" tmargin="330p" bgcolor="#ffffff" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_SSID_NEW" text-forecolor-disabled="#666666" locked="true" type="T" text-fontsize="10" textfont-bold="true" labelwidth="0" width="560p" lmargin="20p" tmargin="20p" height="80p" visible="1" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_PASS_NEW" disablevisible="MAP_CHECK_NEW=1" labelwidth="0" visible="1" width="560p" lmargin="20p" tmargin="20p" textfont-bold="true" textfont-size="7" height="80p" text-bgcolor="#00000000" text-border-color="#2F9DCD" text-border="true" type="X" tooltip="Contraseña" text-border-bottom="true" text-border-top="false" text-border-left="false" text-border-right="false" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_VISIBLE_PASS_NEW" disablevisible="MAP_CHECK_NEW=0" labelwidth="0" visible="1" width="560p" lmargin="20p" tmargin="20p" textfont-bold="true" textfont-size="7" height="80p" text-bgcolor="#00000000" text-border-color="#2F9DCD" text-border="true" type="T" tooltip="Contraseña" text-border-bottom="true" text-border-top="false" text-border-left="false" text-border-right="false" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_CHECK_NEW" img-checked="check-active.png" img-unchecked="check-no-active.png" visible="1" labelwidth="0" width="120p" lmargin="20p" tmargin="20p" height="120p" type="NC" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_CHECK_TL_NEW" align="left|center" title="Mostrar Contraseña" visible="1" width="480p" tmargin="20p" height="120p" type="TL" newline="false" fontsize="7" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_BT_CANCEL_NEW" labelfontsize="7" tmargin="60p" title="CANCELAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="center" labelwidth="1" width="150p" bmargin="20p" lmargin="260p" height="80p" visible="1" method="executeNode(ocultarPanel('MAP_WIFINEW','frmWifiNew'))" />
+  <prop group="1" frame="frmWifiNewG" name="MAP_BT_LISTO_NEW" labelfontsize="7" tmargin="60p" title="CONECTAR" forecolor="#2F9DCD" bgcolor="#00000000" type="B" textfont-bold="true" align="center" labelwidth="1" width="150p" bmargin="20p" lmargin="20p" height="80p" newline="false" visible="1" method="executeNode(conectarwifi(0,'MAP_SSID_NEW'))" />
+  <group name="Invisible" id="0" />
+  <prop group="0" name="MAP_SELECCION" type="N" visible="0" />
+  <prop group="0" name="MAP_SELECCION1" type="N" visible="0" />
+  <prop group="0" name="MAP_ESTADO" type="T" visible="0" />
+  <prop group="0" name="MAP_BANDERA" type="N" visible="0" />
+  <prop group="0" name="MAP_MENUFASECERO" type="N" visible="0" />
+  <prop group="0" name="MAP_WIFICONECTEDINFO" type="N" visible="0" />
+  <prop group="0" name="MAP_WIFISAVE" type="N" visible="0" />
+  <prop group="0" name="MAP_WIFINEW" type="N" visible="0" />
+  <before-edit show-wait-dialog="true">
+    <action name="runscript">
+      <script language="javascript">
+                
+                self.MAP_WIFICONECTEDINFO = 0;
+                // self.MAP_SSID_INFO = "XONEWireles5G";
+                // self.MAP_ESTADO_INFO = "Conexión establecida";
+                // self.MAP_INTENSIDAD_INFO = "Buena";
+                // self.MAP_VELOCIDAD_INFO = "26Mbps";
+                // self.MAP_FRECUENCIA_INFO = "50GHz";
+                // self.MAP_SEGURIDAD_INFO = "WP2 PSK";
+          
+                self.MAP_LOADING = 0;
+    			var wifiManager = createObject("WifiManager");
+    			
+    			self.MAP_IMG_LOADING = "loading.gif";
+    			
+                if(wifiManager.isWifiAdapterEnabled()){
+                    self.MAP_REDESWIFI = "Sí";
+                    self.MAP_WIFIACTIVE = 1;
+                }else{
+                    self.MAP_REDESWIFI = "No";
+                    self.MAP_WIFIACTIVE = 0;
+                }
+          		
+          		appData.getCurrentEnterprise().setVariables("MAP_MENUFASECERO",1);
+          		self.MAP_MENUFASECERO=appData.getCurrentEnterprise().getVariables("MAP_MENUFASECERO");
+          		
+          		self.MAP_BANDERA=1;
+          		
+          		if (systemSettings.getBrightnessMode()=="automatic")
+          		{
+          			//automatic
+          			self.MAP_AUTO=1;
+          		}
+          		else
+          		{
+          			//manual
+          			self.MAP_AUTO=0;
+          		}
+    			self.MAP_TXT_TITLE="Ajustes";
+    			
+    			self.MAP_BRILLO = systemSettings.getBrightness();
+    			self.MAP_BANDERA=0;
+    			
+    			ui.refresh("MAP_AUTO");
+    			//systemSettings.setBrightnessMode("automatic");
+    			
+    			//self.executeNode("scanAvailableNetworks");
+		    </script>
+    </action>
+  </before-edit>
+  <ocultarPanel>
+    <action name="runscript">
+      <param name="prop" />
+      <param name="frm" />
+      <script language="javascript">
+                self[prop] = 0;
+                ui.refresh(frm);
+	        </script>
+    </action>
+  </ocultarPanel>
+  <onchange>
+    <field name="MAP_BRILLO">
+      <action name="runscript">
+        <script language="javascript">
+					if (self.MAP_BANDERA==0){
+						//ui.showToast("entra");
+						self.MAP_BANDERA=1;
+						systemSettings.setBrightnessMode("manual");
+		     			systemSettings.setBrightness(self.MAP_BRILLO);
+		     			self.MAP_BRILLO = systemSettings.getBrightness();
+		     			self.MAP_AUTO=0;
+		     			ui.refresh("MAP_AUTO,MAP_BRILLO");
+		     			self.MAP_BANDERA=0;
+		     		}
+	     			
+	     			//ui.showToast("pepito");
+    		    </script>
+      </action>
+    </field>
+    <field name="MAP_AUTO">
+      <action name="runscript">
+        <script language="javascript">
+					if (self.MAP_BANDERA==0){
+						self.MAP_BANDERA=1;
+		     			if (self.MAP_AUTO==1)
+		     			{
+		     				//ui.showToast("lo pongo auto");
+		     				systemSettings.setBrightnessMode("automatic");
+		     				//ui.sleep(2);
+		     				self.MAP_BRILLO = systemSettings.getBrightness();
+		     				
+		     			}
+		     			else
+		     			{
+		     				//ui.showToast("lo pongo manual");
+		     				systemSettings.setBrightnessMode("manual");
+		     			}
+		     			ui.refresh("MAP_AUTO,MAP_BRILLO");
+		     			self.MAP_BANDERA=0;
+	     			}
+	    		</script>
+      </action>
+    </field>
+    <field name="MAP_WIFIACTIVE">
+      <action name="runscript">
+        <script language="javascript">
+					var wifiManager = createObject("WifiManager");
+					if(self.MAP_WIFIACTIVE == 1){
+                        self.MAP_REDESWIFI = "Sí";
+					    wifiManager.enableWifiAdapter();
+                        self.executeNode("scanAvailableNetworks");
+					    ui.refresh("MAP_REDESWIFI");
+					}else{
+                        self.MAP_REDESWIFI = "No";
+					    wifiManager.disableWifiAdapter();
+					    self.getContents("ContentWifis").clear();
+					    ui.refresh("MAP_REDESWIFI,ContentWifis");
+					}
+	    		</script>
+      </action>
+    </field>
+    <field name="MAP_CHECK_NEW">
+      <action name="runscript">
+        <param name="ssidProp" />
+        <script language="javascript">
+                    if(self.MAP_CHECK_NEW == 1){
+                        self.MAP_VISIBLE_PASS_NEW = self.MAP_PASS_NEW;
+                    }else{
+                        self.MAP_PASS_NEW = self.MAP_VISIBLE_PASS_NEW;
+                    }
+                        ui.refresh("MAP_VISIBLE_PASS_NEW,MAP_PASS_NEW");
+			    </script>
+      </action>
+    </field>
+  </onchange>
+  <olvidarwifi refresh="false">
+    <action name="runscript">
+      <param name="ssidProp" />
+      <script language="javascript">
+              	try
+              	{
+              	    var sRefresh = "";
+    				var wifiManager = createObject("WifiManager");
+    				wifiManager.removeNetwork(self[ssidProp]);
+    				self.getContents("ContentWifis").clear();
+    				if(self.MAP_WIFISAVE == 1){
+                        self.MAP_WIFISAVE = 0;
+                        sRefresh = "frmWifiSave";
+    				}else if (self.MAP_WIFICONECTEDINFO == 1){
+                        self.MAP_WIFICONECTEDINFO = 0;
+                        sRefresh = "frmWifiConectedInfo";
+    				}
+    				if(sRefresh.length &gt; 0){
+    				    sRefresh += ",ContentWifis";
+    				}else{
+    				    sRefresh += "ContentWifis";
+    				}
+                    ui.refresh(sRefresh);
+    				self.executeNode("scanAvailableNetworks");
+    			}
+    			catch(ex){
+    			}
+			</script>
+    </action>
+  </olvidarwifi>
+  <conectarwifi refresh="false">
+    <action name="runscript">
+      <param name="estado" />
+      <param name="propSSID" />
+      <script language="javascript">
+                try {
+              		var wifiManager=createObject("WifiManager");
+              		var wifiConfiguration=createObject("WifiConfiguration");
+              		
+              		if (estado == 1)
+              		{
+              			wifiManager.connect(self[propSSID]);
+			            self.executeNode("ocultarPanel('MAP_WIFISAVE','frmWifiSave')");
+              			self.MAP_LOADING = 1;
+                		self.getContents("ContentWifis").clear();
+                	    ui.refresh("frmLoading,ContentWifis");
+              		}
+              		else
+    				{
+    					if (self.MAP_SECURITY=="OPEN")
+    					{
+    						wifiConfiguration.setSsid(self[propSSID]);
+    						wifiConfiguration.setNetworkSecurity("OPEN");
+    						wifiManager.addNetwork(wifiConfiguration);
+    					}
+    					else
+    					{
+    						if (self.MAP_PASS_NEW.length&gt;=8)
+    						{
+    							wifiConfiguration.setSsid(self[propSSID]);
+    							wifiConfiguration.setNetworkSecurity(self.MAP_SECURITY);
+    							wifiConfiguration.setPassword(self.MAP_PASS_NEW);
+    							wifiManager.addNetwork(wifiConfiguration);
+    						}
+    					}
+    					wifiManager.connect(self[propSSID]);
+    					self.executeNode("ocultarPanel('MAP_WIFINEW','frmWifiNew')");
+              			self.MAP_LOADING = 1;
+                		self.getContents("ContentWifis").clear();
+                	    ui.refresh("frmLoading,ContentWifis");
+    				}
+    			}
+    			catch(ex){
+    			    
+    			}
+    			
+			    ui.executeActionAfterDelay("scanAvailableNetworks",6);
+			</script>
+    </action>
+  </conectarwifi>
+  <getAdapterMacAddress>
+    <action name="runscript">
+      <script language="javascript">
+				getAdapterMacAddress();
+			</script>
+    </action>
+  </getAdapterMacAddress>
+  <getActiveWifiInfo>
+    <action name="runscript">
+      <script language="javascript">
+				getActiveWifiInfo();
+			</script>
+    </action>
+  </getActiveWifiInfo>
+  <connect>
+    <action name="runscript">
+      <script language="javascript">
+				connect();
+			</script>
+    </action>
+  </connect>
+  <disconnect>
+    <action name="runscript">
+      <script language="javascript">
+				disconnect();
+			</script>
+    </action>
+  </disconnect>
+  <enableNetwork>
+    <action name="runscript">
+      <script language="javascript">
+				enableNetwork();
+			</script>
+    </action>
+  </enableNetwork>
+  <disableNetwork>
+    <action name="runscript">
+      <script language="javascript">
+				disableNetwork();
+			</script>
+    </action>
+  </disableNetwork>
+  <removeNetwork>
+    <action name="runscript">
+      <script language="javascript">
+				removeNetwork();
+			</script>
+    </action>
+  </removeNetwork>
+  <addOpenNetwork>
+    <action name="runscript">
+      <script language="javascript">
+				addOpenNetwork();
+			</script>
+    </action>
+  </addOpenNetwork>
+  <addWpaNetwork>
+    <action name="runscript">
+      <script language="javascript">
+				addWpaNetwork();
+			</script>
+    </action>
+  </addWpaNetwork>
+  <listSavedNetworks>
+    <action name="runscript">
+      <script language="javascript">
+				listSavedNetworks();
+			</script>
+    </action>
+  </listSavedNetworks>
+  <scanAvailableNetworks show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+				scanAvailableNetworks();
+			</script>
+    </action>
+  </scanAvailableNetworks>
+  <irMenu show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="COLL" />
+      <script language="javascript">
+
+			if (COLL=="Salir")
+			{
+				//##XONE_TRANSLATE_NEXT_LINE##
+			    var string1="¿Desea salir de la aplicación?";
+			    //##XONE_TRANSLATE_NEXT_LINE##
+			    var string2="Salir app";
+				var cadena=ui.msgBoxWithSound(string1, string2, 4, "", "", 0);
+				if (cadena==6) 
+				{   
+				    ui.stopGps();
+					appData.failWithMessage(-11888,"##EXITAPP##");
+				}
+			}
+			else
+	  		{
+				switch(COLL) {
+				    case "Mensajes":
+				        COLL="MenuPrincipalFase0";
+				        break;
+				    case "ConsolaReplica":
+				    	COLL="ConsolaReplica";
+				        break;
+				    case "Tareas":
+				    	
+				        break;
+				    default:
+				        
+				}
+				
+				if (COLL!=" ")
+				{
+					appData.getCurrentEnterprise().setVariables("BANDERAORDENES",0);
+					appData.getCurrentEnterprise().setVariables("BANDERATAREAS",0);
+					appData.getCurrentEnterprise().setVariables("BANDERADOCUMENTACION",0);
+					
+					if (COLL=="Tareas")
+					{
+						COLL=appData.getCurrentEnterprise().getVariables("MENUDONDEESTOY");
+						var filtro="";
+						if (appData.getCurrentEnterprise().getVariables("IDTA")!=0)
+							filtro="t1.IDTA="+appData.getCurrentEnterprise().getVariables("IDTA") + " AND t1.IDOT="+appData.getCurrentEnterprise().getVariables("IDOT");
+						else
+						{
+							if (appData.getCurrentEnterprise().getVariables("IDOT")!=0)
+								filtro="t1.IDOT="+appData.getCurrentEnterprise().getVariables("IDOT");
+						}
+						
+						if (filtro!="")
+						{
+							ui.toggleGroup("99");
+							ui.returnToMainMenu();
+			          		var coll=appData.getCollection(COLL);
+							coll.clear();
+							var objabrir=coll.findObject(filtro);
+							if (objabrir)
+								appData.pushValue(objabrir);
+						}
+						else
+						{
+							//##XONE_TRANSLATE_NEXT_LINE##
+						    //var string3="Aún no ha accedido a ninguna Tarea";
+						    //##XONE_TRANSLATE_NEXT_LINE##
+						    //var string4="Acceso tareas";
+							//ui.msgBoxWithSound(string3, string4, 0, "", "", 0);
+							appData.failWithMessage(-11888,"##EXIT##");
+						}
+					
+					}
+					else					
+					{
+						ui.toggleGroup("99");
+						ui.returnToMainMenu();
+						var colComunica=appData.getCollection(COLL);
+						var obj=colComunica.createObject();
+						colComunica.addItem(obj);
+						appData.pushValue(obj);  
+						
+					}
+				}
+				else
+					ui.msgBox("Menu sin implementar","Aviso",0);
+			}
+		
+		</script>
+    </action>
+  </irMenu>
+  <showDrawer show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+			    ui.toggleGroup("99");
+			    ui.refresh("barraSuperior");
+			</script>
+    </action>
+  </showDrawer>
+  <onback refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+          		if (self.MAP_SELECCION==1)
+          		{
+          			self.MAP_SELECCION=0;
+          			ui.getView(self).refreshAll("frmActualizacion,frmbtnActualizacion");
+          		}
+          		else
+          			appData.failWithMessage(-11888,"##EXIT##");
+			</script>
+    </action>
+  </onback>
+  <cancelarwifi refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+			  self.MAP_SELECCION=0;
+			  ui.getView(self).refreshAll("frmActualizacion,frmbtnActualizacion");
+			</script>
+    </action>
+  </cancelarwifi>
+</coll>

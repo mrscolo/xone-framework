@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentSonidosNotificaciones" title="SonidosNotificaciones"
+sql="select ID,SONIDO,upper(TITULO) as TITULO from gen_sonidos" loadall="true" cell-height="80p" objname="sonidos" updateobj="sonidos" 
+cell-odd-color="#FFFFFF" cell-even-color="#F2F2F2" progid="ASData.CASBasicDataObj">
+      <group name="General" id="1" width="100%">
+        <frame name="contenedor" width="99%">
+          <prop name="SONIDO" type="T" visible="0" labelwidth="0" width="96%" lmargin="2%" tmargin="10p" />
+          <prop name="TITULO" type="T" visible="7" labelwidth="0" width="84%" lmargin="2%" newline="false" />
+        </frame>
+      </group>
+      <selecteditem show-wait-dialog="false" refresh="true" refresh-owner="MAP_BTSONIDOSEL,MAP_SONIDO,MAP_BTPLAYSEL">
+        <action name="runscript">
+          <script language="javascript">			     				
+ 				self.getOwnerCollection().getOwnerObject().MAP_SONIDO = self.SONIDO.toString();
+ 				self.getOwnerCollection().getOwnerObject().MAP_BTSONIDOSEL = self.TITULO.toString();
+ 				self.getOwnerCollection().getOwnerObject().MAP_ID = self.ID;
+ 				//ui.getview(appData.getCurrentEnterprise().variables("OBJETO")).refresh "MAP_BTSONIDOSEL"
+		   </script>
+        </action>
+      </selecteditem>
+    </coll>

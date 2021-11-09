@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialMsgbox" title="Msgbox" sql="" objname="msgbox" updateobj="msgbox"
+progid="ASData.CASBasicDataObj" filter="" sort="" bgcolor="#00000000" cancelable="false" cancelable-outside="false">
+      <group name="General" id="1" align="center" bgcolor="#00000000">
+        <prop name="MAP_TIPO" visible="0" type="T" />
+        
+        <frame name="contenedor" width="80%" height="-2" framebox="true" bgcolor="#ffffff" align="center">
+            
+          <frame name="botonessuperior" lmargin="0" tmargin="5p" bgcolor="#0076b7" width="98%" height="-2" align="center">
+            <prop name="MAP_TITULO" type="T" locked="true" class="msgbox_titulo" />
+          </frame>
+          <prop name="MAP_MENSAJE" type="T" lmargin="0" tmargin="10p" locked="true" class="msgbox_mensaje" />
+          <frame name="frmBotones" lmargin="0" tmargin="15p" bmargin="5p" bgcolor="#DDDDDD" height="-1" align="center" width="98%">
+              
+            <frame name="frameBtOK" lmargin="0" tmargin="5p" align="center" height="-1" width="33%" disablevisible="MAP_TIPO&lt;&gt;'1'">
+              <prop name="BTOK" type="B" button-option="10" class="msgbox_boton" title="OK" img="ok_texto.png" />
+            </frame>
+            
+            <frame name="frameBtSI" lmargin="0" tmargin="5p" align="center" height="-1" width="33%" disablevisible="MAP_TIPO&lt;&gt;'2'">
+              <prop name="BTSI" type="B" button-option="1" class="msgbox_boton" title="SI" img="ok_texto.png" />
+            </frame>
+            
+            <frame name="frmeBtNO" lmargin="0" tmargin="5p" newline="false" align="center" height="-1" width="33%" disablevisible="MAP_TIPO&lt;&gt;'2'">
+              <prop name="BTNO" type="B" button-option="2" class="msgbox_boton" img="cancelar_texto.png" title="NO" />
+            </frame>
+            
+            <frame name="frmeBtAceptar" lmargin="0" tmargin="5p" align="center" height="-1" width="34%" disablevisible="MAP_TIPO&lt;&gt;'4'">
+              <prop name="BTACEPTAR" type="B" button-option="6" class="msgbox_boton" width="140p" img="ok_texto.png" title="ACEPTAR" fontsize="5"/>
+            </frame>
+            
+            <frame name="frmeBtCancel" lmargin="0" tmargin="5p" newline="false" align="center" height="-1" width="34%" disablevisible="MAP_TIPO&lt;&gt;'4'">
+              <prop name="BTCANCEL" type="B" button-option="7" class="msgbox_boton" width="140p" title="CANCELAR" img="cancelar_texto.png" fontsize="5"/>
+            </frame>
+            
+          </frame>
+          
+        </frame>
+      </group>
+    </coll>

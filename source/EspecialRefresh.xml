@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="EspecialRefresh" title="XoneCollvacia" notab="true" sql="" objname="" updateobj="" progid="" filter="" sort="" special="true">
+  <group name="HEADER" id="10" class="groupfixed_header" />
+  <frame group="10" name="frmtitulo" class="frmsuperior" />
+  <prop group="10" frame="frmtitulo" name="SALIR" type="B" class="btvolversuper" />
+  <prop group="10" frame="frmtitulo" name="MENU" type="TL" class="tlsuper" title="Refresh" />
+  <prop group="10" frame="frmtitulo" name="MAP_COLORACTIVO" type="T" visible="0" />
+  <group name="FOOTER" id="99" class="groupfixed_footer" />
+  <frame group="99" name="FLOAT_FOOTER_FRAME" class="frmsuperior" />
+  <prop group="99" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST" type="B" img="last.png" title="Anterior" onclick="javascript:prev(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(anterior)" forecolor="#FFFFFF" width="300p" height="90p" labelwidth="1" imgsel="last-sel.png" disablevisible="MAP_GROUP=1" />
+  <prop group="99" frame="FLOAT_FOOTER_FRAME" name="MAP_LAST_EMPTY" type="B" bgcolor="#00000000" width="300p" height="90p" labelwidth="1" newline="false" disablevisible="MAP_GROUP&gt;1" />
+  <prop group="99" frame="FLOAT_FOOTER_FRAME" name="MAP_NEXT" type="B" img="next.png" title="Siguiente " onclick="javascript:next(self,'ir'); ui.refresh('MAP_LAST', 'MAP_NEXT', 'MAP_LAST_EMPTY');" methodx="ExecuteNode(siguiente)" forecolor="#FFFFFF" width="300p" height="90p" labelwidth="1" newline="false" lmargin="120p" imgsel="next-sel.png" disablevisible="MAP_GROUP=MAP_TOTAL_PAGES" />
+  <prop group="99" name="MAP_GROUP" type="N" visible="0" />
+  <prop group="99" name="MAP_TOTAL_PAGES" type="N" visible="0" />
+  <group name="gronchage" id="1" imgbk="wallpaper.jpg" />
+  <frame group="1" name="frmonchange" align="top|center" scroll="true" />
+  <prop group="1" frame="frmonchange" name="MAP_ETIQUETA" type="TL" width="80%" class="classtl" title="Refrescar por atributo onchange (1/2)" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_T" type="T" align="center" title="Texto" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_T)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_T" newline="false" type="B" img="##FLD_MAP_IMAGEN##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_N" type="N" align="center" title="Numero" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_N)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_N" newline="false" type="B" img="##FLD_MAP_IMAGEN2##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_N2" type="N2" align="center" title="Numero Real" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_N2)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_N2" newline="false" type="B" img="##FLD_MAP_IMAGEN4##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_NT" type="TN" align="center" title=" Texto Numero" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_NT)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_NT" newline="false" type="B" img="##FLD_MAP_IMAGEN16##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_NC" type="NC" align="center" title="Check" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_NC)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_NC" newline="false" type="B" img="##FLD_MAP_IMAGEN3##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_X" type="X" align="center" title="Clave" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_X)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_X" newline="false" type="B" img="##FLD_MAP_IMAGEN6##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_D" type="D" align="center" title="Fecha" text-border="true" width="560p" height="100p" onchange="refresh(TEXTREFRESH_D,BOT_TEXTREFRESH_D)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_D" newline="false" type="B" img="##FLD_MAP_IMAGEN5##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="TEXTREFRESH_TT" type="TT" align="center" mask="Hh#:#Mm" title="Hora" text-border="true" width="560p" height="100p" onchange="refresh(TEXTREFRESH_TT,BOT_TEXTREFRESH_TT)" />
+  <prop group="1" frame="frmonchange" name="BOT_TEXTREFRESH_TT" newline="false" type="B" img="##FLD_MAP_IMAGEN9##" width="100p" height="100p" />
+  <prop group="1" frame="frmonchange" name="BUT4" type="B" align="center" title="Pulsa para hacer perder el foco a los controles." label-wrap="true" width="80%" height="100p" tmargin="4" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN2" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN3" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN4" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN5" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN6" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN9" type="T" visible="0" />
+  <prop group="1" frame="frmonchange" name="MAP_IMAGEN16" type="T" visible="0" />
+  <group name="gronchage2" id="2" imgbk="wallpaper.jpg" />
+  <frame group="2" name="frmonchange44" align="top|center" scroll="true" />
+  <prop group="2" frame="frmonchange44" name="MAP_ETIQUETA_2" type="TL" width="80%" class="classtl" title="Refrescar por atributo onchange (2/2)" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_NPHONE" type="N" align="center" title="Teléfono" phone="true" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_NPHONE)" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_NPHONE" newline="false" type="B" img="##FLD_MAP_IMAGEN10##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="MAP_IDTIPOIDEN" type="T" visible="0" mapcol-values="CC, TI, CE, Otro" mapfld="DATA" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_TDESPLE" type="T" align="center" showinline="true" title="Combo" linkedto="MAP_IDTIPOIDEN" linkedfield="DATA" text-border="true" width="560p" height="100p" onchange="refresh(TEXTREFRESH_TDESPLE,BOT_TEXTREFRESH_TDESPLE)" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_TDESPLE" newline="false" type="B" img="##FLD_MAP_IMAGEN11##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="MAP_IDTIPOIDEN2" type="T" visible="0" mapcol="MenuControlesLupa" mapfld="ID" onchange="refresh(TEXTREFRESH_TLUPA,BOT_TEXTREFRESH_TLUPA)" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_TLUPA" type="T" align="center" title="Combo COLL" linkedto="MAP_IDTIPOIDEN2" linkedfield="TITULO" text-border="true" width="560p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_TLUPA" newline="false" type="B" img="##FLD_MAP_IMAGEN12##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_AT" type="AT" align="center" title="Attach" text-border="true" width="560p" height="100p" onchange="refresh(BOT_TEXTREFRESH_AT)" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_AT" newline="false" type="B" img="##FLD_MAP_IMAGEN7##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_PHTL" type="TL" align="center" title="Foto" text-border="true" width="218p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_PH" type="PH" align="center" title="foto" text-border="true" width="342p" height="100p" onchange="refresh(BOT_TEXTREFRESH_PH)" newline="false" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_PH" newline="false" type="B" img="##FLD_MAP_IMAGEN8##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_VDTL" type="TL" align="center" title="video" text-border="true" width="218p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_VD" type="VD" align="center" readonly="false" title="video" text-border="true" width="342p" height="100p" onchange="refresh(TEXTREFRESH_VD,BOT_TEXTREFRESH_VD)" newline="false" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_VD" newline="false" type="B" img="##FLD_MAP_IMAGEN13##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_DRTL" type="TL" align="center" title="Firma" text-border="true" width="218p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_DR" type="DR" align="center" img="xone.png" stroke-width="##FLD_MAP_TAMANO_TRAZO_DESPLEGABLE##" stroke-color="##FLD_MAP_COLOR_TRAZO##" bgcolor="##FLD_MAP_COLOR_FONDO##" apply-format-to-file="true" title="video" text-border="true" width="342p" height="100p" onchange="refresh(TEXTREFRESH_DR,BOT_TEXTREFRESH_DR)" newline="false" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_DR" newline="false" type="B" img="##FLD_MAP_IMAGEN14##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_WEBTL" type="TL" align="center" title="WEB" text-border="true" width="218p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="TEXTREFRESH_WEB" type="WEB" align="center" readonly="false" title="WEB" text-border="true" width="342p" height="100p" onchange="refresh(TEXTREFRESH_VD,BOT_TEXTREFRESH_VD)" newline="false" />
+  <prop group="2" frame="frmonchange44" name="BOT_TEXTREFRESH_WEB" newline="false" type="B" img="##FLD_MAP_IMAGEN15##" width="100p" height="100p" />
+  <prop group="2" frame="frmonchange44" name="BUT4_2" type="B" align="center" title="Pulsa para hacer perder el foco a los controles." label-wrap="true" width="80%" height="100p" tmargin="4" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN10" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN7" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN8" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN11" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN12" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN13" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN14" type="T" visible="0" />
+  <prop group="2" frame="frmonchange44" name="MAP_IMAGEN15" type="T" visible="0" />
+  <group name="gronchage3" id="3" imgbk="wallpaper.jpg" />
+  <frame group="3" name="frmonchange2" tmargin="100p" align="top|center" scroll="true" />
+  <prop group="3" frame="frmonchange2" name="MAP_ETIQUETA2" type="TL" width="80%" class="classtl" bmargin="50p" title="Refrescar a traves de script" />
+  <prop group="3" frame="frmonchange2" name="NUM1_2" type="N" labelwidth="0" locked="true" align="center" text-border="false" width="100p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="OPERADOR_2" newline="false" align="center" type="TL" title="+" width="100p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="NUM2_2" type="N" newline="false" locked="true" align="center" labelwidth="0" text-border="false" width="100p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="OPERADOR2_2" newline="false" align="center" type="TL" title="=" width="100p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="NUM3_2" type="N" locked="true" align="center" newline="false" labelwidth="0" text-border="false" width="100p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="BUT_2" type="B" method="ExecuteNode(calculaTotal2(##FLD_NUM1_2##,##FLD_NUM2_2##))" align="center" title="refreshvalue" width="300p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="BUT2" tmargin="20p" type="B" method="ExecuteNode(clear('NUM3','NUM3_2'))" align="center" title="refresh" width="300p" height="100p" />
+  <prop group="3" frame="frmonchange2" name="BUT3" tmargin="20p" type="B" method="ExecuteNode(clear2('NUM3','NUM3_2'))" align="center" title="refreshAll" width="300p" height="100p" />
+  <group name="grpostonchange" id="4" imgbk="wallpaper.jpg" />
+  <frame group="4" name="frmpostonchange" width="100%" align="top|center" />
+  <prop group="4" frame="frmpostonchange" name="MAP_ETIQUETA3" width="80%" type="TL" class="classtl" title="Refrescar con postonchange o getView" />
+  <prop group="4" frame="frmpostonchange" name="NUM" type="N" locked="true" align="center" labelwidth="0" text-border="false" width="100p" height="100p" />
+  <prop group="4" frame="frmpostonchange" name="EGECUTARYGET" tmargin="100p" type="B" width="500p" height="70p" title="Sumar 50 por getView" method="executeNode(pulsar('EspecialColeccionDePega'))" />
+  <prop group="4" frame="frmpostonchange" name="EGECUTARYREFRES" tmargin="50p" type="B" width="560p" height="70p" title="Sumar 100 por postonchange" method="executeNode(pulsaronchange('EspecialColeccionDePegaOnchange'))" postonchange="ExecuteNode(postpulsaronchange)" newline="true" />
+  <frame group="4" name="frmrefresh" tmargin="50p" width="100%" bgcolor="##FLD_MAP_COLOR1##" />
+  <prop group="4" frame="frmrefresh" name="MAP_ETIQUETA4" width="80%" type="TL" class="classtl" title="Refrescar todo con script" />
+  <prop group="4" frame="frmrefresh" name="MAP_CHECK" type="NC" class="classcheck" visible="0" title="Ocultar" labelbox="false" labelwidth="10" width="720p" height="100p" forecolor="##FLD_MAP_COLOR2##" />
+  <prop group="4" frame="frmrefresh" name="MAP_TEXT" type="T" class="classT" title="Texo que cambia de color" labelbox="false" labelwidth="10" width="90%" height="10%" label-wrap="true" disablevisible="MAP_CHECK=1" forecolor="##FLD_MAP_COLOR2##" />
+  <prop group="4" frame="frmrefresh" name="MAP_BUTTON1" type="B" caption="Color fondo" method="ExecuteNode(cambiarFondo)" class="btnButton" />
+  <prop group="4" frame="frmrefresh" name="MAP_BUTTON2" type="B" caption="Color fuente" method="ExecuteNode(cambiarFuente)" class="btnButton" />
+  <prop group="4" frame="frmrefresh" name="MAP_COLOR1" type="T" visible="0" />
+  <prop group="4" frame="frmrefresh" name="MAP_COLOR2" type="T" visible="0" />
+  <group name="grcontent" id="5" imgbk="wallpaper.jpg" />
+  <frame group="5" name="frmcontents1" width="100%" height="40%" align="top|center" />
+  <prop group="5" frame="frmcontents1" name="MAP_ETIQUETA5" width="80%" type="TL" class="classtl" title="refresh-owner" />
+  <prop group="5" frame="frmcontents1" name="CONTENT1" type="Z" contents="content1" class="contentgridview" width="80%" height="60%" />
+  <contents name="content1" src="ContentRefresh" filter="FILTRO='BASICO'" />
+  <prop group="5" frame="frmcontents1" name="MAP_TITULO" type="T" visible="1" labelwidth="0" text-border="false" />
+  <frame group="5" name="frmcontents2" width="100%" height="60%" />
+  <prop group="5" frame="frmcontents2" name="MAP_ETIQUETA6" width="80%" type="TL" class="classtl" title="ui.refreshContentRow" />
+  <prop group="5" frame="frmcontents2" name="CONTENT2" type="Z" xedit-inrow="true" contents="content2" width="80%" height="50%" />
+  <contents name="content2" src="ContentRefreshContentRow" />
+  <prop group="5" frame="frmcontents2" name="MAP_TITULO2" type="T" visible="1" title="Nombre: " labelbox="false" text-border="false" />
+  <prop group="5" frame="frmcontents2" name="MAP_LINEA" type="N" visible="0" />
+  <prop group="5" frame="frmcontents2" name="MAP_LINEA2" type="N" visible="0" />
+  <prop group="5" frame="frmcontents2" name="BOTONEDITAR" type="B" visible="1" title="Editar" width="200p" height="100p" tmargin="20p" lmargin="10p" method="ExecuteNode(contentRow(##FLD_MAP_TITULO2##,##FLD_MAP_LINEA##))" />
+  <prop group="5" frame="frmcontents2" name="BOTONBORRARINDEX" newline="false" type="B" visible="1" title="Borrar" width="300p" height="100p" tmargin="20p" lmargin="10p" method="ExecuteNode(BorrarIndex)" />
+  <before-edit>
+    <action name="runscript">
+      <script language="javascript">
+				appData.getCurrentEnterprise().setVariables("MAP_REFRESCOPOSONCHANGE",0); // asigna valor a variable global
+				
+			    self.MAP_GROUP = 1;
+				self.NUM1 = 20;
+				self.NUM2 = 30;
+				self.NUM = 0;
+				self.NUM1_2 = 10;
+				self.NUM2_2 = 60;
+				self.MAP_TOTAL_PAGES = 5;
+				self.MAP_IMAGEN = "negativo.png";
+				self.MAP_IMAGEN2 = "negativo.png";
+				self.MAP_IMAGEN3 = "negativo.png";
+				self.MAP_IMAGEN4 = "negativo.png";
+				self.MAP_IMAGEN5 = "negativo.png";
+				self.MAP_IMAGEN6 = "negativo.png";
+				self.MAP_IMAGEN7 = "negativo.png";
+				self.MAP_IMAGEN8 = "negativo.png";
+				self.MAP_IMAGEN9 = "negativo.png";
+				self.MAP_IMAGEN10 = "negativo.png";
+				self.MAP_IMAGEN11 = "negativo.png";
+				self.MAP_IMAGEN12 = "negativo.png";
+				self.MAP_IMAGEN13 = "negativo.png";
+				self.MAP_IMAGEN14 = "negativo.png";
+				self.MAP_IMAGEN15 = "negativo.png";
+				self.MAP_IMAGEN16 = "negativo.png";
+				self.MAP_COLOR2 = "#000000";
+				ui.refresh("MAP_IMAGEN");
+			</script>
+    </action>
+  </before-edit>
+  <onchange refresh="false">
+    <field name="TEXTREFRESH_T">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_T");
+					if(self.TEXTREFRESH_T.length &gt; 0){
+						self.MAP_IMAGEN = "positivo.png";
+					}else{
+						self.MAP_IMAGEN = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN);
+					ui.refresh("BOT_TEXTREFRESH_T");
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_NT">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN16 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_NT");
+					if(self.TEXTREFRESH_NT.length &gt; 0){
+						self.MAP_IMAGEN16 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN16 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN16);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_N">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN2 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_N");
+					if(self.TEXTREFRESH_N &gt; 0){
+						self.MAP_IMAGEN2 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN2 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN2);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_N2">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN4 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_N2");
+					if(self.TEXTREFRESH_N2 &gt; 0){
+						self.MAP_IMAGEN4 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN4 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN4);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_NC">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN3 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_NC");
+					if(self.TEXTREFRESH_NC != 0){
+						self.MAP_IMAGEN3 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN3 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN3);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_D">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN5 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_D");
+					if(self.TEXTREFRESH_D != 0){
+						self.MAP_IMAGEN5 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN5 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN5);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_X">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN6 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_X");
+					if(self.TEXTREFRESH_X != 0){
+						self.MAP_IMAGEN6 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN6 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN6);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_TT">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN9 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_TT");
+					if(self.TEXTREFRESH_TT != 0){
+						self.MAP_IMAGEN9 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN9 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN9);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_NPHONE">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN10 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_NPHONE");
+					if(self.TEXTREFRESH_NPHONE != 0){
+						self.MAP_IMAGEN10 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN10 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN10);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_TDESPLE">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN11 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_TDESPLE");
+					if(self.TEXTREFRESH_TDESPLE != 0){
+						self.MAP_IMAGEN11 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN11 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN11);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_TLUPA">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN12 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_TLUPA");
+					if(self.TEXTREFRESH_TLUPA != 0){
+						self.MAP_IMAGEN12 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN12 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN12);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_AT">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN7 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_AT");
+                    if(self.TEXTREFRESH_AT != null){
+    					if(self.TEXTREFRESH_AT.length &gt; 0){
+    						self.MAP_IMAGEN7 = "positivo.png";
+    					}else{
+    						self.MAP_IMAGEN7 = "negativo.png";
+    					}
+                    }else{
+                        self.MAP_IMAGEN7 = "negativo.png";
+                    }
+					//ui.showToast(self.MAP_IMAGEN7);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_PH">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN8 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_PH");
+    				if(self.TEXTREFRESH_PH != null){
+        				if(self.TEXTREFRESH_PH.length &gt; 0){
+    						self.MAP_IMAGEN8 = "positivo.png";
+    					}else{
+    						self.MAP_IMAGEN8 = "negativo.png";
+    					}
+    				}else{
+    				     self.MAP_IMAGEN8 = "negativo.png";
+    				}
+					//ui.showToast(self.MAP_IMAGEN8);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_VD">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN13 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_VD");
+					if(self.TEXTREFRESH_VD != null){
+        				if(self.TEXTREFRESH_VD.length &gt; 0){
+    						self.MAP_IMAGEN13 = "positivo.png";
+    					}else{
+    						self.MAP_IMAGEN13 = "negativo.png";
+    					}
+					}else{
+    				     self.MAP_IMAGEN13 = "negativo.png";
+    				}
+					//ui.showToast(self.MAP_IMAGEN13);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_DR">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN14 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_DR");
+                    if(self.TEXTREFRESH_DR.length &gt; 0){
+						self.MAP_IMAGEN14 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN14 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN14);
+				</script>
+      </action>
+    </field>
+    <field name="TEXTREFRESH_WEB">
+      <action name="runscript">
+        <script language="javascript">
+                    self.MAP_IMAGEN15 = "";
+                    //ui.showToast("se ejecuta el onchange probocado al campo TEXTREFRESH_WEB");
+					if(self.TEXTREFRESH_WEB.length &gt; 0){
+						self.MAP_IMAGEN15 = "positivo.png";
+					}else{
+						self.MAP_IMAGEN15 = "negativo.png";
+					}
+					//ui.showToast(self.MAP_IMAGEN15);
+				</script>
+      </action>
+    </field>
+  </onchange>
+  <clear show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="param1" />
+      <param name="param2" />
+      <script language="javascript">
+                self[param1] = 0;
+                self[param2] = 0;
+                // si ejecutamos el refresh sin pasarle parametros refrescará toda la pantalla.
+                ui.refresh();
+			</script>
+    </action>
+  </clear>
+  <clear2 show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <param name="param1" />
+      <param name="param2" />
+      <script language="javascript">
+                self[param1] = -1;
+                self[param2] = -1;
+                // el refresh all se suele usar para refrescar un frame y todos sus hijos si tener que indicarle cada unos del os props contenidos por el frame.
+                ui.getView(self).refreshAll("frmonchange2");
+			</script>
+    </action>
+  </clear2>
+  <contentRow refresh="false">
+    <action name="runscript">
+      <param name="nombre" />
+      <param name="index" />
+      <script language="javascript">
+				//Para obtener una referencia a un contents lo hacemos por el NAME de la etiqueta contents
+				var mRefreshContentRow = self.getContents("content2");
+				//mRefreshContentRow.loadAll();
+	 			var mObjItem = mRefreshContentRow.getItem(Number(self.MAP_LINEA));
+	 			if(mObjItem != null){
+	 			    var sNombre = mObjItem.NOMBRE;
+	 			    if(sNombre.toString().indexOf("--&gt;modificado") == -1){
+				        mObjItem.NOMBRE=sNombre + "--&gt;modificado";
+	 			    }else{
+	 			        var iend = sNombre.toString().indexOf("--&gt;modificado");
+	 			        iend = sNombre.length - iend;
+	 			        mObjItem.NOMBRE=sNombre.substring(0,iend-1);
+	 			    }
+	 			}
+	 			//ui.msgBox(cstr(mObjItem),"mObjItem",0);
+	 			//ui.msgBox(cstr(mObjItem.NOMBRE),"mObjItem.NOMBRE",0);
+	 			//ui.msgBox(cstr(self.MAP_LINEA),"MAP_LINEA",0);
+	 			//ui.msgBox(cstr(index),"index",0);
+				//A la hora de refrescar lo hacemos siempre a nodos prop
+				ui.refreshContentRow("CONTENT2", self.MAP_LINEA);
+			</script>
+    </action>
+  </contentRow>
+  <BorrarIndex refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+	            var collCont = self.getContents("content2");
+	            if( collCont != null) {
+		            collCont.deleteItem(self.MAP_LINEA);
+		            collCont.clear();
+	                ui.refresh("CONTENT2");
+	            }
+    		</script>
+    </action>
+  </BorrarIndex>
+  <cambiarFondo show-wait-dialog="false" refresh="true">
+    <action name="runscript">
+      <script language="javascript">
+				if( self.MAP_COLOR1 != "#39902B"){
+					self.MAP_COLOR1 = "#39902B";
+				}else{
+					self.MAP_COLOR1 = "#00FFFFFF";
+				}
+			</script>
+    </action>
+  </cambiarFondo>
+  <cambiarFuente show-wait-dialog="false" refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+                if( self.MAP_COLOR2 != "#F0283C"){
+					self.MAP_COLOR2 = "#F0283C";
+				}else{
+					self.MAP_COLOR2 = "#000000";
+				}
+				ui.refresh();
+			</script>
+    </action>
+  </cambiarFuente>
+  <calculaTotal refresh="false" refresh-prop="NUM3" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="num1" />
+      <param name="num2" />
+      <script language="javascript">
+          		self.NUM3 = parseInt(num1) + parseInt(num2);
+			</script>
+    </action>
+  </calculaTotal>
+  <calculaTotal2 refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="num1" />
+      <param name="num2" />
+      <script language="javascript">
+          		self.NUM3_2 = parseInt(num1) + parseInt(num2);
+          		ui.refreshValue("NUM3_2");
+			</script>
+    </action>
+  </calculaTotal2>
+  <onfocusgrupo refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="index" />
+      <script language="javascript">
+          		self.MAP_GROUP = index;
+		    </script>
+    </action>
+  </onfocusgrupo>
+  <pulsar refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="coll" />
+      <script language="javascript">
+	          	var collection = appData.getCollection(coll);
+				var det = collection.createObject();
+				det.MAP_OBJETOPADRE=self; // mandamos el objeto padre
+				appData.pushValue(det);
+		    </script>
+    </action>
+  </pulsar>
+  <postpulsar refresh="false">
+    <action name="runscript">
+      <script language="javascript">
+          		self.NUM = self.NUM + 50;
+          		ui.getView(self).refreshValue("NUM"); // refrescamos el campo que queremos
+                //ui.msgBox("refrequito rico 22","ver cuantos refrescos",0);
+			</script>
+    </action>
+  </postpulsar>
+  <pulsaronchange refresh="false" show-wait-dialog="false">
+    <action name="runscript">
+      <param name="coll" />
+      <script language="javascript">
+	          	var collection = appData.getCollection(coll);
+				var det = collection.createObject();
+				appData.pushValue(det);
+		    </script>
+    </action>
+  </pulsaronchange>
+  <postpulsaronchange>
+    <action name="runscript">
+      <script language="javascript">
+          		if (appData.getCurrentEnterprise().getVariables("MAP_REFRESCOPOSONCHANGE")==1)
+          		{
+          		    self.NUM = self.NUM + 100;
+                   // ui.msgBox("refrequito rico","ver cuantos refrescos",0);
+                    appData.getCurrentEnterprise().setVariables("MAP_REFRESCOPOSONCHANGE",0);
+          		}
+			</script>
+    </action>
+  </postpulsaronchange>
+  <onback show-wait-dialog="false">
+    <action name="runscript">
+      <script language="javascript">
+				appData.failWithMessage(-11888, "##EXIT##");
+			</script>
+    </action>
+  </onback>
+</coll>

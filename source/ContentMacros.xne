@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<coll name="ContentMacros" title="XoneCollvacia" sql="##TIPO##" objname="controles" updateobj="controles" progid="ASData.CASBasicDataObj">
+      <group name="GRID" id="1">
+        <prop name="TITULO" type="T" visible="7" forecolor="#000000" labelwidth="0" lmargin="5p" text-align="center" textfont-bold="true" />
+        <prop name="FILTRO" type="T" visible="0" />
+      </group>
+      <macro name="##TIPO##" value="SELECT * FROM GEN_CONTROLES" default="true" />
+      <selecteditem refresh-owner="MAP_TITULO" show-wait-dialog="false">
+        <action name="runscript">
+          <script language="javascript">				          
+				self.getOwnerCollection().getOwnerObject().MAP_TITULO=self.TITULO;
+			</script>
+        </action>
+      </selecteditem>
+    </coll>
