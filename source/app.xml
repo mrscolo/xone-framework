@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-15" standalone="yes"?>
-<xml>
-  <app prefix="gen" version="0.0.2.604" resolution-height="1280" resolution-width="720" companycolor="#FFFFFF" entry-point="Menu" >
-    <login-coll>
-        <item name="LoginColl" conditions="" />
-    </login-coll>
-    <style url="basico.css" />
-  </app>
-</xml>
