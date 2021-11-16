@@ -1,6 +1,6 @@
 export default {
   // Title
-  title: "All by xone",
+  title: "Preview Code",
   // Path
   path: "/xone-framework/",
   // IDS PROD
